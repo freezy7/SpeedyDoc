@@ -1,0 +1,19 @@
+//
+//  SpeedyDoc-Prefix.pch
+//  SpeedyDoc
+//
+//  Created by R_style Man on 15/4/24.
+//  Copyright (c) 2015年 R_style Man. All rights reserved.
+//
+
+#ifndef SpeedyDoc_SpeedyDoc_Prefix_pch
+#define SpeedyDoc_SpeedyDoc_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define DUCONG @"ducong"
+
+
+#endif
+
