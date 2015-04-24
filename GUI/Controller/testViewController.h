@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  testViewController.h
 //  SpeedyDoc
 //
-//  Created by R_style Man on 15/4/24.
+//  Created by R_style_Man on 15/4/25.
 //  Copyright (c) 2015年 R_style Man. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface testViewController : UIViewController
 
 @end
-
