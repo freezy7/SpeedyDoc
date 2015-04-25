@@ -19,12 +19,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="77V-Vh-kbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-641" y="247"/>
+            <point key="canvasLocation" x="-659" y="247"/>
         </scene>
-        <!--Test View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="yyY-ms-DRS">
             <objects>
-                <viewController id="tJg-Aw-mml" customClass="testViewController" sceneMemberID="viewController">
+                <viewController id="tJg-Aw-mml" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RIQ-gH-iJg"/>
                         <viewControllerLayoutGuide type="bottom" id="D8c-60-uOn"/>
@@ -42,10 +42,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="sf6-mK-GNa"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="tableView" destination="xQR-JS-4ra" id="ml7-oa-yi7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sXE-vU-hVP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-232" y="247"/>
+            <point key="canvasLocation" x="-257" y="247"/>
         </scene>
     </scenes>
 </document>
