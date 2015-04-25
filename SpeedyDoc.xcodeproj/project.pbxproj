@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F601ECF1AEBCBD0000CDF88 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F601ECE1AEBCBD0000CDF88 /* MainViewController.m */; };
 		6FD229991AEAB02A008DF7E0 /* SpeedyDoc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FD229981AEAB02A008DF7E0 /* SpeedyDoc.storyboard */; };
-		6FD2299F1AEAB4CB008DF7E0 /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD2299E1AEAB4CB008DF7E0 /* testViewController.m */; };
 		83E2D854528ABA08EB04ECBF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D2D08C50ABF2C5100BBA97 /* libPods.a */; };
 		A558708B1AE9D5C000C7413C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A558708A1AE9D5C000C7413C /* main.m */; };
 		A558708E1AE9D5C000C7413C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A558708D1AE9D5C000C7413C /* AppDelegate.m */; };
@@ -29,9 +29,9 @@
 
 /* Begin PBXFileReference section */
 		4AD225C776E83027A213B81C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6F601ECD1AEBCBD0000CDF88 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		6F601ECE1AEBCBD0000CDF88 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		6FD229981AEAB02A008DF7E0 /* SpeedyDoc.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpeedyDoc.storyboard; sourceTree = "<group>"; };
-		6FD2299D1AEAB4CB008DF7E0 /* testViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
-		6FD2299E1AEAB4CB008DF7E0 /* testViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testViewController.m; sourceTree = "<group>"; };
 		83D2D08C50ABF2C5100BBA97 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55870851AE9D5C000C7413C /* SpeedyDoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeedyDoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55870891AE9D5C000C7413C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,8 +87,8 @@
 		6FD229951AEAAFEB008DF7E0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				6FD2299D1AEAB4CB008DF7E0 /* testViewController.h */,
-				6FD2299E1AEAB4CB008DF7E0 /* testViewController.m */,
+				6F601ECD1AEBCBD0000CDF88 /* MainViewController.h */,
+				6F601ECE1AEBCBD0000CDF88 /* MainViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -312,9 +312,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FD2299F1AEAB4CB008DF7E0 /* testViewController.m in Sources */,
 				A558708E1AE9D5C000C7413C /* AppDelegate.m in Sources */,
 				A558708B1AE9D5C000C7413C /* main.m in Sources */,
+				6F601ECF1AEBCBD0000CDF88 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
