@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6F601ECF1AEBCBD0000CDF88 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F601ECE1AEBCBD0000CDF88 /* MainViewController.m */; };
+		6F601FE51AEBE7BE000CDF88 /* FMDBManmager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F601FE41AEBE7BE000CDF88 /* FMDBManmager.m */; };
+		6F601FE81AEBE7DD000CDF88 /* FormModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F601FE71AEBE7DD000CDF88 /* FormModel.m */; };
 		6FD229991AEAB02A008DF7E0 /* SpeedyDoc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FD229981AEAB02A008DF7E0 /* SpeedyDoc.storyboard */; };
 		83E2D854528ABA08EB04ECBF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D2D08C50ABF2C5100BBA97 /* libPods.a */; };
 		A558708B1AE9D5C000C7413C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A558708A1AE9D5C000C7413C /* main.m */; };
@@ -31,6 +33,10 @@
 		4AD225C776E83027A213B81C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6F601ECD1AEBCBD0000CDF88 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		6F601ECE1AEBCBD0000CDF88 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		6F601FE31AEBE7BE000CDF88 /* FMDBManmager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBManmager.h; sourceTree = "<group>"; };
+		6F601FE41AEBE7BE000CDF88 /* FMDBManmager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBManmager.m; sourceTree = "<group>"; };
+		6F601FE61AEBE7DD000CDF88 /* FormModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormModel.h; sourceTree = "<group>"; };
+		6F601FE71AEBE7DD000CDF88 /* FormModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormModel.m; sourceTree = "<group>"; };
 		6FD229981AEAB02A008DF7E0 /* SpeedyDoc.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpeedyDoc.storyboard; sourceTree = "<group>"; };
 		83D2D08C50ABF2C5100BBA97 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55870851AE9D5C000C7413C /* SpeedyDoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeedyDoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +80,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6F601FE21AEBE7BE000CDF88 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				6F601FE31AEBE7BE000CDF88 /* FMDBManmager.h */,
+				6F601FE41AEBE7BE000CDF88 /* FMDBManmager.m */,
+				6F601FE61AEBE7DD000CDF88 /* FormModel.h */,
+				6F601FE71AEBE7DD000CDF88 /* FormModel.m */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
 		6FD229941AEAAFEB008DF7E0 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +113,7 @@
 		6FD229961AEAAFEB008DF7E0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6F601FE21AEBE7BE000CDF88 /* FMDB */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -312,8 +330,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F601FE81AEBE7DD000CDF88 /* FormModel.m in Sources */,
 				A558708E1AE9D5C000C7413C /* AppDelegate.m in Sources */,
 				A558708B1AE9D5C000C7413C /* main.m in Sources */,
+				6F601FE51AEBE7BE000CDF88 /* FMDBManmager.m in Sources */,
 				6F601ECF1AEBCBD0000CDF88 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
