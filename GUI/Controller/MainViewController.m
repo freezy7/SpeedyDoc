@@ -7,8 +7,13 @@
 //
 #import "XLForm.h"
 #import "MainViewController.h"
+#import "FMDBManmager.h"
+#import "FormModel.h"
 
 @interface MainViewController ()
+{
+    FMDBManmager* _dbManager;
+}
 
 @end
 
@@ -32,6 +37,8 @@ NSString *const kNotes = @"notes";
     if (self)
     {
         self = [self init];
+        _dbManager = [FMDBManmager sharedManager];
+        [_dbManager creatDatabase:@"testform"];
     }
     return self;
 }
@@ -112,8 +119,14 @@ NSString *const kNotes = @"notes";
 {
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(savePressed:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(formAction:)];
 }
 
+-(void)formAction:(UIBarButtonItem * __unused)button
+{
+    NSArray* dataArray = [_dbManager queryForm];
+
+}
 
 -(IBAction)savePressed:(UIBarButtonItem * __unused)button
 {
@@ -123,8 +136,22 @@ NSString *const kNotes = @"notes";
         return;
     }
     [self.tableView endEditing:YES];
+    
     NSDictionary* data = [self formValues];
-    NSLog(@"data = %@",data);
+    //NSString* str =[NSHomeDirectory() stringByAppendingString:@"/Documents"];
+    FormModel* model = [[FormModel alloc] init];
+    model.name = [data objectForKey:kName];
+    model.email = [data objectForKey:kEmail];
+    model.number = [NSString stringWithFormat:@"%@",[data objectForKey:kNumber]];
+    model.integer = [NSString stringWithFormat:@"%@",[data objectForKey:kInteger]];
+    model.decimal = [NSString stringWithFormat:@"%@",[data objectForKey:kDecimal]];
+    model.password = [data objectForKey:kPassword];
+    model.phone = [data objectForKey:kPhone];
+    model.url = [data objectForKey:kUrl];
+    model.textView = [data objectForKey:kTextView];
+    model.notes = [data objectForKey:kNotes];
+    [_dbManager addDataItem:model];
+    //NSLog(@"data = %@",data);
     UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Valid Form", nil) message:@"No errors found" delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
     [alertView show];
 }
