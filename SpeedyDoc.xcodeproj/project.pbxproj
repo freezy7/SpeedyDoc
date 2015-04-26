@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6F3CDA771AECA3B50079E7D5 /* LibXL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3CDA761AECA3B50079E7D5 /* LibXL.framework */; };
+		6F3CDA791AED0D6D0079E7D5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3CDA781AED0D6D0079E7D5 /* MessageUI.framework */; };
 		6F601ECF1AEBCBD0000CDF88 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F601ECE1AEBCBD0000CDF88 /* MainViewController.m */; };
 		6F601FE51AEBE7BE000CDF88 /* FMDBManmager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F601FE41AEBE7BE000CDF88 /* FMDBManmager.m */; };
 		6F601FE81AEBE7DD000CDF88 /* FormModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F601FE71AEBE7DD000CDF88 /* FormModel.m */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		4AD225C776E83027A213B81C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6F3CDA761AECA3B50079E7D5 /* LibXL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LibXL.framework; sourceTree = "<group>"; };
+		6F3CDA781AED0D6D0079E7D5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		6F601ECD1AEBCBD0000CDF88 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		6F601ECE1AEBCBD0000CDF88 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		6F601FE31AEBE7BE000CDF88 /* FMDBManmager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBManmager.h; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F3CDA791AED0D6D0079E7D5 /* MessageUI.framework in Frameworks */,
 				6F3CDA771AECA3B50079E7D5 /* LibXL.framework in Frameworks */,
 				83E2D854528ABA08EB04ECBF /* libPods.a in Frameworks */,
 			);
@@ -78,6 +81,7 @@
 		6224D655B92ADBD6A65C453E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6F3CDA781AED0D6D0079E7D5 /* MessageUI.framework */,
 				6F3CDA761AECA3B50079E7D5 /* LibXL.framework */,
 				83D2D08C50ABF2C5100BBA97 /* libPods.a */,
 			);
