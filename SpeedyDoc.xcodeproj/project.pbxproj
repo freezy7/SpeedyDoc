@@ -7,11 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F2E994D1AFA6C550091C5D9 /* FormatDocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E994B1AFA6C550091C5D9 /* FormatDocViewController.m */; };
+		6F2E994E1AFA6C550091C5D9 /* FormatDocViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E994C1AFA6C550091C5D9 /* FormatDocViewController.xib */; };
+		6F2E99541AFA703F0091C5D9 /* FormatDocTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E99521AFA703F0091C5D9 /* FormatDocTableViewCell.m */; };
+		6F2E99551AFA703F0091C5D9 /* FormatDocTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E99531AFA703F0091C5D9 /* FormatDocTableViewCell.xib */; };
 		6F3CDA771AECA3B50079E7D5 /* LibXL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3CDA761AECA3B50079E7D5 /* LibXL.framework */; };
 		6F3CDA791AED0D6D0079E7D5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3CDA781AED0D6D0079E7D5 /* MessageUI.framework */; };
 		6F601ECF1AEBCBD0000CDF88 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F601ECE1AEBCBD0000CDF88 /* MainViewController.m */; };
 		6F601FE51AEBE7BE000CDF88 /* FMDBManmager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F601FE41AEBE7BE000CDF88 /* FMDBManmager.m */; };
 		6F601FE81AEBE7DD000CDF88 /* FormModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F601FE71AEBE7DD000CDF88 /* FormModel.m */; };
+		6FA851661AF33E0E00B45763 /* SpeedyDocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA851651AF33E0E00B45763 /* SpeedyDocViewController.m */; };
+		6FA8516D1AF3500600B45763 /* CustomFormatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA8516B1AF3500600B45763 /* CustomFormatViewController.m */; };
+		6FA8516E1AF3500600B45763 /* CustomFormatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FA8516C1AF3500600B45763 /* CustomFormatViewController.xib */; };
 		6FD229991AEAB02A008DF7E0 /* SpeedyDoc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FD229981AEAB02A008DF7E0 /* SpeedyDoc.storyboard */; };
 		83E2D854528ABA08EB04ECBF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D2D08C50ABF2C5100BBA97 /* libPods.a */; };
 		A558708B1AE9D5C000C7413C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A558708A1AE9D5C000C7413C /* main.m */; };
@@ -33,6 +40,12 @@
 
 /* Begin PBXFileReference section */
 		4AD225C776E83027A213B81C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6F2E994A1AFA6C550091C5D9 /* FormatDocViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormatDocViewController.h; sourceTree = "<group>"; };
+		6F2E994B1AFA6C550091C5D9 /* FormatDocViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormatDocViewController.m; sourceTree = "<group>"; };
+		6F2E994C1AFA6C550091C5D9 /* FormatDocViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormatDocViewController.xib; sourceTree = "<group>"; };
+		6F2E99511AFA703F0091C5D9 /* FormatDocTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormatDocTableViewCell.h; sourceTree = "<group>"; };
+		6F2E99521AFA703F0091C5D9 /* FormatDocTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormatDocTableViewCell.m; sourceTree = "<group>"; };
+		6F2E99531AFA703F0091C5D9 /* FormatDocTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormatDocTableViewCell.xib; sourceTree = "<group>"; };
 		6F3CDA761AECA3B50079E7D5 /* LibXL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LibXL.framework; sourceTree = "<group>"; };
 		6F3CDA781AED0D6D0079E7D5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		6F601ECD1AEBCBD0000CDF88 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -41,6 +54,11 @@
 		6F601FE41AEBE7BE000CDF88 /* FMDBManmager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBManmager.m; sourceTree = "<group>"; };
 		6F601FE61AEBE7DD000CDF88 /* FormModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormModel.h; sourceTree = "<group>"; };
 		6F601FE71AEBE7DD000CDF88 /* FormModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormModel.m; sourceTree = "<group>"; };
+		6FA851641AF33E0E00B45763 /* SpeedyDocViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedyDocViewController.h; sourceTree = "<group>"; };
+		6FA851651AF33E0E00B45763 /* SpeedyDocViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedyDocViewController.m; sourceTree = "<group>"; };
+		6FA8516A1AF3500600B45763 /* CustomFormatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomFormatViewController.h; sourceTree = "<group>"; };
+		6FA8516B1AF3500600B45763 /* CustomFormatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomFormatViewController.m; sourceTree = "<group>"; };
+		6FA8516C1AF3500600B45763 /* CustomFormatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomFormatViewController.xib; sourceTree = "<group>"; };
 		6FD229981AEAB02A008DF7E0 /* SpeedyDoc.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpeedyDoc.storyboard; sourceTree = "<group>"; };
 		83D2D08C50ABF2C5100BBA97 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55870851AE9D5C000C7413C /* SpeedyDoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeedyDoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +106,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6F2E994F1AFA6FE80091C5D9 /* FormatCell */ = {
+			isa = PBXGroup;
+			children = (
+				6F2E99511AFA703F0091C5D9 /* FormatDocTableViewCell.h */,
+				6F2E99521AFA703F0091C5D9 /* FormatDocTableViewCell.m */,
+				6F2E99531AFA703F0091C5D9 /* FormatDocTableViewCell.xib */,
+			);
+			name = FormatCell;
+			sourceTree = "<group>";
+		};
+		6F2E99501AFA700D0091C5D9 /* FormatController */ = {
+			isa = PBXGroup;
+			children = (
+				6F2E994A1AFA6C550091C5D9 /* FormatDocViewController.h */,
+				6F2E994B1AFA6C550091C5D9 /* FormatDocViewController.m */,
+				6F2E994C1AFA6C550091C5D9 /* FormatDocViewController.xib */,
+			);
+			name = FormatController;
+			sourceTree = "<group>";
+		};
 		6F601FE21AEBE7BE000CDF88 /* FMDB */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,8 +150,15 @@
 		6FD229951AEAAFEB008DF7E0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6F2E99501AFA700D0091C5D9 /* FormatController */,
+				6F2E994F1AFA6FE80091C5D9 /* FormatCell */,
 				6F601ECD1AEBCBD0000CDF88 /* MainViewController.h */,
 				6F601ECE1AEBCBD0000CDF88 /* MainViewController.m */,
+				6FA8516A1AF3500600B45763 /* CustomFormatViewController.h */,
+				6FA8516B1AF3500600B45763 /* CustomFormatViewController.m */,
+				6FA8516C1AF3500600B45763 /* CustomFormatViewController.xib */,
+				6FA851641AF33E0E00B45763 /* SpeedyDocViewController.h */,
+				6FA851651AF33E0E00B45763 /* SpeedyDocViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -285,8 +330,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F2E994E1AFA6C550091C5D9 /* FormatDocViewController.xib in Resources */,
+				6F2E99551AFA703F0091C5D9 /* FormatDocTableViewCell.xib in Resources */,
 				A55870991AE9D5C000C7413C /* LaunchScreen.xib in Resources */,
 				6FD229991AEAB02A008DF7E0 /* SpeedyDoc.storyboard in Resources */,
+				6FA8516E1AF3500600B45763 /* CustomFormatViewController.xib in Resources */,
 				A55870961AE9D5C000C7413C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,9 +388,13 @@
 			files = (
 				6F601FE81AEBE7DD000CDF88 /* FormModel.m in Sources */,
 				A558708E1AE9D5C000C7413C /* AppDelegate.m in Sources */,
+				6F2E99541AFA703F0091C5D9 /* FormatDocTableViewCell.m in Sources */,
+				6F2E994D1AFA6C550091C5D9 /* FormatDocViewController.m in Sources */,
 				A558708B1AE9D5C000C7413C /* main.m in Sources */,
+				6FA8516D1AF3500600B45763 /* CustomFormatViewController.m in Sources */,
 				6F601FE51AEBE7BE000CDF88 /* FMDBManmager.m in Sources */,
 				6F601ECF1AEBCBD0000CDF88 /* MainViewController.m in Sources */,
+				6FA851661AF33E0E00B45763 /* SpeedyDocViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

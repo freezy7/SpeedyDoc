@@ -14,12 +14,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="tJg-Aw-mml" kind="relationship" relationship="rootViewController" id="W75-3s-NDL"/>
+                        <segue destination="fAJ-eX-PXh" kind="relationship" relationship="rootViewController" id="tZO-Z7-aAm"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="77V-Vh-kbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-659" y="247"/>
+            <point key="canvasLocation" x="-1869" y="283"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="yyY-ms-DRS">
@@ -48,7 +48,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sXE-vU-hVP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-257" y="247"/>
+            <point key="canvasLocation" x="217" y="-177"/>
+        </scene>
+        <!--Speedy Doc View Controller-->
+        <scene sceneID="qv3-tr-39s">
+            <objects>
+                <viewController id="fAJ-eX-PXh" customClass="SpeedyDocViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mKe-jT-AYV"/>
+                        <viewControllerLayoutGuide type="bottom" id="7Id-QT-q4A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EpX-S1-HUJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nil-SW-cw5">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="fAJ-eX-PXh" id="Kh1-02-Z99"/>
+                                    <outlet property="delegate" destination="fAJ-eX-PXh" id="7iK-hy-jPv"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nil-SW-cw5" firstAttribute="leading" secondItem="EpX-S1-HUJ" secondAttribute="leading" id="BVG-oM-CMy"/>
+                            <constraint firstItem="7Id-QT-q4A" firstAttribute="top" secondItem="nil-SW-cw5" secondAttribute="bottom" id="TZ6-xc-lby"/>
+                            <constraint firstAttribute="trailing" secondItem="nil-SW-cw5" secondAttribute="trailing" id="cP8-3q-3OM"/>
+                            <constraint firstItem="nil-SW-cw5" firstAttribute="top" secondItem="mKe-jT-AYV" secondAttribute="bottom" constant="-64" id="fPh-RQ-7It"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cTm-DX-jeA"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="tableView" destination="nil-SW-cw5" id="0Zv-3q-398"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fN5-xJ-7Ab" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1251" y="-21"/>
         </scene>
     </scenes>
 </document>
