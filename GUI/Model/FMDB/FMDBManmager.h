@@ -12,11 +12,32 @@
 @interface FMDBManmager : NSObject
 
 @property (retain,nonatomic) FMDatabase* FMbookDB;
+
+///单例
 +(FMDBManmager*) sharedManager;
--(BOOL) creatDatabase:(NSString*) dbNmae;
+///生成数据库
+-(id)initWithDatabase:(NSString*) dbName;
+
+///创建表
+-(BOOL) creatTable:(NSString*) tableName;
+///根据字段创建表
+-(BOOL) creatTable:(NSString*) tableName withColumnArray:(NSArray*) array;
+
+///插入数据
 -(BOOL) addDataItem:(FormModel*) form;
+///向指定数据表中插入一条数据
+-(BOOL)insertIntoTable:(NSString*) tableName data:(NSDictionary*) data;
+
+
+///根据index删除一条数据
 -(BOOL) removeDataItemByIndex:(NSInteger) index;
--(NSArray*) queryForm;
+
+///查询list数据
+-(NSArray*) queryListFromTable:(NSString*)tableName;
+///查询记录行数
+-(NSInteger) queryCountFromTable:(NSString*) tableName;
+
+///更新单条数据
 -(BOOL) updateBookItem:(NSInteger) index byItem:(FormModel*) form;
 
 @end
