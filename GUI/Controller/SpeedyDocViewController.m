@@ -9,10 +9,12 @@
 #import "SpeedyDocViewController.h"
 #import "CustomFormatViewController.h"
 #import "FormatDocViewController.h"
+#import "FMDBManmager.h"
 
 @interface SpeedyDocViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSMutableArray* _docArray;
+    FMDBManmager* _fmdb;
 }
 
 @property(strong,nonatomic) IBOutlet UITableView* tableView;
@@ -26,9 +28,20 @@
     // Do any additional setup after loading the view.
     self.title = @"Speedy Doc";
     
+    _fmdb = [FMDBManmager sharedManager];
+    [_fmdb creatTable:@"speedydoc"];
+    [_fmdb creatTable:@"columnoption"];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPressed:)];
     
-    _docArray = [[NSMutableArray alloc] initWithObjects:@"1",@"1",@"1", nil];
+    //从数据库中查询doc数据
+    _docArray = [NSMutableArray arrayWithArray:[_fmdb queryListFromTable:@"speedydoc"]];
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    _docArray = [NSMutableArray arrayWithArray:[_fmdb queryListFromTable:@"speedydoc"]];
+    [_tableView reloadData];
 }
 
 #pragma mark - tableView dataSource
@@ -49,7 +62,9 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strID];
     }
-    cell.textLabel.text = @"测试";
+    NSDictionary* dic = [_docArray objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = [dic objectForKey:@"name"];
     return cell;
 }
 
@@ -57,16 +72,14 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FormatDocViewController* format = [[FormatDocViewController alloc] initWithNibName:@"FormatDocViewController" bundle:nil];
-    [self.navigationController pushViewController:format animated:YES];
+    
 }
 
 
 -(void)addPressed:(UIButton*) btn
 {
-    CustomFormatViewController* custom = [[CustomFormatViewController alloc] initWithNibName:@"CustomFormatViewController" bundle:nil];
-    
-    [self.navigationController pushViewController:custom animated:YES];
+    FormatDocViewController* format = [[FormatDocViewController alloc] initWithNibName:@"FormatDocViewController" bundle:nil];
+    [self.navigationController pushViewController:format animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

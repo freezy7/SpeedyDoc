@@ -10,4 +10,8 @@
 
 @interface FormatDocTableViewCell : UITableViewCell
 
+@property (nonatomic,strong) IBOutlet UILabel* title;
+@property (nonatomic,strong) IBOutlet UIImageView* arrowView;
+@property (nonatomic,strong) IBOutlet UIImageView* verticalLine;
+
 @end
