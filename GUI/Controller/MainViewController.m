@@ -41,7 +41,7 @@ NSString *const kNotes = @"notes";
     {
         self = [self init];
         _dbManager = [FMDBManmager sharedManager];
-        [_dbManager creatDatabase:@"testform"];
+        //[_dbManager creatDatabase:@"testform"];
     }
     return self;
 }
@@ -224,7 +224,7 @@ NSString *const kNotes = @"notes";
 -(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
     //关闭邮件发送窗口
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
     NSString *msg;
     switch (result) {
         case MFMailComposeResultCancelled:

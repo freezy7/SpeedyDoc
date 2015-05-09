@@ -18,33 +18,106 @@ static FMDBManmager* _singletonManager = nil;
 +(FMDBManmager*) sharedManager
 {
     if (_singletonManager  == nil) {
-        _singletonManager = [[FMDBManmager alloc] init];
+        _singletonManager = [[FMDBManmager alloc] initWithDatabase:@"SpeedyDoc"];
     }
     return _singletonManager;
 }
--(BOOL) creatDatabase:(NSString*) dbNmae
+
+-(id)initWithDatabase:(NSString*) dbName
 {
-    // Do any additional setup after loading the view.
-    NSString* str =[NSHomeDirectory() stringByAppendingString:@"/Documents"];
-    NSString* strPath = [NSString stringWithFormat:@"%@/%@.db",str,dbNmae];
-    NSFileManager* fileManager = [NSFileManager defaultManager];
-    BOOL ret = [fileManager fileExistsAtPath:strPath];
-    if (ret)
-    {
-        NSLog(@"数据库已存在");
-        //return NO;
+    self = [super init];
+    if (self) {
+        // Do any additional setup after loading the view.
+        NSString* str =[NSHomeDirectory() stringByAppendingString:@"/Documents"];
+        NSString* strPath = [NSString stringWithFormat:@"%@/%@.db",str,dbName];
+        NSLog(@"path = %@",strPath);
+        //NSFileManager* fileManager = [NSFileManager defaultManager];
+        //BOOL ret = [fileManager fileExistsAtPath:strPath];
+        _FMbookDB = [FMDatabase databaseWithPath:strPath];
     }
-    _FMbookDB = [FMDatabase databaseWithPath:strPath];
+    return self;
+}
+
+-(BOOL) creatTable:(NSString*) tableName
+{
+    /*
+     第一次启动创建
+     * speedydoc
+       字段名        类型       主键       自增           默认值    注释
+       doc_id       integer primary key autoincrement         文档id
+       name         text                                      对外显示名字
+       model_name   text                                      模板名字
+       table_name   text                                      存储数据表名字
+       ctime        integer
+     
+     * columnoption        app总字段表
+       字段名        类型       主键       自增           默认值    注释
+       option_id   integer primary key autoincrement         id
+       e_name      text                                      英文名字
+       c_name      text                                      中文名字
+       status      text                                @"-1" 状态值  
+     
+     创建时生成表      加后缀参数数字（要根据speedydoc决定）
+     * columnmodel     自定义模板字段表
+       字段名        类型       主键       自增           默认值    注释
+       id          integer primary key autoincrement         id
+       e_name      text                                      英文名字
+       c_name      text                                      中文名字
+       index       text                                      表中所处位置
+     
+     * datatable        生成数据表名
+       字段名        类型       主键       自增           默认值    注释
+       option_id   integer primary key autoincrement         id
+       .........   text                                      英文名字
+       .........   text                                      中文名字
+       ctime       integer
+     */
     [_FMbookDB open];
-    NSString* strCreateTable = @"create table if not exists bookSheet(id integer primary key autoincrement,name text,email text,number text,integer text,decimal text,password text, phone text,url text,textView text,notes text)";
-    ret = [_FMbookDB executeUpdate:strCreateTable];
-    if (ret == YES)
+    
+    NSString* strCreateTable = @"";
+    
+    if([tableName isEqualToString:@"speedydoc"])
     {
-        NSLog(@"table建立成功");
+        strCreateTable = @"create table if not exists speedydoc(doc_id integer primary key autoincrement,name text,model_name text,table_name text,ctime text)";
+    }
+    else if ([tableName isEqualToString:@"columnoption"])
+    {
+        strCreateTable = @"create table if not exists columnoption(option_id integer primary key autoincrement,e_name text,c_name text,status text)";
     }
     else
     {
+    }
+    
+    BOOL ret = [_FMbookDB executeUpdate:strCreateTable];
+    if (ret == YES){
+        NSLog(@"table建立成功");
+    }else{
         NSLog(@"table建立失败");
+    }
+    
+    [_FMbookDB close];
+    return ret;
+}
+
+-(BOOL) creatTable:(NSString*) tableName withColumnArray:(NSArray*) array
+{
+    [_FMbookDB open];
+    
+    NSString* strCreateTable = [NSString stringWithFormat:@"create table if not exists %@(id integer primary key autoincrement",tableName];
+    
+    for (NSString* columnStr in array) {
+        strCreateTable = [strCreateTable stringByAppendingFormat:@",%@ text",columnStr];
+    }
+    
+    strCreateTable = [strCreateTable stringByAppendingString:@")"];
+    
+    NSLog(@"%@",strCreateTable);
+    
+    BOOL ret = [_FMbookDB executeUpdate:strCreateTable];
+    if (ret == YES){
+        NSLog(@"自定义建立成功");
+    }else{
+        NSLog(@"自定义建立失败");
     }
     
     [_FMbookDB close];
@@ -74,6 +147,45 @@ static FMDBManmager* _singletonManager = nil;
     }
     return ret;
 }
+
+-(BOOL)insertIntoTable:(NSString*) tableName data:(NSDictionary*) data
+{
+    [_FMbookDB open];
+    
+    NSArray* keys = [data allKeys];
+    NSArray* values = [data allValues];
+    
+    NSString* strInsert = [NSString stringWithFormat:@"insert into %@(",tableName];
+    for (int i = 0; i<keys.count; i++) {
+        NSString* key = [keys objectAtIndex:i];
+        if (i==0) {
+            strInsert = [strInsert stringByAppendingFormat:@"%@",key];
+        }else{
+            strInsert = [strInsert stringByAppendingFormat:@",%@",key];
+        }
+    }
+    
+    for (int i = 0; i<values.count; i++) {
+        NSString* value = [values objectAtIndex:i];
+        if (i==0) {
+            strInsert = [strInsert stringByAppendingFormat:@")values('%@'",value];
+        }else{
+            strInsert = [strInsert stringByAppendingFormat:@",'%@'",value];
+        }
+    }
+    
+    strInsert = [strInsert stringByAppendingString:@")"];
+    
+    BOOL ret = [_FMbookDB executeUpdate:strInsert];
+    [_FMbookDB close];
+    if (ret == YES) {
+        NSLog(@"添加成功");
+    }
+    return ret;
+
+}
+
+
 -(BOOL) removeDataItemByIndex:(NSInteger) index
 {
     [_FMbookDB open];
@@ -85,31 +197,37 @@ static FMDBManmager* _singletonManager = nil;
     }
     return ret;
 }
--(NSArray*) queryForm
+
+-(NSArray*) queryListFromTable:(NSString*)tableName
 {
     [_FMbookDB open];
-    NSString* strQuery = @"select * from bookSheet";
+    NSString* strQuery = @"select * from speedydoc";
     FMResultSet* set = [_FMbookDB executeQuery:strQuery];
-    NSMutableArray* arrayBook = [[NSMutableArray alloc] init];
+    NSMutableArray* arrayDoc = [[NSMutableArray alloc] init];
     while ([set next] == YES)
     {
-        NSString* userID = [set stringForColumnIndex:0];
-        NSString* name = [set stringForColumnIndex:1];
-        NSString* email = [set stringForColumnIndex:2];
-        NSString* number = [set stringForColumnIndex:3];
-        NSString* integer = [set stringForColumnIndex:4];
-        NSString* decimal = [set stringForColumnIndex:5];
-        NSString* password = [set stringForColumnIndex:6];
-        NSString* phone = [set stringForColumnIndex:7];
-        NSString* url = [set stringForColumnIndex:8];
-        NSString* textView = [set stringForColumnIndex:9];
-        NSString* notes = [set stringForColumnIndex:10];
-        
-        NSArray* array = [NSArray arrayWithObjects:userID,name,email,number,integer,decimal,password,phone,url,textView,notes, nil];
-        [arrayBook addObject:array];
+        NSDictionary* dic = [set resultDictionary];
+        [arrayDoc addObject:dic];
     }
     [_FMbookDB close];
-    return arrayBook;
+    return arrayDoc;
+}
+
+
+/// 查询数据表中 item 数量
+-(NSInteger) queryCountFromTable:(NSString*) tableName
+{
+    [_FMbookDB open];
+    NSString* strQuery = [NSString stringWithFormat:@"select count(*) as count from %@;",tableName];
+    FMResultSet* set = [_FMbookDB executeQuery:strQuery];
+    
+    if([set next]){
+        int count = [set intForColumn:@"count"];
+        [_FMbookDB close];
+        return count;
+    }else{
+        return 0;
+    }
 }
 
 -(BOOL) updateBookItem:(NSInteger) index byItem:(FormModel*) form
