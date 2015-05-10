@@ -11,6 +11,7 @@
 @interface FormatDocTableViewCell : UITableViewCell
 
 @property (nonatomic,strong) IBOutlet UILabel* title;
+@property (nonatomic,strong) IBOutlet UILabel* type;//示例或者简介，预留字段根据type判断
 @property (nonatomic,strong) IBOutlet UIImageView* arrowView;
 @property (nonatomic,strong) IBOutlet UIImageView* verticalLine;
 

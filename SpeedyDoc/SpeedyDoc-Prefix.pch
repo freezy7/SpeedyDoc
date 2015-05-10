@@ -14,6 +14,28 @@
 
 #define DUCONG @"ducong"
 
+
+//数据库所用字段名字
+#define OPTION_CNAME @"option_cname"
+#define OPTION_ENAME @"option_ename"
+#define OPTION_STATUS @"option_status"
+#define OPTION_INDEX @"option_index"
+#define OPTION_TYPE @"option_type"
+
+//选择器的类型 配合XLForm
+//以下都是单文本，只是键盘样式不一样
+#define TYPE_DOC_TEXTFIELD  @"text"      //单文本
+#define TYPE_DOC_NUMBER     @"number"    // 数字
+#define TYPE_DOC_INTGER     @"integer"   // 纯数字
+#define TYPE_DOC_DECIMAL    @"decimal"   //小数
+#define TYPE_DOC_EMAIL      @"email"     //邮件地址
+#define TYPE_DOC_URL        @"url"       //网址
+#define TYPE_DOC_PHONE      @"phone"     //电话
+
+#define TYPE_DOC_DATE       @"dateInline" // 行选择日期
+#define TYPE_DOC_TEXTVIEW   @"textView"   // 多行文字
+
+
 #import <Availability.h>
 
 #endif

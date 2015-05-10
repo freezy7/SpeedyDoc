@@ -7,9 +7,10 @@
 //
 
 #import "SpeedyDocViewController.h"
-#import "CustomFormatViewController.h"
+#import "FormPatternViewController.h"
 #import "FormatDocViewController.h"
 #import "FMDBManmager.h"
+#import "SpeedyDocCell.h"
 
 @interface SpeedyDocViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -29,8 +30,24 @@
     self.title = @"Speedy Doc";
     
     _fmdb = [FMDBManmager sharedManager];
+    //创建数据表
     [_fmdb creatTable:@"speedydoc"];
     [_fmdb creatTable:@"columnoption"];
+    
+    NSInteger item = [_fmdb queryCountFromTable:@"columnoption"];
+    if (item == 0) {
+        NSArray* keysArr = [NSArray arrayWithObjects:OPTION_ENAME,OPTION_CNAME,OPTION_STATUS,OPTION_TYPE, nil];
+        
+        NSDictionary* dicDate = [NSDictionary dictionaryWithObjects:@[@"date",@"日期",@"-1",TYPE_DOC_DATE] forKeys:keysArr];
+        NSDictionary* dicPhone = [NSDictionary dictionaryWithObjects:@[@"phone",@"电话",@"-1",TYPE_DOC_PHONE] forKeys:keysArr];
+        NSDictionary* dicEmail = [NSDictionary dictionaryWithObjects:@[@"email",@"邮箱",@"-1",TYPE_DOC_EMAIL] forKeys:keysArr];
+        NSDictionary* dicURL = [NSDictionary dictionaryWithObjects:@[@"url",@"网址",@"-1",TYPE_DOC_URL] forKeys:keysArr];
+        
+        [_fmdb insertIntoTable:@"columnoption" data:dicDate];
+        [_fmdb insertIntoTable:@"columnoption" data:dicPhone];
+        [_fmdb insertIntoTable:@"columnoption" data:dicEmail];
+        [_fmdb insertIntoTable:@"columnoption" data:dicURL];
+    }
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPressed:)];
     
@@ -57,14 +74,19 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString* strID = @"ID";
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:strID];
+    static NSString* strID = @"SpeedyDocCell";
+    SpeedyDocCell* cell = [tableView dequeueReusableCellWithIdentifier:strID];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strID];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"SpeedyDocCell" owner:self options:nil] lastObject];
     }
     NSDictionary* dic = [_docArray objectAtIndex:indexPath.row];
+    cell.name.text = [dic objectForKey:@"name"];
     
-    cell.textLabel.text = [dic objectForKey:@"name"];
+    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[[dic objectForKey:@"ctime"] integerValue]];
+    NSDateFormatter* format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    cell.ctime.text = [format stringFromDate:date];
+    
     return cell;
 }
 
@@ -72,7 +94,20 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSDictionary* dic = [_docArray objectAtIndex:indexPath.row];
+    NSString* model = [dic objectForKey:@"model_name"];
+    NSString* table = [dic objectForKey:@"table_name"];
+    FormPatternViewController* formPattern = [[FormPatternViewController alloc] initWithNibName:@"FormPatternViewController" bundle:nil];
     
+    formPattern.model = model;
+    formPattern.table = table;
+    
+    [self.navigationController pushViewController:formPattern animated:YES];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80;
 }
 
 
