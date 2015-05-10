@@ -7,12 +7,18 @@
 //
 
 #import "OptionDocViewController.h"
-#import "ColumnOption.h"
+#import "OptionDocTableViewCell.h"
+#import "FMDBManmager.h"
 
-@interface OptionDocViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface OptionDocViewController ()<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate,OptionDocCellDelegate>
 {
-    NSMutableArray* _dataArray;
-    NSMutableArray* _selectedArray;
+    FMDBManmager* _fmdb;
+    
+    NSMutableArray* _dataArray;    // 未选字段数据
+    NSMutableArray* _selectedArray;// 已选字段数据
+    NSMutableArray* _optionArray;
+    NSMutableDictionary* _optionDictionary;  // type 类型数据
+    NSIndexPath* _optionClickIndexPath;// cell 按钮选中的index path
 }
 
 @property(strong,nonatomic) IBOutlet UITableView* tableView;
@@ -27,9 +33,11 @@
     self.title = @"选择字段";
     
     // 从 datamodel 获取数据
-    ColumnOption* column = [[ColumnOption alloc] init];
-    _dataArray = [NSMutableArray arrayWithArray:[column columnOption]];
+    _fmdb = [FMDBManmager sharedManager];
+    _dataArray = [NSMutableArray arrayWithArray:[_fmdb queryListFromTable:@"columnoption"]];
     _selectedArray = [[NSMutableArray alloc] init];
+    _optionArray = [[NSMutableArray alloc] initWithObjects:@"单行文本",@"多行文本",@"日期",@"数字",@"纯整数",@"纯小数",@"网址",@"电话",@"邮箱", nil];
+    _optionDictionary = [[NSMutableDictionary alloc] initWithObjects:_optionArray forKeys:@[TYPE_DOC_TEXTFIELD,TYPE_DOC_TEXTVIEW,TYPE_DOC_DATE,TYPE_DOC_NUMBER,TYPE_DOC_INTGER,TYPE_DOC_DECIMAL,TYPE_DOC_URL,TYPE_DOC_PHONE,TYPE_DOC_EMAIL]];
     
     _tableView.tableFooterView = [[UIView alloc] init];
 }
@@ -38,6 +46,70 @@
 {
     NSLog(@"data = %@",_dataArray);
     [_tableView reloadData];
+}
+
+#pragma mark - optionDoc cell delegate
+
+-(void)optionDocCellClickedAtIndex:(NSIndexPath*)indexPath
+{
+    _optionClickIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];//尝试能不能copy
+    UIActionSheet* actionSheet =[[UIActionSheet alloc] initWithTitle:@"字段类型" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"单行文本",@"多行文本",@"日期",@"数字",@"纯整数",@"纯小数",@"网址",@"电话",@"邮箱", nil];
+    [actionSheet showInView:self.view];
+}
+
+#pragma mark - actionSheet delegate
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString* selectedType;
+    switch (buttonIndex) {
+        case 0:
+            selectedType = TYPE_DOC_TEXTFIELD;
+            break;
+        case 1:
+            selectedType = TYPE_DOC_TEXTVIEW;
+            break;
+        case 2:
+            selectedType = TYPE_DOC_DATE;
+            break;
+        case 3:
+            selectedType = TYPE_DOC_NUMBER;
+            break;
+        case 4:
+            selectedType = TYPE_DOC_INTGER;
+            break;
+        case 5:
+            selectedType = TYPE_DOC_DECIMAL;
+            break;
+        case 6:
+            selectedType = TYPE_DOC_URL;
+            break;
+        case 7:
+            selectedType = TYPE_DOC_PHONE;
+            break;
+        case 8:
+            selectedType = TYPE_DOC_EMAIL;
+            break;
+        default:
+            break;
+    }
+    
+    NSLog(@"index = %@",selectedType);
+    
+    if (selectedType) {
+        if (_optionClickIndexPath.section == 0) {
+            NSMutableDictionary* dic = [_dataArray objectAtIndex:_optionClickIndexPath.row];
+            [dic setObject:selectedType forKey:OPTION_TYPE];
+            
+        }else if (_optionClickIndexPath.section == 1)
+        {
+            NSMutableDictionary* dic = [_selectedArray objectAtIndex:_optionClickIndexPath.row];
+            [dic setObject:selectedType forKey:OPTION_TYPE];
+        }
+        [_tableView reloadData];
+    }
+    
+    
 }
 
 #pragma mark - tableView datasource
@@ -58,16 +130,21 @@
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString* strID = @"commonCell";
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:strID];
+    static NSString* strID = @"OptionDocTableViewCell";
+    OptionDocTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:strID];
     if(cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strID];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"OptionDocTableViewCell" owner:self options:nil] lastObject];
     }
+    
+    cell.delgate = self;
+    cell.indexPath = indexPath;
     if(indexPath.section == 0)
     {
         NSDictionary* dic = [_dataArray objectAtIndex:indexPath.row];
-        cell.textLabel.text = [dic objectForKey:OPTION_CNAME];
+        cell.title.text = [dic objectForKey:OPTION_CNAME];
+        NSString* title = [_optionDictionary objectForKey:[dic objectForKey:OPTION_TYPE]];
+        [cell.option setTitle:title forState:UIControlStateNormal];
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         cell.backgroundColor = [UIColor whiteColor];
         cell.accessoryType = UITableViewCellAccessoryNone;
@@ -75,8 +152,10 @@
     else// ==1
     {
         NSDictionary* dic = [_selectedArray objectAtIndex:indexPath.row];
-
-        cell.textLabel.text = [dic objectForKey:OPTION_CNAME];
+        NSString* title = [_optionDictionary objectForKey:[dic objectForKey:OPTION_TYPE]];
+        [cell.option setTitle:title forState:UIControlStateNormal];
+        cell.option.enabled = NO;//开启要注意对上一层值得改变，要变动，暂不处理
+        cell.title.text = [dic objectForKey:OPTION_CNAME];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = [UIColor lightGrayColor];
         cell.accessoryType = UITableViewCellAccessoryCheckmark;

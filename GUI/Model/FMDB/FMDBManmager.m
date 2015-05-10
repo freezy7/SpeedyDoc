@@ -53,21 +53,22 @@ static FMDBManmager* _singletonManager = nil;
      * columnoption        app总字段表
        字段名        类型       主键       自增           默认值    注释
        option_id   integer primary key autoincrement         id
-       e_name      text                                      英文名字
-       c_name      text                                      中文名字
-       status      text                                @"-1" 状态值  
+       option_ename      text                                      英文名字
+       option_cname      text                                      中文名字
+       option_status      text                                @"-1" 状态值  
      
      创建时生成表      加后缀参数数字（要根据speedydoc决定）
      * columnmodel     自定义模板字段表
        字段名        类型       主键       自增           默认值    注释
        id          integer primary key autoincrement         id
-       e_name      text                                      英文名字
-       c_name      text                                      中文名字
-       index       text                                      表中所处位置
+       option_ename      text                                      英文名字
+       option_cname      text                                      中文名字
+       option_index       text                                      表中所处位置
+       option_type       text                                      表中所处位置
      
      * datatable        生成数据表名
        字段名        类型       主键       自增           默认值    注释
-       option_id   integer primary key autoincrement         id
+       id   integer primary key autoincrement         id
        .........   text                                      英文名字
        .........   text                                      中文名字
        ctime       integer
@@ -82,7 +83,7 @@ static FMDBManmager* _singletonManager = nil;
     }
     else if ([tableName isEqualToString:@"columnoption"])
     {
-        strCreateTable = @"create table if not exists columnoption(option_id integer primary key autoincrement,e_name text,c_name text,status text)";
+        strCreateTable = @"create table if not exists columnoption(option_id integer primary key autoincrement,option_ename text,option_cname text,option_status text,option_type text)";
     }
     else
     {
@@ -201,7 +202,7 @@ static FMDBManmager* _singletonManager = nil;
 -(NSArray*) queryListFromTable:(NSString*)tableName
 {
     [_FMbookDB open];
-    NSString* strQuery = @"select * from speedydoc";
+    NSString* strQuery = [NSString stringWithFormat:@"select * from %@",tableName];
     FMResultSet* set = [_FMbookDB executeQuery:strQuery];
     NSMutableArray* arrayDoc = [[NSMutableArray alloc] init];
     while ([set next] == YES)

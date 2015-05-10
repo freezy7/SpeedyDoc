@@ -28,7 +28,7 @@
     
     for (int i = 0; i<cNmae.count; i++) {
         // 生成包含中文字名显示，和英文字段的字典，以及选中的status
-        NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithObjects:@[[cNmae objectAtIndex:i],[eName objectAtIndex:i],@"-1"] forKeys:@[OPTION_CNAME,OPTION_ENAME,OPTION_STATUS]];
+        NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithObjects:@[[cNmae objectAtIndex:i],[eName objectAtIndex:i],@"-1",TYPE_DOC_TEXTFIELD] forKeys:@[OPTION_CNAME,OPTION_ENAME,OPTION_STATUS,OPTION_TYPE]];
         
         [arr addObject:dic];
     }
