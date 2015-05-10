@@ -9,7 +9,6 @@
 #import "FormatDocViewController.h"
 #import "FormatDocTableViewCell.h"
 #import "OptionDocViewController.h"
-#import "ColumnOption.h"
 #import "FMDBManmager.h"
 
 @interface FormatDocViewController ()<UITableViewDataSource,UITableViewDelegate,OptionDocDelegate>
@@ -37,7 +36,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(savePressed:)];
     
     // tableView 初始化数据
-    NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithObjects:@[@"",@"",@"0"] forKeys:@[OPTION_CNAME,OPTION_ENAME,OPTION_INDEX]];
+    NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithObjects:@[@"",@"",@"0",@""] forKeys:@[OPTION_CNAME,OPTION_ENAME,OPTION_INDEX,OPTION_TYPE]];
     
     _formatArray = [[NSMutableArray alloc] initWithObjects:dic,@"2", nil];
     _tableView.tableFooterView = [[UIView alloc] init];
@@ -69,15 +68,25 @@
     NSString* dataTableName = [NSString stringWithFormat:@"table_%ld",count];
     
     //创建对应的模板表
-    [_fmdb creatTable:modelname withColumnArray:@[@"e_name",@"c_name",@"c_index"]];
+    [_fmdb creatTable:modelname withColumnArray:@[OPTION_ENAME,OPTION_CNAME,OPTION_INDEX,OPTION_TYPE]];
+    
+    
+    
     
     //根据所选的字段创建数据存储表
     NSMutableArray* columnArr = [[NSMutableArray alloc] init];
     for (NSDictionary* dic in formatArr) {
+        //向模板中插入数据 name index type  考虑数据多可以开一个线程
+        [_fmdb insertIntoTable:modelname data:dic];
+        
+        // 获取英文名字段 创建数据存储表
         NSString* str = [dic objectForKey:OPTION_ENAME];
         [columnArr addObject:str];
     }
     NSLog(@"colum = %@",columnArr);
+    
+    // 独自添加一个ctime 时间戳
+    [columnArr addObject:@"ctime"];
     [_fmdb creatTable:dataTableName withColumnArray:columnArr];
     
     //向首页的speedydoc表中插入数据
@@ -108,6 +117,7 @@
     NSMutableDictionary* dic = [_formatArray objectAtIndex:index];
     [dic setObject:[option objectForKey:OPTION_CNAME] forKey:OPTION_CNAME];
     [dic setObject:[option objectForKey:OPTION_ENAME] forKey:OPTION_ENAME];
+    [dic setObject:[option objectForKey:OPTION_TYPE] forKey:OPTION_TYPE];
     [_tableView reloadData];
 }
 
@@ -150,7 +160,7 @@
 // 点击最后一行或者添加按钮时 向formatArray倒数第二行添加空数据加一个index
 -(void) insertObjectToFormatArrayAtIndex:(NSInteger) index
 {
-    NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithObjects:@[@"",@"",[NSString stringWithFormat:@"%ld",index]] forKeys:@[OPTION_CNAME,OPTION_ENAME,OPTION_INDEX]];
+    NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithObjects:@[@"",@"",[NSString stringWithFormat:@"%ld",index],@""] forKeys:@[OPTION_CNAME,OPTION_ENAME,OPTION_INDEX,OPTION_TYPE]];
     [_formatArray insertObject:dic atIndex:index];
     
     NSLog(@"%@",_formatArray);
