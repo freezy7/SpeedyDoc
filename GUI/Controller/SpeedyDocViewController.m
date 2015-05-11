@@ -32,9 +32,9 @@
     _fmdb = [FMDBManmager sharedManager];
     //创建数据表
     [_fmdb creatTable:@"speedydoc"];
-    [_fmdb creatTable:@"columnoption"];
+    [_fmdb creatTable:@"columns"];
     
-    NSInteger item = [_fmdb queryCountFromTable:@"columnoption"];
+    NSInteger item = [_fmdb queryCountFromTable:@"columns"];
     if (item == 0) {
         NSArray* keysArr = [NSArray arrayWithObjects:OPTION_ENAME,OPTION_CNAME,OPTION_STATUS,OPTION_TYPE, nil];
         
@@ -43,10 +43,10 @@
         NSDictionary* dicEmail = [NSDictionary dictionaryWithObjects:@[@"email",@"邮箱",@"-1",TYPE_DOC_EMAIL] forKeys:keysArr];
         NSDictionary* dicURL = [NSDictionary dictionaryWithObjects:@[@"url",@"网址",@"-1",TYPE_DOC_URL] forKeys:keysArr];
         
-        [_fmdb insertIntoTable:@"columnoption" data:dicDate];
-        [_fmdb insertIntoTable:@"columnoption" data:dicPhone];
-        [_fmdb insertIntoTable:@"columnoption" data:dicEmail];
-        [_fmdb insertIntoTable:@"columnoption" data:dicURL];
+        [_fmdb insertIntoTable:@"columns" data:dicDate];
+        [_fmdb insertIntoTable:@"columns" data:dicPhone];
+        [_fmdb insertIntoTable:@"columns" data:dicEmail];
+        [_fmdb insertIntoTable:@"columns" data:dicURL];
     }
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPressed:)];
