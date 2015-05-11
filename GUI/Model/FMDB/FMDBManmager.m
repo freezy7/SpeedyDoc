@@ -81,9 +81,9 @@ static FMDBManmager* _singletonManager = nil;
     {
         strCreateTable = @"create table if not exists speedydoc(doc_id integer primary key autoincrement,name text,model_name text,table_name text,ctime text)";
     }
-    else if ([tableName isEqualToString:@"columnoption"])
+    else if ([tableName isEqualToString:@"columns"])
     {
-        strCreateTable = @"create table if not exists columnoption(option_id integer primary key autoincrement,option_ename text,option_cname text,option_status text,option_type text)";
+        strCreateTable = @"create table if not exists columns(option_id integer primary key autoincrement,option_ename text,option_cname text,option_status text,option_type text)";
     }
     else
     {
