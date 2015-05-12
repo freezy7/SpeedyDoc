@@ -198,7 +198,7 @@ static FMDBManmager* _singletonManager = nil;
     }
     return ret;
 }
-
+/// 查询表中的list 数据
 -(NSArray*) queryListFromTable:(NSString*)tableName
 {
     [_FMbookDB open];
@@ -229,6 +229,22 @@ static FMDBManmager* _singletonManager = nil;
     }else{
         return 0;
     }
+}
+///查询记录中的最大id
+-(NSInteger) queryMaxAutoIncrementID:(NSString*) incrementID FromTable:(NSString*) tableName
+{
+    [_FMbookDB open];
+    NSString* strQuery = [NSString stringWithFormat:@"select max(%@) as max_id from %@;",incrementID,tableName];
+    FMResultSet* set = [_FMbookDB executeQuery:strQuery];
+    
+    if([set next]){
+        int count = [set intForColumn:@"max_id"];
+        [_FMbookDB close];
+        return count;
+    }else{
+        return 0;
+    }
+
 }
 
 -(BOOL) updateBookItem:(NSInteger) index byItem:(FormModel*) form

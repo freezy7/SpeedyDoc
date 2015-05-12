@@ -18,6 +18,7 @@
 
 @property(strong,nonatomic) IBOutlet UILabel* title;
 @property(strong,nonatomic) IBOutlet UIButton* option;
+@property(strong,nonatomic) IBOutlet UITextField* editField;
 
 @property(strong,nonatomic) NSIndexPath* indexPath;
 
