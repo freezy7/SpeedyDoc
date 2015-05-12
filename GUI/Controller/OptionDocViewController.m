@@ -10,7 +10,7 @@
 #import "OptionDocTableViewCell.h"
 #import "FMDBManmager.h"
 
-@interface OptionDocViewController ()<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate,OptionDocCellDelegate>
+@interface OptionDocViewController ()<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate,OptionDocCellDelegate,UITextFieldDelegate>
 {
     FMDBManmager* _fmdb;
     
@@ -20,6 +20,8 @@
     NSMutableArray* _optionArray;
     NSMutableDictionary* _optionDictionary;  // type 类型数据
     NSIndexPath* _optionClickIndexPath;// cell 按钮选中的index path
+    
+    NSInteger _insertCount;
 }
 
 @property(strong,nonatomic) IBOutlet UITableView* tableView;
@@ -70,7 +72,9 @@
 
 -(void)editPressed:(UIBarButtonItem*) btn
 {
-    [_varArray addObject:@"3"];
+    _insertCount = 0;
+    NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithObjects:@[@"3",@"3",@"-1",@"3"] forKeys:@[OPTION_CNAME,OPTION_ENAME,OPTION_STATUS,OPTION_TYPE]];
+    [_varArray addObject:dic];
     [_tableView reloadData];
     [_tableView setEditing:YES animated:YES];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(donePressed:)];
@@ -139,8 +143,8 @@
             
         }else if (_optionClickIndexPath.section == 1)
         {
-//            NSMutableDictionary* dic = [_selectedArray objectAtIndex:_optionClickIndexPath.row];
-//            [dic setObject:selectedType forKey:OPTION_TYPE];
+            NSMutableDictionary* dic = [_varArray objectAtIndex:_optionClickIndexPath.row];
+            [dic setObject:selectedType forKey:OPTION_TYPE];
         }
         [_tableView reloadData];
     }
@@ -179,7 +183,10 @@
     {
         NSDictionary* dic = [_constArray objectAtIndex:indexPath.row];
         cell.title.text = [dic objectForKey:OPTION_CNAME];
+        cell.title.hidden = NO;
+        cell.editField.hidden = YES;
         NSString* title = [_optionDictionary objectForKey:[dic objectForKey:OPTION_TYPE]];
+        cell.option.hidden = NO;
         cell.option.enabled = NO;
         [cell.option setTitle:title forState:UIControlStateNormal];
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
@@ -188,11 +195,34 @@
     }
     else// ==1
     {
-//        NSDictionary* dic = [_selectedArray objectAtIndex:indexPath.row];
-//        NSString* title = [_optionDictionary objectForKey:[dic objectForKey:OPTION_TYPE]];
-//        [cell.option setTitle:title forState:UIControlStateNormal];
-//        cell.option.enabled = NO;//开启要注意对上一层值得改变，要变动，暂不处理
-//        cell.title.text = [dic objectForKey:OPTION_CNAME];
+        
+        cell.editField.delegate = self;
+        NSDictionary* dic = [_varArray objectAtIndex:indexPath.row];
+        NSString* title = [_optionDictionary objectForKey:[dic objectForKey:OPTION_TYPE]];
+        if (tableView.editing) {
+            if (indexPath.row == _varArray.count - 1) {
+                cell.option.hidden = YES;
+                cell.editField.hidden = YES;
+                cell.title.hidden = NO;
+                cell.title.text = @"添加";
+            }else{
+                cell.title.hidden = YES;
+                cell.editField.hidden = NO;
+                cell.option.hidden = NO;
+                cell.option.enabled = YES;
+                cell.editField.text = [dic objectForKey:OPTION_CNAME];
+            }
+        }else{
+            cell.title.hidden = NO;
+            cell.editField.hidden = YES;
+            cell.option.hidden = NO;
+            cell.option.enabled = NO;
+            cell.title.text = [dic objectForKey:OPTION_CNAME];
+        }
+        
+        [cell.option setTitle:title forState:UIControlStateNormal];
+        
+        
 //        cell.selectionStyle = UITableViewCellSelectionStyleNone;
 //        cell.backgroundColor = [UIColor lightGrayColor];
 //        cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -236,12 +266,12 @@
 // 点击最后一行或者添加按钮时 向_varArray倒数第二行添加空数据加一个index
 -(void) insertObjectToVarArrayAtIndex:(NSInteger) index
 {
-    NSString* ename = [NSString stringWithFormat:@"name_%ld",index];
-    NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithObjects:@[@"",ename,@"-1",TYPE_DOC_TEXTFIELD] forKeys:@[OPTION_CNAME,OPTION_ENAME,OPTION_STATUS,OPTION_TYPE]];
+    NSString* ename = [NSString stringWithFormat:@"name_%ld",_insertCount];
+    NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithObjects:@[ename,ename,@"-1",TYPE_DOC_TEXTFIELD] forKeys:@[OPTION_CNAME,OPTION_ENAME,OPTION_STATUS,OPTION_TYPE]];
     [_varArray insertObject:dic atIndex:index];
-    
-    NSLog(@"%@",_varArray);
+    _insertCount++;
     [_tableView reloadData];
+    NSLog(@"%@",_varArray);
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -254,10 +284,9 @@
     }
     else if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-//        [_formatArray removeObjectAtIndex:indexPath.row];
-//        [_option deleteSelectedOptionByFromIndex:indexPath.row];
-//        [_tableView reloadData];
-//        NSLog(@"%@",_formatArray);
+        [_varArray removeObjectAtIndex:indexPath.row];
+        [_tableView reloadData];
+        NSLog(@"%@",_varArray);
     }
 }
 
@@ -284,6 +313,14 @@
     {
         return NO;
     }
+}
+
+#pragma mark - textField delegate
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 

@@ -36,6 +36,8 @@
 -(NSArray*) queryListFromTable:(NSString*)tableName;
 ///查询记录行数
 -(NSInteger) queryCountFromTable:(NSString*) tableName;
+///查询记录中的最大id
+-(NSInteger) queryMaxAutoIncrementID:(NSString*) incrementID FromTable:(NSString*) tableName;
 
 ///更新单条数据
 -(BOOL) updateBookItem:(NSInteger) index byItem:(FormModel*) form;
