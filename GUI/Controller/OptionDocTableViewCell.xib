@@ -28,9 +28,15 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fSm-bZ-CcG" userLabel="editField">
+                        <rect key="frame" x="23" y="7" width="139" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="editField" destination="fSm-bZ-CcG" id="h9Q-Jt-t2H"/>
                 <outlet property="option" destination="BQb-cI-ayL" id="Ehj-BT-9yk"/>
                 <outlet property="title" destination="VZW-gG-4fd" id="8sf-62-YFs"/>
             </connections>
