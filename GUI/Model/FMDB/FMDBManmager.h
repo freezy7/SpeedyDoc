@@ -29,17 +29,17 @@
 -(BOOL)insertIntoTable:(NSString*) tableName data:(NSDictionary*) data;
 
 
-///根据index删除一条数据
--(BOOL) removeDataItemByIndex:(NSInteger) index;
+///根据index(id)删除一条数据
+-(BOOL) removeDataFromTable:(NSString*) tableName ItemByIndex:(NSString*) index;
 
 ///查询list数据
 -(NSArray*) queryListFromTable:(NSString*)tableName;
 ///查询记录行数
 -(NSInteger) queryCountFromTable:(NSString*) tableName;
 ///查询记录中的最大id
--(NSInteger) queryMaxAutoIncrementID:(NSString*) incrementID FromTable:(NSString*) tableName;
+-(NSInteger) queryMaxAutoIncrementIDFromTable:(NSString*) tableName;
 
 ///更新单条数据
--(BOOL) updateBookItem:(NSInteger) index byItem:(FormModel*) form;
+-(BOOL) updateTable:(NSString*) tableName byData:(NSDictionary*) data;
 
 @end
