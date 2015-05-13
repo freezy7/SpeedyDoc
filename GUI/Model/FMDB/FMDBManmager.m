@@ -79,11 +79,11 @@ static FMDBManmager* _singletonManager = nil;
     
     if([tableName isEqualToString:@"speedydoc"])
     {
-        strCreateTable = @"create table if not exists speedydoc(doc_id integer primary key autoincrement,name text,model_name text,table_name text,ctime text)";
+        strCreateTable = @"create table if not exists speedydoc(id integer primary key autoincrement,name text,model_name text,table_name text,ctime text)";
     }
     else if ([tableName isEqualToString:@"columns"])
     {
-        strCreateTable = @"create table if not exists columns(option_id integer primary key autoincrement,option_ename text,option_cname text,option_status text,option_type text)";
+        strCreateTable = @"create table if not exists columns(id integer primary key autoincrement,option_ename text,option_cname text,option_status text,option_type text)";
     }
     else
     {
@@ -187,10 +187,10 @@ static FMDBManmager* _singletonManager = nil;
 }
 
 
--(BOOL) removeDataItemByIndex:(NSInteger) index
+-(BOOL) removeDataFromTable:(NSString*) tableName ItemByIndex:(NSString*) index;
 {
     [_FMbookDB open];
-    NSString* strDelete = [NSString stringWithFormat: @"delete from bookSheet where index =%ld",index];
+    NSString* strDelete = [NSString stringWithFormat: @"delete from %@ where id =%@",tableName,index];
     BOOL ret = [_FMbookDB executeUpdate:strDelete];
     [_FMbookDB close];
     if (ret  == YES) {
@@ -231,10 +231,10 @@ static FMDBManmager* _singletonManager = nil;
     }
 }
 ///查询记录中的最大id
--(NSInteger) queryMaxAutoIncrementID:(NSString*) incrementID FromTable:(NSString*) tableName
+-(NSInteger) queryMaxAutoIncrementIDFromTable:(NSString*) tableName
 {
     [_FMbookDB open];
-    NSString* strQuery = [NSString stringWithFormat:@"select max(%@) as max_id from %@;",incrementID,tableName];
+    NSString* strQuery = [NSString stringWithFormat:@"select max(id) as max_id from %@;",tableName];
     FMResultSet* set = [_FMbookDB executeQuery:strQuery];
     
     if([set next]){
@@ -247,21 +247,25 @@ static FMDBManmager* _singletonManager = nil;
 
 }
 
--(BOOL) updateBookItem:(NSInteger) index byItem:(FormModel*) form
+-(BOOL) updateTable:(NSString*) tableName byData:(NSDictionary*) data
 {
     [_FMbookDB open];
-    BOOL rev = [self removeDataItemByIndex:index];
-    BOOL add = [self addDataItem:form];
-    if (rev && add)
-    {
+    
+    NSString* index = [data objectForKey:@"id"];
+    
+    NSString* name = [data objectForKey:@"option_cname"];
+    NSString* type = [data objectForKey:@"option_type"];
+    
+    
+    NSString* sql = [NSString stringWithFormat:@"update %@ set option_cname = '%@',option_type = '%@' where id = %@",tableName,name,type,index];
+    
+    
+    BOOL ret = [_FMbookDB executeUpdate:sql];
+    [_FMbookDB close];
+    if (ret == YES) {
         NSLog(@"更新成功");
     }
-    else
-    {
-        NSLog(@"更新失败");
-    }
-    [_FMbookDB close];
-    return (rev && add);
+    return ret;
 }
 
 
