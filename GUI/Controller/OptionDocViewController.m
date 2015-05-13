@@ -14,9 +14,14 @@
 {
     FMDBManmager* _fmdb;
     
+    UITextField* _tempTextField;
+    
     NSMutableArray* _dataArray;    // 数据库字段总数据
-    NSMutableArray* _constArray;
+    NSMutableArray* _constArray;   // 初始化固定的数组
     NSMutableArray* _varArray;     // section2 单行条目可以修改的
+    NSMutableArray* _addArray;     // 编辑时增加数据的数组
+    NSMutableArray* _removeArray;  // 编辑时删除的数据库的数组
+    
     NSMutableArray* _optionArray;
     NSMutableDictionary* _optionDictionary;  // type 类型数据
     NSIndexPath* _optionClickIndexPath;// cell 按钮选中的index path
@@ -39,13 +44,32 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editPressed:)];
     
     // 从 datamodel 获取数据
-    _fmdb = [FMDBManmager sharedManager];
-    _dataArray = [NSMutableArray arrayWithArray:[_fmdb queryListFromTable:@"columns"]];
+    
     _constArray = [[NSMutableArray alloc] init];
     _varArray = [[NSMutableArray alloc] init];
+    _addArray = [[NSMutableArray alloc] init];
+    _removeArray = [[NSMutableArray alloc] init];
     
+    // 加载初始化数据
+    [self setUpColumnsArray];
+    
+    
+    _optionArray = [[NSMutableArray alloc] initWithObjects:@"单行文本",@"多行文本",@"日期",@"数字",@"纯整数",@"纯小数",@"网址",@"电话",@"邮箱", nil];
+    _optionDictionary = [[NSMutableDictionary alloc] initWithObjects:_optionArray forKeys:@[TYPE_DOC_TEXTFIELD,TYPE_DOC_TEXTVIEW,TYPE_DOC_DATE,TYPE_DOC_NUMBER,TYPE_DOC_INTGER,TYPE_DOC_DECIMAL,TYPE_DOC_URL,TYPE_DOC_PHONE,TYPE_DOC_EMAIL]];
+    
+    _tableView.tableFooterView = [[UIView alloc] init];
+}
+
+
+// 初始化列表数据
+-(void) setUpColumnsArray
+{
+    _fmdb = [FMDBManmager sharedManager];
+    _dataArray = [NSMutableArray arrayWithArray:[_fmdb queryListFromTable:@"columns"]];
     // 前四行的的值是固定的不可变的
     // 从第四行以后开始取值赋给 _varArray
+    [_constArray removeAllObjects];
+    [_varArray removeAllObjects];
     for (int i = 0; i<_dataArray.count; i++) {
         if (i<4) {
             [_constArray addObject:[_dataArray objectAtIndex:i]];
@@ -55,20 +79,26 @@
             [_varArray addObject:[_dataArray objectAtIndex:i]];
         }
     }
-    
-    
-    
-    _optionArray = [[NSMutableArray alloc] initWithObjects:@"单行文本",@"多行文本",@"日期",@"数字",@"纯整数",@"纯小数",@"网址",@"电话",@"邮箱", nil];
-    _optionDictionary = [[NSMutableDictionary alloc] initWithObjects:_optionArray forKeys:@[TYPE_DOC_TEXTFIELD,TYPE_DOC_TEXTVIEW,TYPE_DOC_DATE,TYPE_DOC_NUMBER,TYPE_DOC_INTGER,TYPE_DOC_DECIMAL,TYPE_DOC_URL,TYPE_DOC_PHONE,TYPE_DOC_EMAIL]];
-    
-    _tableView.tableFooterView = [[UIView alloc] init];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(speedyDocKeyBoardChange:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(speedyDocKeyBoardChangeHide:) name:UIKeyboardWillHideNotification object:nil];
+
     NSLog(@"data = %@",_dataArray);
     [_tableView reloadData];
 }
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [_tempTextField resignFirstResponder];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+}
+
 
 -(void)editPressed:(UIBarButtonItem*) btn
 {
@@ -82,9 +112,39 @@
 
 -(void)donePressed:(UIBarButtonItem*) btn
 {
+    [_tempTextField resignFirstResponder];
+    NSInteger max_id = [_fmdb queryMaxAutoIncrementIDFromTable:@"columns"];
+    
+    // 新增的数据
+    for (NSMutableDictionary* dic in _addArray) {//考虑开启线程
+        max_id++;
+        [dic setObject:[NSString stringWithFormat:@"name_%ld",max_id] forKey:@"option_ename"];
+        [_fmdb insertIntoTable:@"columns" data:dic];
+    }
+    [_addArray removeAllObjects];//插入完成删除数组
+    
+    
+    // 删除的数据
+    for (NSMutableDictionary* dic in _removeArray) {
+        NSString* index = [dic objectForKey:@"id"];
+        [_fmdb removeDataFromTable:@"columns" ItemByIndex:index];
+    }
+    [_removeArray removeAllObjects];
+    
+    // 改名字的时候更新数据  现在为全局更新，以后要做成根据需要更新
     [_varArray removeLastObject];
-    [_tableView reloadData];
+    for (NSDictionary* dic in _varArray) {
+        if ([dic objectForKey:@"id"]) {
+            [_fmdb updateTable:@"columns" byData:dic];
+        }
+    }
+    
+    // 重新查询数据
+    
+    [self setUpColumnsArray];
+    
     [_tableView setEditing:NO animated:YES];
+    [_tableView reloadData];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editPressed:)];
     
 }
@@ -268,10 +328,15 @@
 {
     NSString* ename = [NSString stringWithFormat:@"name_%ld",_insertCount];
     NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithObjects:@[ename,ename,@"-1",TYPE_DOC_TEXTFIELD] forKeys:@[OPTION_CNAME,OPTION_ENAME,OPTION_STATUS,OPTION_TYPE]];
+    //显示数组，用于更新tableview（index不考虑）
     [_varArray insertObject:dic atIndex:index];
+    
+    // 暂存数据数组 用于数据库的增加
+    [_addArray addObject:dic];
+    
     _insertCount++;
     [_tableView reloadData];
-    NSLog(@"%@",_varArray);
+    NSLog(@"%@",_addArray);
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -284,7 +349,20 @@
     }
     else if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        [_varArray removeObjectAtIndex:indexPath.row];
+        // 新加的数据还没有id，老得有
+        NSDictionary* dic = [_varArray objectAtIndex:indexPath.row];
+        if ([dic objectForKey:@"id"]) {
+            [_removeArray addObject:dic];
+            [_varArray removeObject:dic];
+            
+        }
+        else
+        {
+            [_addArray removeObject:dic];
+            [_varArray removeObject:dic];
+        }
+        
+        
         [_tableView reloadData];
         NSLog(@"%@",_varArray);
     }
@@ -315,12 +393,90 @@
     }
 }
 
+#pragma mark - keyBoard show and hide
+
+-(void)speedyDocKeyBoardChange:(NSNotification *)notification
+{
+    
+    CGPoint p= [_tempTextField.superview convertPoint:_tempTextField.center toView:_tableView];
+    NSIndexPath *selectedRow= [_tableView indexPathForRowAtPoint:p];
+    
+    NSDictionary *keyboardInfo = [notification userInfo];
+    CGRect keyboardFrame = [self.tableView.window convertRect:[keyboardInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue] toView:self.tableView.superview];
+    CGFloat newBottomInset = self.tableView.frame.origin.y + self.tableView.frame.size.height - keyboardFrame.origin.y;
+    if (newBottomInset > 0){
+        UIEdgeInsets tableContentInset = self.tableView.contentInset;
+        UIEdgeInsets tableScrollIndicatorInsets = self.tableView.scrollIndicatorInsets;
+        tableContentInset.bottom = newBottomInset+44;// 借鉴XLForm 先用吧
+        tableScrollIndicatorInsets.bottom = tableContentInset.bottom;
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:[keyboardInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
+        [UIView setAnimationCurve:[keyboardInfo[UIKeyboardAnimationCurveUserInfoKey] intValue]];
+        self.tableView.contentInset = tableContentInset;
+        self.tableView.scrollIndicatorInsets = tableScrollIndicatorInsets;
+        [self.tableView scrollToRowAtIndexPath:selectedRow atScrollPosition:UITableViewScrollPositionNone animated:NO];
+        [UIView commitAnimations];
+    }
+    
+//    NSDictionary *userInfo = [noti userInfo];
+//
+//    NSValue* aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+//    
+//    CGRect keyboardRect = [aValue CGRectValue];
+//    
+//    NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+//    NSTimeInterval animationDuration;
+//    [animationDurationValue getValue:&animationDuration];
+//    
+//    [UIView animateWithDuration:animationDuration animations:^{
+//        self.view.transform=CGAffineTransformMakeTranslation(0, -keyboardRect.size.height);
+//    }];
+
+    
+}
+
+-(void)speedyDocKeyBoardChangeHide:(NSNotification *)notification
+{
+    NSDictionary *keyboardInfo = [notification userInfo];
+    UIEdgeInsets tableContentInset = self.tableView.contentInset;
+    UIEdgeInsets tableScrollIndicatorInsets = self.tableView.scrollIndicatorInsets;
+    tableContentInset.bottom = 0;
+    tableScrollIndicatorInsets.bottom = tableContentInset.bottom;
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:[keyboardInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
+    [UIView setAnimationCurve:[keyboardInfo[UIKeyboardAnimationCurveUserInfoKey] intValue]];
+    self.tableView.contentInset = tableContentInset;
+    self.tableView.scrollIndicatorInsets = tableScrollIndicatorInsets;
+    [UIView commitAnimations];
+}
+
+
+
 #pragma mark - textField delegate
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     return YES;
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    NSLog(@"%s___%@",__FUNCTION__,textField);
+    _tempTextField = textField;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    CGPoint pt=[textField.superview convertPoint:textField.center toView:_tableView];
+    NSIndexPath *ipath=[_tableView indexPathForRowAtPoint:pt];
+    
+    if (ipath.section == 1)
+    {
+        NSMutableDictionary* dic = [_varArray objectAtIndex:ipath.row];
+        [dic setObject:textField.text forKey:@"option_cname"];
+    }
+
 }
 
 
