@@ -16,6 +16,8 @@
     NSMutableArray* _formatArray;
     OptionDocViewController* _option;
     FMDBManmager* _fmdb;
+    
+    NSInteger _insertCount;
 }
 
 @property (strong,nonatomic) IBOutlet UITableView* tableView;
@@ -35,10 +37,14 @@
     // 定义navBar 右侧按钮
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(savePressed:)];
     
-    // tableView 初始化数据
-    NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithObjects:@[@"",@"",@"0",@""] forKeys:@[OPTION_CNAME,OPTION_ENAME,OPTION_INDEX,OPTION_TYPE]];
+    _insertCount = 0;
     
-    _formatArray = [[NSMutableArray alloc] initWithObjects:dic,@"2", nil];
+    // tableView 初始化数据
+    NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithObjects:@[@"",@"",[NSString stringWithFormat:@"%ld",_insertCount],@""] forKeys:@[OPTION_CNAME,OPTION_ENAME,OPTION_INDEX,OPTION_TYPE]];
+    
+    NSMutableDictionary* dicAdd = [NSMutableDictionary dictionaryWithObjects:@[@"",@"",@"",@""] forKeys:@[OPTION_CNAME,OPTION_ENAME,OPTION_INDEX,OPTION_TYPE]];
+    
+    _formatArray = [[NSMutableArray alloc] initWithObjects:dic,dicAdd, nil];
     _tableView.tableFooterView = [[UIView alloc] init];
     [_tableView setEditing:YES animated:YES];
     _tableView.allowsSelectionDuringEditing = YES;
@@ -60,6 +66,7 @@
     btn.enabled = NO;
     NSMutableArray* formatArr = [NSMutableArray arrayWithArray:_formatArray];
     [formatArr removeLastObject];
+    if(!formatArr.count) return;
     NSLog(@"formatArray = %@",formatArr);
     
     NSInteger count = [_fmdb queryCountFromTable:@"speedydoc"];
@@ -75,10 +82,13 @@
     
     //根据所选的字段创建数据存储表
     NSMutableArray* columnArr = [[NSMutableArray alloc] init];
-    for (NSDictionary* dic in formatArr) {
+    for (int i = 0 ; i < formatArr.count; i++) {
+        NSMutableDictionary* dic = [formatArr objectAtIndex:i];
         //向模板中插入数据 name index type  考虑数据多可以开一个线程
-        [_fmdb insertIntoTable:modelname data:dic];
+        [dic setObject:@(i) forKey:OPTION_INDEX];
         
+        [_fmdb insertIntoTable:modelname data:dic];
+    
         // 获取英文名字段 创建数据存储表
         NSString* str = [dic objectForKey:OPTION_ENAME];
         [columnArr addObject:str];
@@ -113,11 +123,19 @@
 
 -(void)callBackColumnOption:(NSDictionary *)option index:(NSInteger)index
 {
-    NSLog(@"index = %ld dic = %@",index,option);
-    NSMutableDictionary* dic = [_formatArray objectAtIndex:index];
-    [dic setObject:[option objectForKey:OPTION_CNAME] forKey:OPTION_CNAME];
-    [dic setObject:[option objectForKey:OPTION_ENAME] forKey:OPTION_ENAME];
-    [dic setObject:[option objectForKey:OPTION_TYPE] forKey:OPTION_TYPE];
+    //NSLog(@"index = %ld dic = %@",index,option);
+    // index 为字典中的option_index 值
+    
+    for (NSMutableDictionary* dic in _formatArray) {
+        NSString* optionIndex = [dic objectForKey:OPTION_INDEX];
+        if ([optionIndex integerValue] == index &&
+            ![optionIndex isEqualToString:@""]) {
+            [dic setObject:[option objectForKey:OPTION_CNAME] forKey:OPTION_CNAME];
+            [dic setObject:[option objectForKey:OPTION_ENAME] forKey:OPTION_ENAME];
+            [dic setObject:[option objectForKey:OPTION_TYPE] forKey:OPTION_TYPE];
+        }
+    }
+    
     [_tableView reloadData];
 }
 
@@ -160,10 +178,11 @@
 // 点击最后一行或者添加按钮时 向formatArray倒数第二行添加空数据加一个index
 -(void) insertObjectToFormatArrayAtIndex:(NSInteger) index
 {
-    NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithObjects:@[@"",@"",[NSString stringWithFormat:@"%ld",index],@""] forKeys:@[OPTION_CNAME,OPTION_ENAME,OPTION_INDEX,OPTION_TYPE]];
+    _insertCount++;
+    NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithObjects:@[@"",@"",[NSString stringWithFormat:@"%ld",_insertCount],@""] forKeys:@[OPTION_CNAME,OPTION_ENAME,OPTION_INDEX,OPTION_TYPE]];
     [_formatArray insertObject:dic atIndex:index];
     
-    NSLog(@"%@",_formatArray);
+    //NSLog(@"%@",_formatArray);
     [_tableView reloadData];
 }
 
@@ -174,7 +193,9 @@
     }
     else
     {
-        _option.fromIndex = indexPath.row;
+        NSDictionary* dic = [_formatArray objectAtIndex:indexPath.row];
+        NSString* fromIndex = [dic objectForKey:OPTION_INDEX];
+        _option.fromIndex = [fromIndex integerValue];
         [self.navigationController pushViewController:_option animated:YES];
     }
 }
@@ -188,15 +209,33 @@
     }
     else if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        [_formatArray removeObjectAtIndex:indexPath.row];
-        [_option deleteSelectedOptionByFromIndex:indexPath.row];
+        NSDictionary* dic = [_formatArray objectAtIndex:indexPath.row];
+        [_formatArray removeObject:dic];
+        NSString* fromIndex = [dic objectForKey:OPTION_INDEX];
+        [_option deleteSelectedOptionByFromIndex:[fromIndex integerValue]];
         [_tableView reloadData];
-        NSLog(@"%@",_formatArray);
+        //NSLog(@"%@",_formatArray);
     }
 }
 
+// 移动行
 -(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
+    if (destinationIndexPath.row == _formatArray.count-1) {
+        [_tableView reloadData];
+    }
+    else
+    {
+        //[_formatArray exchangeObjectAtIndex:sourceIndexPath.row withObjectAtIndex:destinationIndexPath.row];
+        NSMutableDictionary* temp = [NSMutableDictionary dictionaryWithDictionary:[_formatArray objectAtIndex:sourceIndexPath.row]];
+        [_formatArray removeObjectAtIndex:sourceIndexPath.row];
+        
+        [_formatArray insertObject:temp atIndex:destinationIndexPath.row];
+        
+        NSLog(@"arr = %@",_formatArray);
+        NSLog(@"si %ld,de %ld",sourceIndexPath.row,destinationIndexPath.row);
+    }
+    
     
 }
 
