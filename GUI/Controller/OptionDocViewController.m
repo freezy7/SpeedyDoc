@@ -22,7 +22,9 @@
     NSMutableArray* _addArray;     // 编辑时增加数据的数组
     NSMutableArray* _removeArray;  // 编辑时删除的数据库的数组
     
-    NSMutableArray* _optionArray;
+    NSMutableDictionary* _selectDictionary;  // 已选择的数据字典 id=>from_index
+    
+    NSMutableArray* _optionArray;  // type 的中文数据数组
     NSMutableDictionary* _optionDictionary;  // type 类型数据
     NSIndexPath* _optionClickIndexPath;// cell 按钮选中的index path
     
@@ -49,6 +51,8 @@
     _varArray = [[NSMutableArray alloc] init];
     _addArray = [[NSMutableArray alloc] init];
     _removeArray = [[NSMutableArray alloc] init];
+    
+    _selectDictionary = [[NSMutableDictionary alloc] init];
     
     // 加载初始化数据
     [self setUpColumnsArray];
@@ -87,7 +91,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(speedyDocKeyBoardChange:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(speedyDocKeyBoardChangeHide:) name:UIKeyboardWillHideNotification object:nil];
 
-    NSLog(@"data = %@",_dataArray);
+    //NSLog(@"data = %@",_dataArray);
     [_tableView reloadData];
 }
 
@@ -239,9 +243,10 @@
     
     cell.delgate = self;
     cell.indexPath = indexPath;
+    NSDictionary* dic ;
     if(indexPath.section == 0)
     {
-        NSDictionary* dic = [_constArray objectAtIndex:indexPath.row];
+        dic = [_constArray objectAtIndex:indexPath.row];
         cell.title.text = [dic objectForKey:OPTION_CNAME];
         cell.title.hidden = NO;
         cell.editField.hidden = YES;
@@ -249,15 +254,23 @@
         cell.option.hidden = NO;
         cell.option.enabled = NO;
         [cell.option setTitle:title forState:UIControlStateNormal];
-        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
-        cell.backgroundColor = [UIColor whiteColor];
-        cell.accessoryType = UITableViewCellAccessoryNone;
+        
+        NSString* option_id = [dic objectForKey:@"id"];
+        if ([_selectDictionary objectForKey:option_id]) {
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.backgroundColor = [UIColor groupTableViewBackgroundColor];
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }else{
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.backgroundColor = [UIColor whiteColor];
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
     }
     else// ==1
     {
         
         cell.editField.delegate = self;
-        NSDictionary* dic = [_varArray objectAtIndex:indexPath.row];
+        dic = [_varArray objectAtIndex:indexPath.row];
         NSString* title = [_optionDictionary objectForKey:[dic objectForKey:OPTION_TYPE]];
         if (tableView.editing) {
             if (indexPath.row == _varArray.count - 1) {
@@ -282,10 +295,17 @@
         
         [cell.option setTitle:title forState:UIControlStateNormal];
         
-        
-//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//        cell.backgroundColor = [UIColor lightGrayColor];
-//        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    
+    NSString* option_id = [dic objectForKey:@"id"];
+    if ([_selectDictionary objectForKey:option_id]) {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }else{
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
     return cell;
@@ -295,31 +315,34 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    NSMutableDictionary* dic;
     if (indexPath.section == 0)
     {
-        
-        //删除selected 数组中得，添加到显示数组中得
-//        [self deleteSelectedOptionByFromIndex:_fromIndex];
-//        
-//        NSString* strIndex = [NSString stringWithFormat:@"%ld",_fromIndex];
-        
-        //点击的时候替换数组数据
-        NSMutableDictionary* dic = [_constArray objectAtIndex:indexPath.row];
-//        [dic setObject:strIndex forKey:OPTION_STATUS];
-//        
-//        // 已选数组添加数据
-//        [_selectedArray addObject:dic];
-//        //展示数组删除数据
-//        [_dataArray removeObject:dic];
-        
-        
-        [_delegate callBackColumnOption:dic index:_fromIndex];
-        [self.navigationController popViewControllerAnimated:YES];
+        dic = [_constArray objectAtIndex:indexPath.row];
     }
     else
     {
-        
+        dic = [_varArray objectAtIndex:indexPath.row];
     }
+    
+    NSString* option_id = [dic objectForKey:@"id"];
+    
+    // 组成一个选定的index 和 id 的哈希数组
+    if([_selectDictionary objectForKey:option_id])
+    {
+        return;
+    }
+    
+    [self deleteSelectedOptionByFromIndex:_fromIndex];
+    
+    
+    
+    [_selectDictionary setObject:@(_fromIndex) forKey:option_id];
+    
+    [_delegate callBackColumnOption:dic index:_fromIndex];
+    
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 
@@ -336,7 +359,7 @@
     
     _insertCount++;
     [_tableView reloadData];
-    NSLog(@"%@",_addArray);
+    //NSLog(@"%@",_addArray);
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -364,7 +387,6 @@
         
         
         [_tableView reloadData];
-        NSLog(@"%@",_varArray);
     }
 }
 
@@ -484,21 +506,12 @@
 
 -(void) deleteSelectedOptionByFromIndex:(NSInteger) index
 {
-//    NSString* strIndex = [NSString stringWithFormat:@"%ld",index];
-//    
-//    NSMutableArray* selectedArr = [NSMutableArray arrayWithArray:_selectedArray];
-//    
-//    for (NSMutableDictionary* dic in selectedArr) {
-//        // 排除formIndex 已经对应的item
-//        NSString* status = [dic objectForKey:OPTION_STATUS];
-//        if ([status isEqualToString:strIndex]) {
-//            [dic setObject:@"-1" forKey:OPTION_STATUS];
-//            //添加到显示的数组
-//            [_dataArray addObject:dic];
-//            // 如果已经选择的数组中有对应的 fromIndex 将其赋为初始值并删除
-//            [_selectedArray removeObject:dic];
-//        }
-//    }
+    NSArray* keys = [_selectDictionary allKeysForObject:@(index)];
+    if(keys.count)
+    {
+        [_selectDictionary removeObjectForKey:keys[0]];
+        NSLog(@"_sel = %@",_selectDictionary);
+    }
 }
 
 - (void)didReceiveMemoryWarning {
