@@ -34,6 +34,8 @@
 
 ///查询list数据
 -(NSArray*) queryListFromTable:(NSString*)tableName;
+///查询sql语句
+-(NSArray*) querySql:(NSString*)sql;
 ///查询记录行数
 -(NSInteger) queryCountFromTable:(NSString*) tableName;
 ///查询记录中的最大id
