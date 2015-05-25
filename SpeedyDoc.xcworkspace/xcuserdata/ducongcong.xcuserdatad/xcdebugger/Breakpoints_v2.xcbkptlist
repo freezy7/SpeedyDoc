@@ -227,13 +227,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GUI/Controller/FormPatternViewController.m"
-            timestampString = "452960408.972603"
+            filePath = "GUI/Controller/OptionDocViewController.m"
+            timestampString = "453310559.224857"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "-donePressed:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -243,13 +243,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GUI/Controller/OptionDocViewController.m"
-            timestampString = "453310559.224857"
+            filePath = "GUI/Controller/DetailFormViewController.m"
+            timestampString = "454259221.455292"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "-donePressed:"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
