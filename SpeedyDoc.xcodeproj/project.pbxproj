@@ -22,6 +22,10 @@
 		6F2E996F1AFF363F0091C5D9 /* OptionDocTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E996D1AFF363F0091C5D9 /* OptionDocTableViewCell.xib */; };
 		6F2E99741AFF55920091C5D9 /* FormPatternViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E99721AFF55920091C5D9 /* FormPatternViewController.m */; };
 		6F2E99751AFF55920091C5D9 /* FormPatternViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E99731AFF55920091C5D9 /* FormPatternViewController.xib */; };
+		6F2E997A1B071BDE0091C5D9 /* DetailFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E99781B071BDE0091C5D9 /* DetailFormViewController.m */; };
+		6F2E997B1B071BDE0091C5D9 /* DetailFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E99791B071BDE0091C5D9 /* DetailFormViewController.xib */; };
+		6F2E997F1B072CCF0091C5D9 /* DetailFormTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E997D1B072CCF0091C5D9 /* DetailFormTableViewCell.m */; };
+		6F2E99801B072CCF0091C5D9 /* DetailFormTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E997E1B072CCF0091C5D9 /* DetailFormTableViewCell.xib */; };
 		6F3CDA771AECA3B50079E7D5 /* LibXL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3CDA761AECA3B50079E7D5 /* LibXL.framework */; };
 		6F3CDA791AED0D6D0079E7D5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3CDA781AED0D6D0079E7D5 /* MessageUI.framework */; };
 		6F601ECF1AEBCBD0000CDF88 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F601ECE1AEBCBD0000CDF88 /* MainViewController.m */; };
@@ -73,6 +77,12 @@
 		6F2E99711AFF55920091C5D9 /* FormPatternViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormPatternViewController.h; sourceTree = "<group>"; };
 		6F2E99721AFF55920091C5D9 /* FormPatternViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormPatternViewController.m; sourceTree = "<group>"; };
 		6F2E99731AFF55920091C5D9 /* FormPatternViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormPatternViewController.xib; sourceTree = "<group>"; };
+		6F2E99771B071BDE0091C5D9 /* DetailFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailFormViewController.h; sourceTree = "<group>"; };
+		6F2E99781B071BDE0091C5D9 /* DetailFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailFormViewController.m; sourceTree = "<group>"; };
+		6F2E99791B071BDE0091C5D9 /* DetailFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailFormViewController.xib; sourceTree = "<group>"; };
+		6F2E997C1B072CCF0091C5D9 /* DetailFormTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailFormTableViewCell.h; sourceTree = "<group>"; };
+		6F2E997D1B072CCF0091C5D9 /* DetailFormTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailFormTableViewCell.m; sourceTree = "<group>"; };
+		6F2E997E1B072CCF0091C5D9 /* DetailFormTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailFormTableViewCell.xib; sourceTree = "<group>"; };
 		6F3CDA761AECA3B50079E7D5 /* LibXL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LibXL.framework; sourceTree = "<group>"; };
 		6F3CDA781AED0D6D0079E7D5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		6F601ECD1AEBCBD0000CDF88 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -209,6 +219,19 @@
 			name = FormPattern;
 			sourceTree = "<group>";
 		};
+		6F2E99761B071BBA0091C5D9 /* DetailForm */ = {
+			isa = PBXGroup;
+			children = (
+				6F2E99771B071BDE0091C5D9 /* DetailFormViewController.h */,
+				6F2E99781B071BDE0091C5D9 /* DetailFormViewController.m */,
+				6F2E99791B071BDE0091C5D9 /* DetailFormViewController.xib */,
+				6F2E997C1B072CCF0091C5D9 /* DetailFormTableViewCell.h */,
+				6F2E997D1B072CCF0091C5D9 /* DetailFormTableViewCell.m */,
+				6F2E997E1B072CCF0091C5D9 /* DetailFormTableViewCell.xib */,
+			);
+			name = DetailForm;
+			sourceTree = "<group>";
+		};
 		6F601FE21AEBE7BE000CDF88 /* FMDB */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +257,7 @@
 		6FD229951AEAAFEB008DF7E0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6F2E99761B071BBA0091C5D9 /* DetailForm */,
 				6F2E99701AFF54EF0091C5D9 /* FormPattern */,
 				6F2E99641AFE64D60091C5D9 /* SpeedyDocController */,
 				6F2E99651AFE64EF0091C5D9 /* SpeedyDocCell */,
@@ -386,6 +410,7 @@
 					};
 					A558709D1AE9D5C000C7413C = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 74FFGT6HP4;
 						TestTargetID = A55870841AE9D5C000C7413C;
 					};
 				};
@@ -419,6 +444,8 @@
 				A55870991AE9D5C000C7413C /* LaunchScreen.xib in Resources */,
 				6F2E995A1AFBC2370091C5D9 /* 竖线@2x.png in Resources */,
 				6FD229991AEAB02A008DF7E0 /* SpeedyDoc.storyboard in Resources */,
+				6F2E997B1B071BDE0091C5D9 /* DetailFormViewController.xib in Resources */,
+				6F2E99801B072CCF0091C5D9 /* DetailFormTableViewCell.xib in Resources */,
 				6F2E99581AFBC1960091C5D9 /* 右箭头@2x.png in Resources */,
 				6F2E995F1AFDB6A40091C5D9 /* OptionDocViewController.xib in Resources */,
 				6F2E99751AFF55920091C5D9 /* FormPatternViewController.xib in Resources */,
@@ -481,6 +508,7 @@
 				6F2E99691AFE7B530091C5D9 /* SpeedyDocCell.m in Sources */,
 				6F2E99541AFA703F0091C5D9 /* FormatDocTableViewCell.m in Sources */,
 				6F2E994D1AFA6C550091C5D9 /* FormatDocViewController.m in Sources */,
+				6F2E997A1B071BDE0091C5D9 /* DetailFormViewController.m in Sources */,
 				6F2E99741AFF55920091C5D9 /* FormPatternViewController.m in Sources */,
 				6F2E995E1AFDB6A40091C5D9 /* OptionDocViewController.m in Sources */,
 				A558708B1AE9D5C000C7413C /* main.m in Sources */,
@@ -489,6 +517,7 @@
 				6F601FE51AEBE7BE000CDF88 /* FMDBManmager.m in Sources */,
 				6F601ECF1AEBCBD0000CDF88 /* MainViewController.m in Sources */,
 				6FA851661AF33E0E00B45763 /* SpeedyDocViewController.m in Sources */,
+				6F2E997F1B072CCF0091C5D9 /* DetailFormTableViewCell.m in Sources */,
 				6F2E996E1AFF363F0091C5D9 /* OptionDocTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,7 +569,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: cong du (74FFGT6HP4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: cong du (74FFGT6HP4)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -562,6 +592,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "50eee0e4-8f34-458f-852d-8287a8998fde";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -583,7 +614,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: cong du (74FFGT6HP4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: cong du (74FFGT6HP4)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -598,6 +630,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "50eee0e4-8f34-458f-852d-8287a8998fde";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -608,7 +641,8 @@
 			baseConfigurationReference = B76D309863F7D598DF088719 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: cong du (74FFGT6HP4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: cong du (74FFGT6HP4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -632,6 +666,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "50eee0e4-8f34-458f-852d-8287a8998fde";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -641,7 +676,8 @@
 			baseConfigurationReference = 4AD225C776E83027A213B81C /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: cong du (74FFGT6HP4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: cong du (74FFGT6HP4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -665,6 +701,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "50eee0e4-8f34-458f-852d-8287a8998fde";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -673,6 +710,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -684,6 +723,7 @@
 				INFOPLIST_FILE = SpeedyDocTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpeedyDoc.app/SpeedyDoc";
 			};
 			name = Debug;
@@ -692,6 +732,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -699,6 +741,7 @@
 				INFOPLIST_FILE = SpeedyDocTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpeedyDoc.app/SpeedyDoc";
 			};
 			name = Release;

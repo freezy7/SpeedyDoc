@@ -213,6 +213,20 @@ static FMDBManmager* _singletonManager = nil;
     [_FMbookDB close];
     return arrayDoc;
 }
+///查询sql语句
+-(NSArray*) querySql:(NSString*)sql
+{
+    [_FMbookDB open];
+    FMResultSet* set = [_FMbookDB executeQuery:sql];
+    NSMutableArray* arrayDoc = [[NSMutableArray alloc] init];
+    while ([set next] == YES)
+    {
+        NSDictionary* dic = [set resultDictionary];
+        [arrayDoc addObject:dic];
+    }
+    [_FMbookDB close];
+    return arrayDoc;
+}
 
 
 /// 查询数据表中 item 数量
