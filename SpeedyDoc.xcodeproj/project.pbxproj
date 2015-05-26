@@ -165,6 +165,7 @@
 				6F2E995B1AFDB6A40091C5D9 /* OptionDocViewController.h */,
 				6F2E995C1AFDB6A40091C5D9 /* OptionDocViewController.m */,
 				6F2E995D1AFDB6A40091C5D9 /* OptionDocViewController.xib */,
+				A55870871AE9D5C000C7413C /* SpeedyDoc */,
 			);
 			name = FormatController;
 			sourceTree = "<group>";
@@ -298,7 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				6FD229941AEAAFEB008DF7E0 /* GUI */,
-				A55870871AE9D5C000C7413C /* SpeedyDoc */,
 				A55870A11AE9D5C000C7413C /* SpeedyDocTests */,
 				A55870861AE9D5C000C7413C /* Products */,
 				9D8F728EAC7A3725F007A5CF /* Pods */,
@@ -325,7 +325,8 @@
 				A55870971AE9D5C000C7413C /* LaunchScreen.xib */,
 				A55870881AE9D5C000C7413C /* Supporting Files */,
 			);
-			path = SpeedyDoc;
+			name = SpeedyDoc;
+			path = ../../SpeedyDoc;
 			sourceTree = "<group>";
 		};
 		A55870881AE9D5C000C7413C /* Supporting Files */ = {
