@@ -8,10 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SpeedyDocCellDelegate <NSObject>
+
+-(void)speedyDocCellEditBtnAtIndex:(NSIndexPath*) indexPath;
+
+@end
+
 @interface SpeedyDocCell : UITableViewCell
 
 @property (strong,nonatomic) IBOutlet UILabel* name;
 @property (strong,nonatomic) IBOutlet UILabel* ctime;
 @property (strong,nonatomic) IBOutlet UIButton* detailBtn;
+
+@property (assign,nonatomic) id<SpeedyDocCellDelegate> delegate;
+@property (strong,nonatomic) NSIndexPath* indexPath;
 
 @end
