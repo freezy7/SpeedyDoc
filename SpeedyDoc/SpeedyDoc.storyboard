@@ -55,11 +55,57 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="nil-SW-cw5" id="0Zv-3q-398"/>
+                        <segue destination="ATQ-5c-lBY" kind="push" identifier="EditDocSegue" id="mao-29-sz2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fN5-xJ-7Ab" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-581" y="-12"/>
+        </scene>
+        <!--Edit Doc View Controller-->
+        <scene sceneID="z12-im-gmO">
+            <objects>
+                <viewController id="ATQ-5c-lBY" customClass="EditDocViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A51-sj-Igw"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dma-rQ-s49"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OlB-gx-fyJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="文档名：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wM-ru-UI0">
+                                <rect key="frame" x="25" y="94" width="68" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="eMu-eW-4Du"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qzo-mg-jcQ">
+                                <rect key="frame" x="112" y="94" width="187" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Qzo-mg-jcQ" firstAttribute="top" secondItem="A51-sj-Igw" secondAttribute="bottom" constant="30" id="bI8-dj-8rk"/>
+                            <constraint firstItem="0wM-ru-UI0" firstAttribute="top" secondItem="A51-sj-Igw" secondAttribute="bottom" constant="30" id="gxo-CF-TTn"/>
+                            <constraint firstItem="Qzo-mg-jcQ" firstAttribute="leading" secondItem="0wM-ru-UI0" secondAttribute="trailing" constant="19" id="kmd-xO-k4s"/>
+                            <constraint firstItem="0wM-ru-UI0" firstAttribute="leading" secondItem="OlB-gx-fyJ" secondAttribute="leadingMargin" constant="9" id="oAT-fE-r70"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qzo-mg-jcQ" secondAttribute="trailing" constant="5" id="ydo-vD-Rpe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cRa-5m-ds7"/>
+                    <connections>
+                        <outlet property="docName" destination="Qzo-mg-jcQ" id="DgE-pp-lUL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EUQ-7k-DCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-131" y="-12"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

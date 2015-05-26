@@ -11,8 +11,9 @@
 #import "FormatDocViewController.h"
 #import "FMDBManmager.h"
 #import "SpeedyDocCell.h"
+#import "EditDocViewController.h"
 
-@interface SpeedyDocViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface SpeedyDocViewController ()<UITableViewDelegate,UITableViewDataSource,SpeedyDocCellDelegate>
 {
     NSMutableArray* _docArray;
     FMDBManmager* _fmdb;
@@ -61,6 +62,21 @@
     [_tableView reloadData];
 }
 
+-(void)speedyDocCellEditBtnAtIndex:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"EditDocSegue" sender:indexPath];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"EditDocSegue"]) {
+        EditDocViewController* vc = segue.destinationViewController;
+        NSIndexPath* indexPath = sender;
+        NSDictionary* dic = [_docArray objectAtIndex:indexPath.row];
+        vc.doc_id = [[dic objectForKey:@"id"] integerValue];
+    }
+}
+
 #pragma mark - tableView dataSource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -79,6 +95,9 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SpeedyDocCell" owner:self options:nil] lastObject];
     }
+    
+    cell.delegate = self;
+    cell.indexPath = indexPath;
     NSDictionary* dic = [_docArray objectAtIndex:indexPath.row];
     cell.name.text = [dic objectForKey:@"name"];
     
