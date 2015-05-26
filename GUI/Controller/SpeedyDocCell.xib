@@ -39,6 +39,9 @@
                         <state key="normal" title="edit">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="editBtnPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="mXx-J2-Iog"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
