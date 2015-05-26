@@ -31,6 +31,10 @@
 		6F601ECF1AEBCBD0000CDF88 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F601ECE1AEBCBD0000CDF88 /* MainViewController.m */; };
 		6F601FE51AEBE7BE000CDF88 /* FMDBManmager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F601FE41AEBE7BE000CDF88 /* FMDBManmager.m */; };
 		6F601FE81AEBE7DD000CDF88 /* FormModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F601FE71AEBE7DD000CDF88 /* FormModel.m */; };
+		6F80B9DB1B14CC4B00950AE9 /* EditDocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F80B9DA1B14CC4B00950AE9 /* EditDocViewController.m */; };
+		6F80B9DF1B14DB1400950AE9 /* speedydoc_29.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F80B9DC1B14DB1400950AE9 /* speedydoc_29.png */; };
+		6F80B9E01B14DB1400950AE9 /* speedydoc_40.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F80B9DD1B14DB1400950AE9 /* speedydoc_40.png */; };
+		6F80B9E11B14DB1400950AE9 /* speedydoc_60.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F80B9DE1B14DB1400950AE9 /* speedydoc_60.png */; };
 		6FA851661AF33E0E00B45763 /* SpeedyDocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA851651AF33E0E00B45763 /* SpeedyDocViewController.m */; };
 		6FA8516D1AF3500600B45763 /* CustomFormatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA8516B1AF3500600B45763 /* CustomFormatViewController.m */; };
 		6FA8516E1AF3500600B45763 /* CustomFormatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FA8516C1AF3500600B45763 /* CustomFormatViewController.xib */; };
@@ -91,6 +95,11 @@
 		6F601FE41AEBE7BE000CDF88 /* FMDBManmager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBManmager.m; sourceTree = "<group>"; };
 		6F601FE61AEBE7DD000CDF88 /* FormModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormModel.h; sourceTree = "<group>"; };
 		6F601FE71AEBE7DD000CDF88 /* FormModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormModel.m; sourceTree = "<group>"; };
+		6F80B9D91B14CC4B00950AE9 /* EditDocViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditDocViewController.h; sourceTree = "<group>"; };
+		6F80B9DA1B14CC4B00950AE9 /* EditDocViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDocViewController.m; sourceTree = "<group>"; };
+		6F80B9DC1B14DB1400950AE9 /* speedydoc_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speedydoc_29.png; sourceTree = "<group>"; };
+		6F80B9DD1B14DB1400950AE9 /* speedydoc_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speedydoc_40.png; sourceTree = "<group>"; };
+		6F80B9DE1B14DB1400950AE9 /* speedydoc_60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speedydoc_60.png; sourceTree = "<group>"; };
 		6FA851641AF33E0E00B45763 /* SpeedyDocViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedyDocViewController.h; sourceTree = "<group>"; };
 		6FA851651AF33E0E00B45763 /* SpeedyDocViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedyDocViewController.m; sourceTree = "<group>"; };
 		6FA8516A1AF3500600B45763 /* CustomFormatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomFormatViewController.h; sourceTree = "<group>"; };
@@ -173,6 +182,9 @@
 		6F2E99561AFBC1790091C5D9 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				6F80B9DC1B14DB1400950AE9 /* speedydoc_29.png */,
+				6F80B9DD1B14DB1400950AE9 /* speedydoc_40.png */,
+				6F80B9DE1B14DB1400950AE9 /* speedydoc_60.png */,
 				6F2E99591AFBC2370091C5D9 /* 竖线@2x.png */,
 				6F2E99571AFBC1960091C5D9 /* 右箭头@2x.png */,
 			);
@@ -193,6 +205,8 @@
 			children = (
 				6FA851641AF33E0E00B45763 /* SpeedyDocViewController.h */,
 				6FA851651AF33E0E00B45763 /* SpeedyDocViewController.m */,
+				6F80B9D91B14CC4B00950AE9 /* EditDocViewController.h */,
+				6F80B9DA1B14CC4B00950AE9 /* EditDocViewController.m */,
 			);
 			name = SpeedyDocController;
 			sourceTree = "<group>";
@@ -446,14 +460,17 @@
 				6F2E995A1AFBC2370091C5D9 /* 竖线@2x.png in Resources */,
 				6FD229991AEAB02A008DF7E0 /* SpeedyDoc.storyboard in Resources */,
 				6F2E997B1B071BDE0091C5D9 /* DetailFormViewController.xib in Resources */,
+				6F80B9E01B14DB1400950AE9 /* speedydoc_40.png in Resources */,
 				6F2E99801B072CCF0091C5D9 /* DetailFormTableViewCell.xib in Resources */,
 				6F2E99581AFBC1960091C5D9 /* 右箭头@2x.png in Resources */,
+				6F80B9E11B14DB1400950AE9 /* speedydoc_60.png in Resources */,
 				6F2E995F1AFDB6A40091C5D9 /* OptionDocViewController.xib in Resources */,
 				6F2E99751AFF55920091C5D9 /* FormPatternViewController.xib in Resources */,
 				6FA8516E1AF3500600B45763 /* CustomFormatViewController.xib in Resources */,
 				6F2E996A1AFE7B530091C5D9 /* SpeedyDocCell.xib in Resources */,
 				6F2E996F1AFF363F0091C5D9 /* OptionDocTableViewCell.xib in Resources */,
 				A55870961AE9D5C000C7413C /* Images.xcassets in Resources */,
+				6F80B9DF1B14DB1400950AE9 /* speedydoc_29.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +536,7 @@
 				6F601ECF1AEBCBD0000CDF88 /* MainViewController.m in Sources */,
 				6FA851661AF33E0E00B45763 /* SpeedyDocViewController.m in Sources */,
 				6F2E997F1B072CCF0091C5D9 /* DetailFormTableViewCell.m in Sources */,
+				6F80B9DB1B14CC4B00950AE9 /* EditDocViewController.m in Sources */,
 				6F2E996E1AFF363F0091C5D9 /* OptionDocTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
