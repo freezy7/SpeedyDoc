@@ -131,7 +131,8 @@
     
     for (NSDictionary* dic in _rowArray) {
         row = [XLFormRowDescriptor formRowDescriptorWithTag:[dic objectForKey:OPTION_ENAME] rowType:[dic objectForKey:OPTION_TYPE] title:[dic objectForKey:OPTION_CNAME]];
-        if ([[dic objectForKey:OPTION_TYPE] isEqualToString:TYPE_DOC_DATE]) {
+        if ([[dic objectForKey:OPTION_TYPE] isEqualToString:TYPE_DOC_DATE]||
+            [[dic objectForKey:OPTION_TYPE] isEqualToString:TYPE_DOC_TEXTVIEW]) {
             
         }
         else
