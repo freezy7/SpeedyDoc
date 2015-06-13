@@ -11,7 +11,7 @@
 #import "FormModel.h"
 #import <MessageUI/MFMailComposeViewController.h>
 
-#include "LibXL/libxl.h"
+//#include "LibXL/libxl.h"
 
 @interface MainViewController ()<MFMailComposeViewControllerDelegate>
 {
@@ -248,35 +248,35 @@ NSString *const kNotes = @"notes";
 
 -(void)creatExcel
 {
-    NSLog(@"creatExcel");
-    
-    BookHandle book = xlCreateBook();//use xlCreateXMLBook() for working with xlsx files
-    
-    SheetHandle sheet = xlBookAddSheet(book,"Sheet1",NULL);
-    
-    xlSheetWriteStr(sheet,2,1,"Hello World !",0);
-    xlSheetWriteNum(sheet,4,1,1000,0);
-    xlSheetWriteNum(sheet,5,1,2000,0);
-    
-    FontHandle font = xlBookAddFont(book,0);
-    xlFontSetColor(font,COLOR_RED);
-    xlFontSetBold(font,true);
-    FormatHandle boldFormat = xlBookAddFormat(book,0);
-    xlFormatSetFont(boldFormat,font);
-    xlSheetWriteFormula(sheet,6,1,"SUM(B5:B6)",boldFormat);
-    
-    FormatHandle dateFormat = xlBookAddFormat(book,0);
-    xlFormatSetNumFormat(dateFormat,NUMFORMAT_DATE);
-    xlSheetWriteNum(sheet,8,1,xlBookDatePack(book,2015,4,26,0,0,0,0),dateFormat);
-    
-    xlSheetSetCol(sheet,1,1,12,0,0);
-    
-    NSString* documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString* filename = [documentPath stringByAppendingPathComponent:@"out.xls"];
-    
-    xlBookSave(book,[filename UTF8String]);
-    
-    xlBookRelease(book);
+//    NSLog(@"creatExcel");
+//    
+//    BookHandle book = xlCreateBook();//use xlCreateXMLBook() for working with xlsx files
+//    
+//    SheetHandle sheet = xlBookAddSheet(book,"Sheet1",NULL);
+//    
+//    xlSheetWriteStr(sheet,2,1,"Hello World !",0);
+//    xlSheetWriteNum(sheet,4,1,1000,0);
+//    xlSheetWriteNum(sheet,5,1,2000,0);
+//    
+//    FontHandle font = xlBookAddFont(book,0);
+//    xlFontSetColor(font,COLOR_RED);
+//    xlFontSetBold(font,true);
+//    FormatHandle boldFormat = xlBookAddFormat(book,0);
+//    xlFormatSetFont(boldFormat,font);
+//    xlSheetWriteFormula(sheet,6,1,"SUM(B5:B6)",boldFormat);
+//    
+//    FormatHandle dateFormat = xlBookAddFormat(book,0);
+//    xlFormatSetNumFormat(dateFormat,NUMFORMAT_DATE);
+//    xlSheetWriteNum(sheet,8,1,xlBookDatePack(book,2015,4,26,0,0,0,0),dateFormat);
+//    
+//    xlSheetSetCol(sheet,1,1,12,0,0);
+//    
+//    NSString* documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//    NSString* filename = [documentPath stringByAppendingPathComponent:@"out.xls"];
+//    
+//    xlBookSave(book,[filename UTF8String]);
+//    
+//    xlBookRelease(book);
     
 }
 
