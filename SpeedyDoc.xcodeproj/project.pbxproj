@@ -26,7 +26,6 @@
 		6F2E997B1B071BDE0091C5D9 /* DetailFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E99791B071BDE0091C5D9 /* DetailFormViewController.xib */; };
 		6F2E997F1B072CCF0091C5D9 /* DetailFormTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E997D1B072CCF0091C5D9 /* DetailFormTableViewCell.m */; };
 		6F2E99801B072CCF0091C5D9 /* DetailFormTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E997E1B072CCF0091C5D9 /* DetailFormTableViewCell.xib */; };
-		6F3CDA771AECA3B50079E7D5 /* LibXL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3CDA761AECA3B50079E7D5 /* LibXL.framework */; };
 		6F3CDA791AED0D6D0079E7D5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3CDA781AED0D6D0079E7D5 /* MessageUI.framework */; };
 		6F601ECF1AEBCBD0000CDF88 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F601ECE1AEBCBD0000CDF88 /* MainViewController.m */; };
 		6F601FE51AEBE7BE000CDF88 /* FMDBManmager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F601FE41AEBE7BE000CDF88 /* FMDBManmager.m */; };
@@ -87,7 +86,6 @@
 		6F2E997C1B072CCF0091C5D9 /* DetailFormTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailFormTableViewCell.h; sourceTree = "<group>"; };
 		6F2E997D1B072CCF0091C5D9 /* DetailFormTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailFormTableViewCell.m; sourceTree = "<group>"; };
 		6F2E997E1B072CCF0091C5D9 /* DetailFormTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailFormTableViewCell.xib; sourceTree = "<group>"; };
-		6F3CDA761AECA3B50079E7D5 /* LibXL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LibXL.framework; sourceTree = "<group>"; };
 		6F3CDA781AED0D6D0079E7D5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		6F601ECD1AEBCBD0000CDF88 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		6F601ECE1AEBCBD0000CDF88 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
@@ -127,7 +125,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F3CDA791AED0D6D0079E7D5 /* MessageUI.framework in Frameworks */,
-				6F3CDA771AECA3B50079E7D5 /* LibXL.framework in Frameworks */,
 				83E2D854528ABA08EB04ECBF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				6F3CDA781AED0D6D0079E7D5 /* MessageUI.framework */,
-				6F3CDA761AECA3B50079E7D5 /* LibXL.framework */,
 				83D2D08C50ABF2C5100BBA97 /* libPods.a */,
 			);
 			name = Frameworks;
