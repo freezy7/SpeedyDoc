@@ -9,7 +9,7 @@
 #import "DetailFormViewController.h"
 #import "FMDBManmager.h"
 #import "DetailFormTableViewCell.h"
-#import <LibXL/LibXL.h>
+//#import <LibXL/LibXL.h>
 #import <MessageUI/MFMailComposeViewController.h>
 
 @interface DetailFormViewController ()<UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate>
@@ -49,35 +49,35 @@
 {
     NSLog(@"creatExcel");
     
-    BookHandle book = xlCreateBook();//use xlCreateXMLBook() for working with xlsx files
-    
-    SheetHandle sheet = xlBookAddSheet(book,"Sheet1",NULL);
-    
-    for (int i = 0;i < _modelArray.count;i++) {
-        NSDictionary* dic = _modelArray[i];
-        NSString* cname = [dic objectForKey:OPTION_CNAME];
-        xlSheetWriteStr(sheet,1,i,[cname UTF8String],0);
-    }
-    for (int i = 0; i<_dataArray.count; i++) {
-        NSDictionary* dicData = _dataArray[i];
-        for (int j = 0; j<_modelArray.count; j++) {
-            NSDictionary* dic = _modelArray[j];
-            NSString* ename = [dic objectForKey:OPTION_ENAME];
-            NSString* str = [dicData objectForKey:ename];
-            xlSheetWriteStr(sheet,i+2,j,[str UTF8String],0);
-        }
-    }
-    
-    // 用的是table的cname
-    NSString* documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString* filename = [documentPath stringByAppendingPathComponent:_tableCName];
-    
-    // 不用重新删除表格，数据能够存储加保存
-    xlBookSave(book,[filename UTF8String]);
-    
-    xlBookRelease(book);
-    
-    [self sendMailInApp];
+//    BookHandle book = xlCreateBook();//use xlCreateXMLBook() for working with xlsx files
+//    
+//    SheetHandle sheet = xlBookAddSheet(book,"Sheet1",NULL);
+//    
+//    for (int i = 0;i < _modelArray.count;i++) {
+//        NSDictionary* dic = _modelArray[i];
+//        NSString* cname = [dic objectForKey:OPTION_CNAME];
+//        xlSheetWriteStr(sheet,1,i,[cname UTF8String],0);
+//    }
+//    for (int i = 0; i<_dataArray.count; i++) {
+//        NSDictionary* dicData = _dataArray[i];
+//        for (int j = 0; j<_modelArray.count; j++) {
+//            NSDictionary* dic = _modelArray[j];
+//            NSString* ename = [dic objectForKey:OPTION_ENAME];
+//            NSString* str = [dicData objectForKey:ename];
+//            xlSheetWriteStr(sheet,i+2,j,[str UTF8String],0);
+//        }
+//    }
+//    
+//    // 用的是table的cname
+//    NSString* documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//    NSString* filename = [documentPath stringByAppendingPathComponent:_tableCName];
+//    
+//    // 不用重新删除表格，数据能够存储加保存
+//    xlBookSave(book,[filename UTF8String]);
+//    
+//    xlBookRelease(book);
+//    
+//    [self sendMailInApp];
 
 }
 
