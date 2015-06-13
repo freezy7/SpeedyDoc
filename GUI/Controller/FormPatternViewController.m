@@ -34,18 +34,34 @@
     [self initializeForm];
 }
 
+-(void)alertWithMessage:(NSString*)msg
+{
+    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Valid Form", nil) message:msg delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+    [alertView show];
+}
+
 -(void)savePressed:(UIBarButtonItem*) btn
 {
-//    NSDictionary* dic = self.formValues;
-    
-    
+    btn.enabled = NO;
+    [self.tableView endEditing:YES];
     NSMutableDictionary* dic = (NSMutableDictionary*)self.formValues;
     [dic removeObjectForKey:@"button"];
     
+    for (id value in [dic allValues]) {
+        if (!value || [value isEqual:@""]||[[value class] isEqual:[NSNull class]]) {
+            [self alertWithMessage:@"全为必填项"];
+            btn.enabled = YES;
+            return;
+        }
+    }
     if ([dic objectForKey:@"date"]) {// 如果是日期对日期进行时间戳化
         NSDate* date = (NSDate*)[dic objectForKey:@"date"];
-        NSString* ctime = [NSString stringWithFormat:@"%f",[date timeIntervalSince1970]];
-        [dic setObject:ctime forKey:@"date"];
+        if (!date) {
+            return;
+        }else{
+            NSString* ctime = [NSString stringWithFormat:@"%f",[date timeIntervalSince1970]];
+            [dic setObject:ctime forKey:@"date"];
+        }
     }
     
     // 对插入数据建立一个时间戳
@@ -53,8 +69,40 @@
     NSString* curtime = [NSString stringWithFormat:@"%f",[curDate timeIntervalSince1970]];
     [dic setObject:curtime forKey:@"ctime"];
     
-    [_fmdb insertIntoTable:_table data:dic];
-    
+    BOOL ret = [_fmdb insertIntoTable:_table data:dic];
+    if (ret) {//数据保存成功
+        [self clearFormRowValues];
+        // 制作动画
+        UIView* snapshotView = [self.view snapshotViewAfterScreenUpdates:NO];
+        
+        [self.view addSubview:snapshotView];
+        
+        [self performSelector:@selector(animateViewAwayAndReset:) withObject:snapshotView];
+    }
+    btn.enabled = YES;
+}
+
+// animate and remove the snapshotView
+-(void) animateViewAwayAndReset:(UIView*)view
+{
+    [UIView animateWithDuration:0.5 animations:^{
+        view.center = CGPointMake(self.view.frame.size.width,64);
+        view.bounds = CGRectZero;
+    } completion:^(BOOL finished) {
+        [view removeFromSuperview];
+    }];
+}
+
+#pragma mark - clear form row values after save success
+
+-(void)clearFormRowValues
+{
+    for (XLFormSectionDescriptor* section in [self.form formSections]) {
+        for (XLFormRowDescriptor * row in section.formRows) {
+            row.value = @"";
+        }
+    }
+    [self.tableView reloadData];
 }
 
 -(void)initializeForm
@@ -83,7 +131,8 @@
     
     for (NSDictionary* dic in _rowArray) {
         row = [XLFormRowDescriptor formRowDescriptorWithTag:[dic objectForKey:OPTION_ENAME] rowType:[dic objectForKey:OPTION_TYPE] title:[dic objectForKey:OPTION_CNAME]];
-        if ([[dic objectForKey:OPTION_TYPE] isEqualToString:TYPE_DOC_DATE]) {
+        if ([[dic objectForKey:OPTION_TYPE] isEqualToString:TYPE_DOC_DATE]||
+            [[dic objectForKey:OPTION_TYPE] isEqualToString:TYPE_DOC_TEXTVIEW]) {
             
         }
         else
