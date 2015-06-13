@@ -54,6 +54,13 @@
     _option.delegate = self;
 }
 
+-(void)alertWithMessage:(NSString*)msg
+{
+    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Valid Form", nil) message:msg delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+    [alertView show];
+}
+
+
 // 保存自定义表单
 -(void)savePressed:(UIBarButtonItem*) btn
 {
@@ -66,7 +73,20 @@
     btn.enabled = NO;
     NSMutableArray* formatArr = [NSMutableArray arrayWithArray:_formatArray];
     [formatArr removeLastObject];
-    if(!formatArr.count) return;
+    if(!formatArr.count) {
+        [self alertWithMessage:@"必须有表单数据才能保存"];
+        btn.enabled = YES;
+        return;
+    }
+    
+    for (NSDictionary* dic in formatArr) {
+        NSString* type = [dic objectForKey:OPTION_TYPE];
+        if (!type||[type isEqualToString:@""]) {
+            [self alertWithMessage:@"请选择表单类型"];
+            btn.enabled = YES;
+            return;
+        }
+    }
     NSLog(@"formatArray = %@",formatArr);
     
     NSInteger count = [_fmdb queryCountFromTable:@"speedydoc"];
