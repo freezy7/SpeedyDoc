@@ -261,6 +261,17 @@ static FMDBManmager* _singletonManager = nil;
 
 }
 
+-(BOOL)excuteUpdateSql:(NSString*)sql
+{
+    [_FMbookDB open];
+    BOOL ret = [_FMbookDB executeUpdate:sql];
+    [_FMbookDB close];
+    if (ret == YES) {
+        NSLog(@"单条更新成功");
+    }
+    return ret;
+}
+
 -(BOOL) updateTable:(NSString*) tableName byData:(NSDictionary*) data
 {
     [_FMbookDB open];
