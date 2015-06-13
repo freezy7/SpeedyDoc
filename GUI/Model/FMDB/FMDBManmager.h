@@ -40,7 +40,8 @@
 -(NSInteger) queryCountFromTable:(NSString*) tableName;
 ///查询记录中的最大id
 -(NSInteger) queryMaxAutoIncrementIDFromTable:(NSString*) tableName;
-
+/// 执行单条sql语句
+-(BOOL)excuteUpdateSql:(NSString*)sql;
 ///更新单条数据
 -(BOOL) updateTable:(NSString*) tableName byData:(NSDictionary*) data;
 

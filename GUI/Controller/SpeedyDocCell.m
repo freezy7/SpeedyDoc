@@ -20,4 +20,9 @@
     // Configure the view for the selected state
 }
 
+-(IBAction)editBtnPressed:(id)sender
+{
+    [_delegate speedyDocCellEditBtnAtIndex:_indexPath];
+}
+
 @end
