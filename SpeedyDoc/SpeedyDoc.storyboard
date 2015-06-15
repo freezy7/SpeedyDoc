@@ -21,9 +21,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="77V-Vh-kbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+
             <point key="canvasLocation" x="-1063" y="237"/>
         </scene>
         <!--Speedy Doc-->
+
         <scene sceneID="qv3-tr-39s">
             <objects>
                 <viewController id="fAJ-eX-PXh" customClass="SpeedyDocViewController" sceneMemberID="viewController">
@@ -52,6 +54,7 @@
                             <constraint firstAttribute="trailing" secondItem="nil-SW-cw5" secondAttribute="trailing" id="cP8-3q-3OM"/>
                         </constraints>
                     </view>
+
                     <navigationItem key="navigationItem" title="Speedy Doc" id="cTm-DX-jeA">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="kDQ-DM-KGj">
                             <connections>
@@ -59,6 +62,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="nil-SW-cw5" id="0Zv-3q-398"/>
@@ -142,6 +146,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EUQ-7k-DCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-121" y="-534"/>
+
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
