@@ -21,10 +21,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="77V-Vh-kbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-996.79999999999995" y="267.90666666666664"/>
+
+            <point key="canvasLocation" x="-1063" y="237"/>
         </scene>
-        <!--Speedy Doc View Controller-->
-        <scene sceneID="qv3-tr-39s">
+        <!--Speedy Doc-->
+
+       <scene sceneID="qv3-tr-39s">
             <objects>
                 <viewController id="fAJ-eX-PXh" customClass="SpeedyDocViewController" sceneMemberID="viewController">
                     <layoutGuides>
@@ -52,8 +54,14 @@
                             <constraint firstAttribute="trailing" secondItem="nil-SW-cw5" secondAttribute="trailing" id="cP8-3q-3OM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="cTm-DX-jeA"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationItem key="navigationItem" title="Speedy Doc" id="cTm-DX-jeA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="kDQ-DM-KGj">
+                            <connections>
+                                <segue destination="DtB-oD-wL0" kind="push" identifier="AddFormatDoc" id="1mf-5a-pwI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                   <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="nil-SW-cw5" id="0Zv-3q-398"/>
                         <segue destination="ATQ-5c-lBY" kind="push" identifier="EditDocSegue" id="mao-29-sz2"/>
@@ -61,8 +69,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fN5-xJ-7Ab" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-581" y="-12"/>
+           <point key="canvasLocation" x="-609" y="-12"/>
         </scene>
+        <!--添加字段-->
+        <scene sceneID="ZfL-eK-yAL">
+            <objects>
+                <tableViewController id="DtB-oD-wL0" customClass="FormatFormViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QMV-YN-T8G">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="B56-mK-qPA">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B56-mK-qPA" id="y4d-9H-msC">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="DtB-oD-wL0" id="v2H-VH-9La"/>
+                            <outlet property="delegate" destination="DtB-oD-wL0" id="gsG-5h-D7P"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="添加字段" id="HTk-XM-Avf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="9Qg-Zi-cTQ"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZC7-Dc-xdM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-115" y="150"/>
+       </scene>
         <!--Edit Doc View Controller-->
         <scene sceneID="z12-im-gmO">
             <objects>
@@ -106,8 +143,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EUQ-7k-DCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-131" y="-12"/>
-        </scene>
+           <point key="canvasLocation" x="-121" y="-534"/>
+
+       </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
