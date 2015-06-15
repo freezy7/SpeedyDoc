@@ -31,18 +31,15 @@
 		6F601FE51AEBE7BE000CDF88 /* FMDBManmager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F601FE41AEBE7BE000CDF88 /* FMDBManmager.m */; };
 		6F601FE81AEBE7DD000CDF88 /* FormModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F601FE71AEBE7DD000CDF88 /* FormModel.m */; };
 		6F80B9DB1B14CC4B00950AE9 /* EditDocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F80B9DA1B14CC4B00950AE9 /* EditDocViewController.m */; };
-		6F80B9DF1B14DB1400950AE9 /* speedydoc_29.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F80B9DC1B14DB1400950AE9 /* speedydoc_29.png */; };
-		6F80B9E01B14DB1400950AE9 /* speedydoc_40.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F80B9DD1B14DB1400950AE9 /* speedydoc_40.png */; };
-		6F80B9E11B14DB1400950AE9 /* speedydoc_60.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F80B9DE1B14DB1400950AE9 /* speedydoc_60.png */; };
 		6FA851661AF33E0E00B45763 /* SpeedyDocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA851651AF33E0E00B45763 /* SpeedyDocViewController.m */; };
 		6FA8516D1AF3500600B45763 /* CustomFormatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA8516B1AF3500600B45763 /* CustomFormatViewController.m */; };
 		6FA8516E1AF3500600B45763 /* CustomFormatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FA8516C1AF3500600B45763 /* CustomFormatViewController.xib */; };
-		6FD229991AEAB02A008DF7E0 /* SpeedyDoc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FD229981AEAB02A008DF7E0 /* SpeedyDoc.storyboard */; };
 		83E2D854528ABA08EB04ECBF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D2D08C50ABF2C5100BBA97 /* libPods.a */; };
-		A558708B1AE9D5C000C7413C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A558708A1AE9D5C000C7413C /* main.m */; };
-		A558708E1AE9D5C000C7413C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A558708D1AE9D5C000C7413C /* AppDelegate.m */; };
-		A55870961AE9D5C000C7413C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A55870951AE9D5C000C7413C /* Images.xcassets */; };
-		A55870991AE9D5C000C7413C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A55870971AE9D5C000C7413C /* LaunchScreen.xib */; };
+		A558225C1B2ED74100F73C87 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A55822541B2ED74100F73C87 /* AppDelegate.m */; };
+		A558225E1B2ED74100F73C87 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A55822571B2ED74100F73C87 /* Images.xcassets */; };
+		A558225F1B2ED74100F73C87 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A55822581B2ED74100F73C87 /* Info.plist */; };
+		A55822601B2ED74100F73C87 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A55822591B2ED74100F73C87 /* main.m */; };
+		A55822611B2ED74100F73C87 /* SpeedyDoc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A558225B1B2ED74100F73C87 /* SpeedyDoc.storyboard */; };
 		A55870A51AE9D5C000C7413C /* SpeedyDocTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A55870A41AE9D5C000C7413C /* SpeedyDocTests.m */; };
 /* End PBXBuildFile section */
 
@@ -95,27 +92,24 @@
 		6F601FE71AEBE7DD000CDF88 /* FormModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormModel.m; sourceTree = "<group>"; };
 		6F80B9D91B14CC4B00950AE9 /* EditDocViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditDocViewController.h; sourceTree = "<group>"; };
 		6F80B9DA1B14CC4B00950AE9 /* EditDocViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDocViewController.m; sourceTree = "<group>"; };
-		6F80B9DC1B14DB1400950AE9 /* speedydoc_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speedydoc_29.png; sourceTree = "<group>"; };
-		6F80B9DD1B14DB1400950AE9 /* speedydoc_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speedydoc_40.png; sourceTree = "<group>"; };
-		6F80B9DE1B14DB1400950AE9 /* speedydoc_60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speedydoc_60.png; sourceTree = "<group>"; };
 		6FA851641AF33E0E00B45763 /* SpeedyDocViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedyDocViewController.h; sourceTree = "<group>"; };
 		6FA851651AF33E0E00B45763 /* SpeedyDocViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedyDocViewController.m; sourceTree = "<group>"; };
 		6FA8516A1AF3500600B45763 /* CustomFormatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomFormatViewController.h; sourceTree = "<group>"; };
 		6FA8516B1AF3500600B45763 /* CustomFormatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomFormatViewController.m; sourceTree = "<group>"; };
 		6FA8516C1AF3500600B45763 /* CustomFormatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomFormatViewController.xib; sourceTree = "<group>"; };
-		6FD229981AEAB02A008DF7E0 /* SpeedyDoc.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpeedyDoc.storyboard; sourceTree = "<group>"; };
 		83D2D08C50ABF2C5100BBA97 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A55822531B2ED74100F73C87 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A55822541B2ED74100F73C87 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A55822561B2ED74100F73C87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		A55822571B2ED74100F73C87 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A55822581B2ED74100F73C87 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A55822591B2ED74100F73C87 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A558225A1B2ED74100F73C87 /* SpeedyDoc-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SpeedyDoc-Prefix.pch"; sourceTree = "<group>"; };
+		A558225B1B2ED74100F73C87 /* SpeedyDoc.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpeedyDoc.storyboard; sourceTree = "<group>"; };
 		A55870851AE9D5C000C7413C /* SpeedyDoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeedyDoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A55870891AE9D5C000C7413C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A558708A1AE9D5C000C7413C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A558708C1AE9D5C000C7413C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A558708D1AE9D5C000C7413C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A55870951AE9D5C000C7413C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		A55870981AE9D5C000C7413C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A558709E1AE9D5C000C7413C /* SpeedyDocTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeedyDocTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55870A31AE9D5C000C7413C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A55870A41AE9D5C000C7413C /* SpeedyDocTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpeedyDocTests.m; sourceTree = "<group>"; };
-		A55870AF1AE9E02200C7413C /* SpeedyDoc-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SpeedyDoc-Prefix.pch"; sourceTree = "<group>"; };
 		B76D309863F7D598DF088719 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,7 +164,6 @@
 				6F2E995B1AFDB6A40091C5D9 /* OptionDocViewController.h */,
 				6F2E995C1AFDB6A40091C5D9 /* OptionDocViewController.m */,
 				6F2E995D1AFDB6A40091C5D9 /* OptionDocViewController.xib */,
-				A55870871AE9D5C000C7413C /* SpeedyDoc */,
 			);
 			name = FormatController;
 			sourceTree = "<group>";
@@ -178,9 +171,6 @@
 		6F2E99561AFBC1790091C5D9 /* image */ = {
 			isa = PBXGroup;
 			children = (
-				6F80B9DC1B14DB1400950AE9 /* speedydoc_29.png */,
-				6F80B9DD1B14DB1400950AE9 /* speedydoc_40.png */,
-				6F80B9DE1B14DB1400950AE9 /* speedydoc_60.png */,
 				6F2E99591AFBC2370091C5D9 /* 竖线@2x.png */,
 				6F2E99571AFBC1960091C5D9 /* 右箭头@2x.png */,
 			);
@@ -305,9 +295,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A55822521B2ED74100F73C87 /* SpeedyDoc */ = {
+			isa = PBXGroup;
+			children = (
+				A55822531B2ED74100F73C87 /* AppDelegate.h */,
+				A55822541B2ED74100F73C87 /* AppDelegate.m */,
+				A55822551B2ED74100F73C87 /* LaunchScreen.xib */,
+				A55822571B2ED74100F73C87 /* Images.xcassets */,
+				A55822581B2ED74100F73C87 /* Info.plist */,
+				A55822591B2ED74100F73C87 /* main.m */,
+				A558225A1B2ED74100F73C87 /* SpeedyDoc-Prefix.pch */,
+				A558225B1B2ED74100F73C87 /* SpeedyDoc.storyboard */,
+			);
+			path = SpeedyDoc;
+			sourceTree = "<group>";
+		};
 		A558707C1AE9D5C000C7413C = {
 			isa = PBXGroup;
 			children = (
+				A55822521B2ED74100F73C87 /* SpeedyDoc */,
 				6FD229941AEAAFEB008DF7E0 /* GUI */,
 				A55870A11AE9D5C000C7413C /* SpeedyDocTests */,
 				A55870861AE9D5C000C7413C /* Products */,
@@ -323,30 +329,6 @@
 				A558709E1AE9D5C000C7413C /* SpeedyDocTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		A55870871AE9D5C000C7413C /* SpeedyDoc */ = {
-			isa = PBXGroup;
-			children = (
-				A558708C1AE9D5C000C7413C /* AppDelegate.h */,
-				A558708D1AE9D5C000C7413C /* AppDelegate.m */,
-				6FD229981AEAB02A008DF7E0 /* SpeedyDoc.storyboard */,
-				A55870951AE9D5C000C7413C /* Images.xcassets */,
-				A55870971AE9D5C000C7413C /* LaunchScreen.xib */,
-				A55870881AE9D5C000C7413C /* Supporting Files */,
-			);
-			name = SpeedyDoc;
-			path = ../../SpeedyDoc;
-			sourceTree = "<group>";
-		};
-		A55870881AE9D5C000C7413C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A55870891AE9D5C000C7413C /* Info.plist */,
-				A558708A1AE9D5C000C7413C /* main.m */,
-				A55870AF1AE9E02200C7413C /* SpeedyDoc-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A55870A11AE9D5C000C7413C /* SpeedyDocTests */ = {
@@ -451,22 +433,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F2E994E1AFA6C550091C5D9 /* FormatDocViewController.xib in Resources */,
+				A558225E1B2ED74100F73C87 /* Images.xcassets in Resources */,
 				6F2E99551AFA703F0091C5D9 /* FormatDocTableViewCell.xib in Resources */,
-				A55870991AE9D5C000C7413C /* LaunchScreen.xib in Resources */,
 				6F2E995A1AFBC2370091C5D9 /* 竖线@2x.png in Resources */,
-				6FD229991AEAB02A008DF7E0 /* SpeedyDoc.storyboard in Resources */,
 				6F2E997B1B071BDE0091C5D9 /* DetailFormViewController.xib in Resources */,
-				6F80B9E01B14DB1400950AE9 /* speedydoc_40.png in Resources */,
 				6F2E99801B072CCF0091C5D9 /* DetailFormTableViewCell.xib in Resources */,
 				6F2E99581AFBC1960091C5D9 /* 右箭头@2x.png in Resources */,
-				6F80B9E11B14DB1400950AE9 /* speedydoc_60.png in Resources */,
 				6F2E995F1AFDB6A40091C5D9 /* OptionDocViewController.xib in Resources */,
+				A558225F1B2ED74100F73C87 /* Info.plist in Resources */,
 				6F2E99751AFF55920091C5D9 /* FormPatternViewController.xib in Resources */,
+				A55822611B2ED74100F73C87 /* SpeedyDoc.storyboard in Resources */,
 				6FA8516E1AF3500600B45763 /* CustomFormatViewController.xib in Resources */,
 				6F2E996A1AFE7B530091C5D9 /* SpeedyDocCell.xib in Resources */,
 				6F2E996F1AFF363F0091C5D9 /* OptionDocTableViewCell.xib in Resources */,
-				A55870961AE9D5C000C7413C /* Images.xcassets in Resources */,
-				6F80B9DF1B14DB1400950AE9 /* speedydoc_29.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,14 +497,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F601FE81AEBE7DD000CDF88 /* FormModel.m in Sources */,
-				A558708E1AE9D5C000C7413C /* AppDelegate.m in Sources */,
 				6F2E99691AFE7B530091C5D9 /* SpeedyDocCell.m in Sources */,
+				A558225C1B2ED74100F73C87 /* AppDelegate.m in Sources */,
 				6F2E99541AFA703F0091C5D9 /* FormatDocTableViewCell.m in Sources */,
 				6F2E994D1AFA6C550091C5D9 /* FormatDocViewController.m in Sources */,
 				6F2E997A1B071BDE0091C5D9 /* DetailFormViewController.m in Sources */,
 				6F2E99741AFF55920091C5D9 /* FormPatternViewController.m in Sources */,
 				6F2E995E1AFDB6A40091C5D9 /* OptionDocViewController.m in Sources */,
-				A558708B1AE9D5C000C7413C /* main.m in Sources */,
+				A55822601B2ED74100F73C87 /* main.m in Sources */,
 				6FA8516D1AF3500600B45763 /* CustomFormatViewController.m in Sources */,
 				6F2E99631AFDBD3D0091C5D9 /* ColumnOption.m in Sources */,
 				6F601FE51AEBE7BE000CDF88 /* FMDBManmager.m in Sources */,
@@ -556,10 +535,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A55870971AE9D5C000C7413C /* LaunchScreen.xib */ = {
+		A55822551B2ED74100F73C87 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A55870981AE9D5C000C7413C /* Base */,
+				A55822561B2ED74100F73C87 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

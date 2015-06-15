@@ -8,7 +8,10 @@
 
 #import "SpeedyDocViewController.h"
 #import "FormPatternViewController.h"
-#import "FormatDocViewController.h"
+
+//#import "FormatDocViewController.h"
+#import "FormatFormViewController.h"
+
 #import "FMDBManmager.h"
 #import "SpeedyDocCell.h"
 #import "EditDocViewController.h"
@@ -50,8 +53,6 @@
         [_fmdb insertIntoTable:@"columns" data:dicURL];
     }
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPressed:)];
-    
     //从数据库中查询doc数据
     _docArray = [NSMutableArray arrayWithArray:[_fmdb queryListFromTable:@"speedydoc"]];
 }
@@ -75,6 +76,12 @@
         NSDictionary* dic = [_docArray objectAtIndex:indexPath.row];
         vc.doc_id = [[dic objectForKey:@"id"] integerValue];
     }
+
+    if ([segue.identifier isEqualToString:@"AddFormatDoc"]) {
+        
+        
+    }
+
 }
 
 #pragma mark - tableView dataSource
@@ -132,8 +139,7 @@
 
 -(void)addPressed:(UIButton*) btn
 {
-    FormatDocViewController* format = [[FormatDocViewController alloc] initWithNibName:@"FormatDocViewController" bundle:nil];
-    [self.navigationController pushViewController:format animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {
