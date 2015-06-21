@@ -7,7 +7,6 @@
 //
 
 #import "FMDBManmager.h"
-#import "FormModel.h"
 
 static FMDBManmager* _singletonManager = nil;
 @interface FMDBManmager ()
@@ -125,30 +124,6 @@ static FMDBManmager* _singletonManager = nil;
     return ret;
 }
 
--(BOOL) addDataItem:(FormModel*) form
-{
-    [_FMbookDB open];
-    NSString* strInsert = @"insert into bookSheet(name,email,number,integer,decimal,password,phone,url,textView,notes) values(?,?,?,?,?,?,?,?,?,?)";
-    BOOL ret = [_FMbookDB executeUpdate:
-                strInsert,
-                form.name,
-                form.email,
-                form.number,
-                form.integer,
-                form.decimal,
-                form.password,
-                form.phone,
-                form.url,
-                form.textView,
-                form.notes
-                ];
-    [_FMbookDB close];
-    if (ret == YES) {
-        NSLog(@"添加成功");
-    }
-    return ret;
-}
-
 -(BOOL)insertIntoTable:(NSString*) tableName data:(NSDictionary*) data
 {
     [_FMbookDB open];
@@ -198,6 +173,21 @@ static FMDBManmager* _singletonManager = nil;
     }
     return ret;
 }
+
+///根据表名删除表
+-(BOOL)dropTable:(NSString*) tableName
+{
+    [_FMbookDB open];
+    NSString* strDelete = [NSString stringWithFormat: @"drop table %@",tableName];
+    BOOL ret = [_FMbookDB executeUpdate:strDelete];
+    [_FMbookDB close];
+    if (ret  == YES) {
+        NSLog(@"删除成功");
+    }
+    return ret;
+}
+
+
 /// 查询表中的list 数据
 -(NSArray*) queryListFromTable:(NSString*)tableName
 {
