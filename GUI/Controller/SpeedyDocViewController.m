@@ -68,20 +68,26 @@
     [self performSegueWithIdentifier:@"EditDocSegue" sender:indexPath];
 }
 
+#pragma mark - Navigation
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"EditDocSegue"]) {
+    if ([segue.identifier isEqualToString:@"EditDocSegue"]) {//编辑表名
         EditDocViewController* vc = segue.destinationViewController;
         NSIndexPath* indexPath = sender;
         NSDictionary* dic = [_docArray objectAtIndex:indexPath.row];
         vc.doc_id = [[dic objectForKey:@"id"] integerValue];
     }
-
-    if ([segue.identifier isEqualToString:@"AddFormatDoc"]) {
-        
+    if ([segue.identifier isEqualToString:@"AddFormatDoc"]) {//增加一张表
         
     }
-
+    if ([segue.identifier isEqualToString:@"FormPattern"]) {//读取一张表输入内容
+        FormPatternViewController* vc = segue.destinationViewController;
+        NSIndexPath* indexPath = sender;
+        NSDictionary* dic = [_docArray objectAtIndex:indexPath.row];
+        vc.model = [dic objectForKey:@"model_name"];
+        vc.table = [dic objectForKey:@"table_name"];
+    }
 }
 
 #pragma mark - tableView dataSource
@@ -120,15 +126,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary* dic = [_docArray objectAtIndex:indexPath.row];
-    NSString* model = [dic objectForKey:@"model_name"];
-    NSString* table = [dic objectForKey:@"table_name"];
-    FormPatternViewController* formPattern = [[FormPatternViewController alloc] initWithNibName:@"FormPatternViewController" bundle:nil];
-    
-    formPattern.model = model;
-    formPattern.table = table;
-    
-    [self.navigationController pushViewController:formPattern animated:YES];
+    [self performSegueWithIdentifier:@"FormPattern" sender:indexPath];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -136,25 +134,43 @@
     return 80;
 }
 
-
--(void)addPressed:(UIButton*) btn
+// 删除 插入等一系列操作
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    return YES;
 }
+
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+-(NSString*) tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";
+}
+
+-(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary* dic = [_docArray objectAtIndex:indexPath.row];
+    NSLog(@"dic = %@ ",dic);
+    BOOL ret = [_fmdb removeDataFromTable:@"speedydoc" ItemByIndex:[dic objectForKey:@"id"]];
+    if (ret) {
+        [_fmdb dropTable:[dic objectForKey:@"model_name"]];
+        [_fmdb dropTable:[dic objectForKey:@"table_name"]];
+        
+        [_docArray removeObject:dic];
+        
+        [_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
+    }else{
+        NSLog(@"删除失败");
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

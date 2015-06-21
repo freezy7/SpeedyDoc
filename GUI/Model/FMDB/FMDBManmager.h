@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "FMDB.h"
-@class FormModel;
 @interface FMDBManmager : NSObject
 
 @property (retain,nonatomic) FMDatabase* FMbookDB;
@@ -23,14 +22,15 @@
 ///根据字段创建表
 -(BOOL) creatTable:(NSString*) tableName withColumnArray:(NSArray*) array;
 
-///插入数据
--(BOOL) addDataItem:(FormModel*) form;
 ///向指定数据表中插入一条数据
 -(BOOL)insertIntoTable:(NSString*) tableName data:(NSDictionary*) data;
 
 
 ///根据index(id)删除一条数据
--(BOOL) removeDataFromTable:(NSString*) tableName ItemByIndex:(NSString*) index;
+-(BOOL)removeDataFromTable:(NSString*) tableName ItemByIndex:(NSString*) index;
+
+///根据表名删除表
+-(BOOL)dropTable:(NSString*) tableName;
 
 ///查询list数据
 -(NSArray*) queryListFromTable:(NSString*)tableName;
