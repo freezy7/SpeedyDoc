@@ -7,25 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F2A0A9B1B3E7D73004F610B /* FMDBManmager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A0A9A1B3E7D73004F610B /* FMDBManmager.m */; };
+		6F2A0AC51B3E7FC7004F610B /* EditDocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A0A9F1B3E7FC7004F610B /* EditDocViewController.m */; };
+		6F2A0AC61B3E7FC7004F610B /* FormatFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A0AA51B3E7FC7004F610B /* FormatFormViewController.m */; };
+		6F2A0AC71B3E7FC7004F610B /* OptionDocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A0AA71B3E7FC7004F610B /* OptionDocViewController.m */; };
+		6F2A0AC81B3E7FC7004F610B /* OptionDocViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2A0AA81B3E7FC7004F610B /* OptionDocViewController.xib */; };
+		6F2A0AC91B3E7FC7004F610B /* FormatFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A0AAC1B3E7FC7004F610B /* FormatFormCell.m */; };
+		6F2A0ACA1B3E7FC7004F610B /* OptionDocTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A0AAE1B3E7FC7004F610B /* OptionDocTableViewCell.m */; };
+		6F2A0ACB1B3E7FC7004F610B /* OptionDocTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2A0AAF1B3E7FC7004F610B /* OptionDocTableViewCell.xib */; };
+		6F2A0ACC1B3E7FC7004F610B /* DetailFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A0AB31B3E7FC7004F610B /* DetailFormViewController.m */; };
+		6F2A0ACD1B3E7FC7004F610B /* DetailFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2A0AB41B3E7FC7004F610B /* DetailFormViewController.xib */; };
+		6F2A0ACE1B3E7FC7004F610B /* FormPatternViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A0AB61B3E7FC7004F610B /* FormPatternViewController.m */; };
+		6F2A0ACF1B3E7FC7004F610B /* DetailFormTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A0ABA1B3E7FC7004F610B /* DetailFormTableViewCell.m */; };
+		6F2A0AD01B3E7FC7004F610B /* DetailFormTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2A0ABB1B3E7FC7004F610B /* DetailFormTableViewCell.xib */; };
+		6F2A0AD11B3E7FC7004F610B /* SpeedyDocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A0ABF1B3E7FC7004F610B /* SpeedyDocViewController.m */; };
+		6F2A0AD21B3E7FC7004F610B /* SpeedyDocCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A0AC31B3E7FC7004F610B /* SpeedyDocCell.m */; };
+		6F2A0AD31B3E7FC7004F610B /* SpeedyDocCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2A0AC41B3E7FC7004F610B /* SpeedyDocCell.xib */; };
 		6F2E99581AFBC1960091C5D9 /* 右箭头@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E99571AFBC1960091C5D9 /* 右箭头@2x.png */; };
 		6F2E995A1AFBC2370091C5D9 /* 竖线@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E99591AFBC2370091C5D9 /* 竖线@2x.png */; };
-		6F2E995E1AFDB6A40091C5D9 /* OptionDocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E995C1AFDB6A40091C5D9 /* OptionDocViewController.m */; };
-		6F2E995F1AFDB6A40091C5D9 /* OptionDocViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E995D1AFDB6A40091C5D9 /* OptionDocViewController.xib */; };
-		6F2E99691AFE7B530091C5D9 /* SpeedyDocCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E99671AFE7B530091C5D9 /* SpeedyDocCell.m */; };
-		6F2E996A1AFE7B530091C5D9 /* SpeedyDocCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E99681AFE7B530091C5D9 /* SpeedyDocCell.xib */; };
-		6F2E996E1AFF363F0091C5D9 /* OptionDocTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E996C1AFF363F0091C5D9 /* OptionDocTableViewCell.m */; };
-		6F2E996F1AFF363F0091C5D9 /* OptionDocTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E996D1AFF363F0091C5D9 /* OptionDocTableViewCell.xib */; };
-		6F2E99741AFF55920091C5D9 /* FormPatternViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E99721AFF55920091C5D9 /* FormPatternViewController.m */; };
-		6F2E997A1B071BDE0091C5D9 /* DetailFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E99781B071BDE0091C5D9 /* DetailFormViewController.m */; };
-		6F2E997B1B071BDE0091C5D9 /* DetailFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E99791B071BDE0091C5D9 /* DetailFormViewController.xib */; };
-		6F2E997F1B072CCF0091C5D9 /* DetailFormTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E997D1B072CCF0091C5D9 /* DetailFormTableViewCell.m */; };
-		6F2E99801B072CCF0091C5D9 /* DetailFormTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E997E1B072CCF0091C5D9 /* DetailFormTableViewCell.xib */; };
 		6F3CDA791AED0D6D0079E7D5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3CDA781AED0D6D0079E7D5 /* MessageUI.framework */; };
-		6F601FE51AEBE7BE000CDF88 /* FMDBManmager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F601FE41AEBE7BE000CDF88 /* FMDBManmager.m */; };
-		6F80B9DB1B14CC4B00950AE9 /* EditDocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F80B9DA1B14CC4B00950AE9 /* EditDocViewController.m */; };
-		6FA851661AF33E0E00B45763 /* SpeedyDocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA851651AF33E0E00B45763 /* SpeedyDocViewController.m */; };
-		6FD677C71B2F097400C07E62 /* FormatFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD677C61B2F097400C07E62 /* FormatFormViewController.m */; };
-		6FD677CA1B2F0D1A00C07E62 /* FormatFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD677C91B2F0D1A00C07E62 /* FormatFormCell.m */; };
 		83E2D854528ABA08EB04ECBF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D2D08C50ABF2C5100BBA97 /* libPods.a */; };
 		A558225C1B2ED74100F73C87 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A55822541B2ED74100F73C87 /* AppDelegate.m */; };
 		A558225E1B2ED74100F73C87 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A55822571B2ED74100F73C87 /* Images.xcassets */; };
@@ -47,36 +47,36 @@
 
 /* Begin PBXFileReference section */
 		4AD225C776E83027A213B81C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6F2A0A991B3E7D73004F610B /* FMDBManmager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBManmager.h; sourceTree = "<group>"; };
+		6F2A0A9A1B3E7D73004F610B /* FMDBManmager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBManmager.m; sourceTree = "<group>"; };
+		6F2A0A9E1B3E7FC7004F610B /* EditDocViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditDocViewController.h; sourceTree = "<group>"; };
+		6F2A0A9F1B3E7FC7004F610B /* EditDocViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDocViewController.m; sourceTree = "<group>"; };
+		6F2A0AA41B3E7FC7004F610B /* FormatFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormatFormViewController.h; sourceTree = "<group>"; };
+		6F2A0AA51B3E7FC7004F610B /* FormatFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormatFormViewController.m; sourceTree = "<group>"; };
+		6F2A0AA61B3E7FC7004F610B /* OptionDocViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionDocViewController.h; sourceTree = "<group>"; };
+		6F2A0AA71B3E7FC7004F610B /* OptionDocViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionDocViewController.m; sourceTree = "<group>"; };
+		6F2A0AA81B3E7FC7004F610B /* OptionDocViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionDocViewController.xib; sourceTree = "<group>"; };
+		6F2A0AAB1B3E7FC7004F610B /* FormatFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormatFormCell.h; sourceTree = "<group>"; };
+		6F2A0AAC1B3E7FC7004F610B /* FormatFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormatFormCell.m; sourceTree = "<group>"; };
+		6F2A0AAD1B3E7FC7004F610B /* OptionDocTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionDocTableViewCell.h; sourceTree = "<group>"; };
+		6F2A0AAE1B3E7FC7004F610B /* OptionDocTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionDocTableViewCell.m; sourceTree = "<group>"; };
+		6F2A0AAF1B3E7FC7004F610B /* OptionDocTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionDocTableViewCell.xib; sourceTree = "<group>"; };
+		6F2A0AB21B3E7FC7004F610B /* DetailFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailFormViewController.h; sourceTree = "<group>"; };
+		6F2A0AB31B3E7FC7004F610B /* DetailFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailFormViewController.m; sourceTree = "<group>"; };
+		6F2A0AB41B3E7FC7004F610B /* DetailFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailFormViewController.xib; sourceTree = "<group>"; };
+		6F2A0AB51B3E7FC7004F610B /* FormPatternViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormPatternViewController.h; sourceTree = "<group>"; };
+		6F2A0AB61B3E7FC7004F610B /* FormPatternViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormPatternViewController.m; sourceTree = "<group>"; };
+		6F2A0AB91B3E7FC7004F610B /* DetailFormTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailFormTableViewCell.h; sourceTree = "<group>"; };
+		6F2A0ABA1B3E7FC7004F610B /* DetailFormTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailFormTableViewCell.m; sourceTree = "<group>"; };
+		6F2A0ABB1B3E7FC7004F610B /* DetailFormTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailFormTableViewCell.xib; sourceTree = "<group>"; };
+		6F2A0ABE1B3E7FC7004F610B /* SpeedyDocViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedyDocViewController.h; sourceTree = "<group>"; };
+		6F2A0ABF1B3E7FC7004F610B /* SpeedyDocViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedyDocViewController.m; sourceTree = "<group>"; };
+		6F2A0AC21B3E7FC7004F610B /* SpeedyDocCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedyDocCell.h; sourceTree = "<group>"; };
+		6F2A0AC31B3E7FC7004F610B /* SpeedyDocCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedyDocCell.m; sourceTree = "<group>"; };
+		6F2A0AC41B3E7FC7004F610B /* SpeedyDocCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpeedyDocCell.xib; sourceTree = "<group>"; };
 		6F2E99571AFBC1960091C5D9 /* 右箭头@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "右箭头@2x.png"; sourceTree = "<group>"; };
 		6F2E99591AFBC2370091C5D9 /* 竖线@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "竖线@2x.png"; sourceTree = "<group>"; };
-		6F2E995B1AFDB6A40091C5D9 /* OptionDocViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionDocViewController.h; sourceTree = "<group>"; };
-		6F2E995C1AFDB6A40091C5D9 /* OptionDocViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionDocViewController.m; sourceTree = "<group>"; };
-		6F2E995D1AFDB6A40091C5D9 /* OptionDocViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionDocViewController.xib; sourceTree = "<group>"; };
-		6F2E99661AFE7B530091C5D9 /* SpeedyDocCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedyDocCell.h; sourceTree = "<group>"; };
-		6F2E99671AFE7B530091C5D9 /* SpeedyDocCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedyDocCell.m; sourceTree = "<group>"; };
-		6F2E99681AFE7B530091C5D9 /* SpeedyDocCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpeedyDocCell.xib; sourceTree = "<group>"; };
-		6F2E996B1AFF363F0091C5D9 /* OptionDocTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionDocTableViewCell.h; sourceTree = "<group>"; };
-		6F2E996C1AFF363F0091C5D9 /* OptionDocTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionDocTableViewCell.m; sourceTree = "<group>"; };
-		6F2E996D1AFF363F0091C5D9 /* OptionDocTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionDocTableViewCell.xib; sourceTree = "<group>"; };
-		6F2E99711AFF55920091C5D9 /* FormPatternViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormPatternViewController.h; sourceTree = "<group>"; };
-		6F2E99721AFF55920091C5D9 /* FormPatternViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormPatternViewController.m; sourceTree = "<group>"; };
-		6F2E99771B071BDE0091C5D9 /* DetailFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailFormViewController.h; sourceTree = "<group>"; };
-		6F2E99781B071BDE0091C5D9 /* DetailFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailFormViewController.m; sourceTree = "<group>"; };
-		6F2E99791B071BDE0091C5D9 /* DetailFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailFormViewController.xib; sourceTree = "<group>"; };
-		6F2E997C1B072CCF0091C5D9 /* DetailFormTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailFormTableViewCell.h; sourceTree = "<group>"; };
-		6F2E997D1B072CCF0091C5D9 /* DetailFormTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailFormTableViewCell.m; sourceTree = "<group>"; };
-		6F2E997E1B072CCF0091C5D9 /* DetailFormTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailFormTableViewCell.xib; sourceTree = "<group>"; };
 		6F3CDA781AED0D6D0079E7D5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		6F601FE31AEBE7BE000CDF88 /* FMDBManmager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBManmager.h; sourceTree = "<group>"; };
-		6F601FE41AEBE7BE000CDF88 /* FMDBManmager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBManmager.m; sourceTree = "<group>"; };
-		6F80B9D91B14CC4B00950AE9 /* EditDocViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditDocViewController.h; sourceTree = "<group>"; };
-		6F80B9DA1B14CC4B00950AE9 /* EditDocViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDocViewController.m; sourceTree = "<group>"; };
-		6FA851641AF33E0E00B45763 /* SpeedyDocViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedyDocViewController.h; sourceTree = "<group>"; };
-		6FA851651AF33E0E00B45763 /* SpeedyDocViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedyDocViewController.m; sourceTree = "<group>"; };
-		6FD677C51B2F097400C07E62 /* FormatFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormatFormViewController.h; sourceTree = "<group>"; };
-		6FD677C61B2F097400C07E62 /* FormatFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormatFormViewController.m; sourceTree = "<group>"; };
-		6FD677C81B2F0D1A00C07E62 /* FormatFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormatFormCell.h; sourceTree = "<group>"; };
-		6FD677C91B2F0D1A00C07E62 /* FormatFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormatFormCell.m; sourceTree = "<group>"; };
 		83D2D08C50ABF2C5100BBA97 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55822531B2ED74100F73C87 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A55822541B2ED74100F73C87 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -122,17 +122,170 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6F2E99501AFA700D0091C5D9 /* OptionDoc */ = {
+		6F2A0A971B3E7D73004F610B /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				6F2E995B1AFDB6A40091C5D9 /* OptionDocViewController.h */,
-				6F2E995C1AFDB6A40091C5D9 /* OptionDocViewController.m */,
-				6F2E995D1AFDB6A40091C5D9 /* OptionDocViewController.xib */,
-				6F2E996B1AFF363F0091C5D9 /* OptionDocTableViewCell.h */,
-				6F2E996C1AFF363F0091C5D9 /* OptionDocTableViewCell.m */,
-				6F2E996D1AFF363F0091C5D9 /* OptionDocTableViewCell.xib */,
+				6F2A0A981B3E7D73004F610B /* FMDB */,
 			);
-			name = OptionDoc;
+			path = Base;
+			sourceTree = "<group>";
+		};
+		6F2A0A981B3E7D73004F610B /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				6F2A0A991B3E7D73004F610B /* FMDBManmager.h */,
+				6F2A0A9A1B3E7D73004F610B /* FMDBManmager.m */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		6F2A0A9C1B3E7FC7004F610B /* EditDoc */ = {
+			isa = PBXGroup;
+			children = (
+				6F2A0A9D1B3E7FC7004F610B /* Controller */,
+				6F2A0AA01B3E7FC7004F610B /* Model */,
+				6F2A0AA11B3E7FC7004F610B /* View */,
+			);
+			path = EditDoc;
+			sourceTree = "<group>";
+		};
+		6F2A0A9D1B3E7FC7004F610B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6F2A0A9E1B3E7FC7004F610B /* EditDocViewController.h */,
+				6F2A0A9F1B3E7FC7004F610B /* EditDocViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6F2A0AA01B3E7FC7004F610B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6F2A0AA11B3E7FC7004F610B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6F2A0AA21B3E7FC7004F610B /* FormatForm */ = {
+			isa = PBXGroup;
+			children = (
+				6F2A0AA31B3E7FC7004F610B /* Controller */,
+				6F2A0AA91B3E7FC7004F610B /* Model */,
+				6F2A0AAA1B3E7FC7004F610B /* View */,
+			);
+			path = FormatForm;
+			sourceTree = "<group>";
+		};
+		6F2A0AA31B3E7FC7004F610B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6F2A0AA41B3E7FC7004F610B /* FormatFormViewController.h */,
+				6F2A0AA51B3E7FC7004F610B /* FormatFormViewController.m */,
+				6F2A0AA61B3E7FC7004F610B /* OptionDocViewController.h */,
+				6F2A0AA71B3E7FC7004F610B /* OptionDocViewController.m */,
+				6F2A0AA81B3E7FC7004F610B /* OptionDocViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6F2A0AA91B3E7FC7004F610B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6F2A0AAA1B3E7FC7004F610B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6F2A0AAB1B3E7FC7004F610B /* FormatFormCell.h */,
+				6F2A0AAC1B3E7FC7004F610B /* FormatFormCell.m */,
+				6F2A0AAD1B3E7FC7004F610B /* OptionDocTableViewCell.h */,
+				6F2A0AAE1B3E7FC7004F610B /* OptionDocTableViewCell.m */,
+				6F2A0AAF1B3E7FC7004F610B /* OptionDocTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6F2A0AB01B3E7FC7004F610B /* FormPattern */ = {
+			isa = PBXGroup;
+			children = (
+				6F2A0AB11B3E7FC7004F610B /* Controller */,
+				6F2A0AB71B3E7FC7004F610B /* Model */,
+				6F2A0AB81B3E7FC7004F610B /* View */,
+			);
+			path = FormPattern;
+			sourceTree = "<group>";
+		};
+		6F2A0AB11B3E7FC7004F610B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6F2A0AB21B3E7FC7004F610B /* DetailFormViewController.h */,
+				6F2A0AB31B3E7FC7004F610B /* DetailFormViewController.m */,
+				6F2A0AB41B3E7FC7004F610B /* DetailFormViewController.xib */,
+				6F2A0AB51B3E7FC7004F610B /* FormPatternViewController.h */,
+				6F2A0AB61B3E7FC7004F610B /* FormPatternViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6F2A0AB71B3E7FC7004F610B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6F2A0AB81B3E7FC7004F610B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6F2A0AB91B3E7FC7004F610B /* DetailFormTableViewCell.h */,
+				6F2A0ABA1B3E7FC7004F610B /* DetailFormTableViewCell.m */,
+				6F2A0ABB1B3E7FC7004F610B /* DetailFormTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6F2A0ABC1B3E7FC7004F610B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				6F2A0ABD1B3E7FC7004F610B /* Controller */,
+				6F2A0AC01B3E7FC7004F610B /* Model */,
+				6F2A0AC11B3E7FC7004F610B /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		6F2A0ABD1B3E7FC7004F610B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6F2A0ABE1B3E7FC7004F610B /* SpeedyDocViewController.h */,
+				6F2A0ABF1B3E7FC7004F610B /* SpeedyDocViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6F2A0AC01B3E7FC7004F610B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6F2A0AC11B3E7FC7004F610B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6F2A0AC21B3E7FC7004F610B /* SpeedyDocCell.h */,
+				6F2A0AC31B3E7FC7004F610B /* SpeedyDocCell.m */,
+				6F2A0AC41B3E7FC7004F610B /* SpeedyDocCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		6F2E99561AFBC1790091C5D9 /* image */ = {
@@ -144,114 +297,17 @@
 			path = image;
 			sourceTree = "<group>";
 		};
-		6F2E99641AFE64D60091C5D9 /* SpeedyDocController */ = {
-			isa = PBXGroup;
-			children = (
-				6F2E99651AFE64EF0091C5D9 /* SpeedyDocCell */,
-				6FA851641AF33E0E00B45763 /* SpeedyDocViewController.h */,
-				6FA851651AF33E0E00B45763 /* SpeedyDocViewController.m */,
-			);
-			name = SpeedyDocController;
-			sourceTree = "<group>";
-		};
-		6F2E99651AFE64EF0091C5D9 /* SpeedyDocCell */ = {
-			isa = PBXGroup;
-			children = (
-				6F2E99661AFE7B530091C5D9 /* SpeedyDocCell.h */,
-				6F2E99671AFE7B530091C5D9 /* SpeedyDocCell.m */,
-				6F2E99681AFE7B530091C5D9 /* SpeedyDocCell.xib */,
-			);
-			name = SpeedyDocCell;
-			sourceTree = "<group>";
-		};
-		6F2E99701AFF54EF0091C5D9 /* FormPattern */ = {
-			isa = PBXGroup;
-			children = (
-				6F2E99761B071BBA0091C5D9 /* DetailForm */,
-				6F2E99711AFF55920091C5D9 /* FormPatternViewController.h */,
-				6F2E99721AFF55920091C5D9 /* FormPatternViewController.m */,
-			);
-			name = FormPattern;
-			sourceTree = "<group>";
-		};
-		6F2E99761B071BBA0091C5D9 /* DetailForm */ = {
-			isa = PBXGroup;
-			children = (
-				6F2E99771B071BDE0091C5D9 /* DetailFormViewController.h */,
-				6F2E99781B071BDE0091C5D9 /* DetailFormViewController.m */,
-				6F2E99791B071BDE0091C5D9 /* DetailFormViewController.xib */,
-				6F2E997C1B072CCF0091C5D9 /* DetailFormTableViewCell.h */,
-				6F2E997D1B072CCF0091C5D9 /* DetailFormTableViewCell.m */,
-				6F2E997E1B072CCF0091C5D9 /* DetailFormTableViewCell.xib */,
-			);
-			name = DetailForm;
-			sourceTree = "<group>";
-		};
-		6F601FE21AEBE7BE000CDF88 /* FMDB */ = {
-			isa = PBXGroup;
-			children = (
-				6F601FE31AEBE7BE000CDF88 /* FMDBManmager.h */,
-				6F601FE41AEBE7BE000CDF88 /* FMDBManmager.m */,
-			);
-			path = FMDB;
-			sourceTree = "<group>";
-		};
 		6FD229941AEAAFEB008DF7E0 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				6F2A0A971B3E7D73004F610B /* Base */,
+				6F2A0A9C1B3E7FC7004F610B /* EditDoc */,
+				6F2A0AA21B3E7FC7004F610B /* FormatForm */,
+				6F2A0AB01B3E7FC7004F610B /* FormPattern */,
+				6F2A0ABC1B3E7FC7004F610B /* Main */,
 				6F2E99561AFBC1790091C5D9 /* image */,
-				6FD229951AEAAFEB008DF7E0 /* Controller */,
-				6FD229961AEAAFEB008DF7E0 /* Model */,
-				6FD229971AEAAFEB008DF7E0 /* View */,
 			);
 			path = GUI;
-			sourceTree = "<group>";
-		};
-		6FD229951AEAAFEB008DF7E0 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				6FD677CC1B36FDB200C07E62 /* EditDoc */,
-				6FD677CB1B36FD5D00C07E62 /* FormatForm */,
-				6F2E99701AFF54EF0091C5D9 /* FormPattern */,
-				6F2E99641AFE64D60091C5D9 /* SpeedyDocController */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		6FD229961AEAAFEB008DF7E0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				6F601FE21AEBE7BE000CDF88 /* FMDB */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		6FD229971AEAAFEB008DF7E0 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		6FD677CB1B36FD5D00C07E62 /* FormatForm */ = {
-			isa = PBXGroup;
-			children = (
-				6F2E99501AFA700D0091C5D9 /* OptionDoc */,
-				6FD677C51B2F097400C07E62 /* FormatFormViewController.h */,
-				6FD677C61B2F097400C07E62 /* FormatFormViewController.m */,
-				6FD677C81B2F0D1A00C07E62 /* FormatFormCell.h */,
-				6FD677C91B2F0D1A00C07E62 /* FormatFormCell.m */,
-			);
-			name = FormatForm;
-			sourceTree = "<group>";
-		};
-		6FD677CC1B36FDB200C07E62 /* EditDoc */ = {
-			isa = PBXGroup;
-			children = (
-				6F80B9D91B14CC4B00950AE9 /* EditDocViewController.h */,
-				6F80B9DA1B14CC4B00950AE9 /* EditDocViewController.m */,
-			);
-			name = EditDoc;
 			sourceTree = "<group>";
 		};
 		9D8F728EAC7A3725F007A5CF /* Pods */ = {
@@ -400,16 +456,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F2A0ACB1B3E7FC7004F610B /* OptionDocTableViewCell.xib in Resources */,
+				6F2A0AC81B3E7FC7004F610B /* OptionDocViewController.xib in Resources */,
 				A558225E1B2ED74100F73C87 /* Images.xcassets in Resources */,
+				6F2A0ACD1B3E7FC7004F610B /* DetailFormViewController.xib in Resources */,
 				6F2E995A1AFBC2370091C5D9 /* 竖线@2x.png in Resources */,
-				6F2E997B1B071BDE0091C5D9 /* DetailFormViewController.xib in Resources */,
-				6F2E99801B072CCF0091C5D9 /* DetailFormTableViewCell.xib in Resources */,
 				6F2E99581AFBC1960091C5D9 /* 右箭头@2x.png in Resources */,
-				6F2E995F1AFDB6A40091C5D9 /* OptionDocViewController.xib in Resources */,
 				A558225F1B2ED74100F73C87 /* Info.plist in Resources */,
+				6F2A0AD01B3E7FC7004F610B /* DetailFormTableViewCell.xib in Resources */,
+				6F2A0AD31B3E7FC7004F610B /* SpeedyDocCell.xib in Resources */,
 				A55822611B2ED74100F73C87 /* SpeedyDoc.storyboard in Resources */,
-				6F2E996A1AFE7B530091C5D9 /* SpeedyDocCell.xib in Resources */,
-				6F2E996F1AFF363F0091C5D9 /* OptionDocTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,19 +516,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FD677CA1B2F0D1A00C07E62 /* FormatFormCell.m in Sources */,
-				6F2E99691AFE7B530091C5D9 /* SpeedyDocCell.m in Sources */,
+				6F2A0AC91B3E7FC7004F610B /* FormatFormCell.m in Sources */,
+				6F2A0AC61B3E7FC7004F610B /* FormatFormViewController.m in Sources */,
+				6F2A0ACC1B3E7FC7004F610B /* DetailFormViewController.m in Sources */,
 				A558225C1B2ED74100F73C87 /* AppDelegate.m in Sources */,
-				6F2E997A1B071BDE0091C5D9 /* DetailFormViewController.m in Sources */,
-				6F2E99741AFF55920091C5D9 /* FormPatternViewController.m in Sources */,
-				6F2E995E1AFDB6A40091C5D9 /* OptionDocViewController.m in Sources */,
+				6F2A0AC71B3E7FC7004F610B /* OptionDocViewController.m in Sources */,
+				6F2A0AC51B3E7FC7004F610B /* EditDocViewController.m in Sources */,
+				6F2A0ACA1B3E7FC7004F610B /* OptionDocTableViewCell.m in Sources */,
+				6F2A0ACF1B3E7FC7004F610B /* DetailFormTableViewCell.m in Sources */,
+				6F2A0ACE1B3E7FC7004F610B /* FormPatternViewController.m in Sources */,
+				6F2A0A9B1B3E7D73004F610B /* FMDBManmager.m in Sources */,
 				A55822601B2ED74100F73C87 /* main.m in Sources */,
-				6F601FE51AEBE7BE000CDF88 /* FMDBManmager.m in Sources */,
-				6FD677C71B2F097400C07E62 /* FormatFormViewController.m in Sources */,
-				6FA851661AF33E0E00B45763 /* SpeedyDocViewController.m in Sources */,
-				6F2E997F1B072CCF0091C5D9 /* DetailFormTableViewCell.m in Sources */,
-				6F80B9DB1B14CC4B00950AE9 /* EditDocViewController.m in Sources */,
-				6F2E996E1AFF363F0091C5D9 /* OptionDocTableViewCell.m in Sources */,
+				6F2A0AD21B3E7FC7004F610B /* SpeedyDocCell.m in Sources */,
+				6F2A0AD11B3E7FC7004F610B /* SpeedyDocViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
