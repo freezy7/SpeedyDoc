@@ -19,6 +19,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDismiss)];
+    [_header addGestureRecognizer:tap];
+    _header.userInteractionEnabled = YES;
+}
+
+-(void)tapDismiss
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - SDHeaderAnimatedDelegate
@@ -30,7 +39,9 @@
 
 -(UIView*) headerCopy:(UIView *)subView
 {
-    UIView* header = [[UIView alloc] init];
+    UIView* header = [[UIView alloc] initWithFrame:self.header.frame];
+    
+    header.backgroundColor = [UIColor lightGrayColor];
     
     return header;
 }

@@ -67,7 +67,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="1" green="0.95706628179999997" blue="0.63339500869999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="j0r-XE-eBK" firstAttribute="top" secondItem="Ij0-dy-q3H" secondAttribute="top" constant="8" id="GXa-Co-dYl"/>
                                                 <constraint firstItem="j0r-XE-eBK" firstAttribute="leading" secondItem="Ij0-dy-q3H" secondAttribute="leading" constant="7" id="UZK-va-RjE"/>
@@ -89,7 +89,7 @@
                                     <outlet property="editBtn" destination="LJL-BF-ibY" id="srJ-iU-SoT"/>
                                     <outlet property="header" destination="j0r-XE-eBK" id="NND-Ae-Rhr"/>
                                     <outlet property="name" destination="UiG-1e-THc" id="saD-Ql-VOk"/>
-                                    <segue destination="MXj-FJ-9IM" kind="modal" identifier="DetailForm" id="zHc-AH-QJ0"/>
+                                    <segue destination="MXj-FJ-9IM" kind="modal" identifier="DetailForm" id="mWj-DE-PC6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -197,14 +197,13 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.6502799002646994" blue="0.76027656027450075" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="H0c-CZ-4dM" firstAttribute="top" secondItem="k1y-RZ-BfI" secondAttribute="top" id="LNO-9z-Jke"/>
                             <constraint firstItem="H0c-CZ-4dM" firstAttribute="leading" secondItem="k1y-RZ-BfI" secondAttribute="leading" id="nhv-0y-RLv"/>
                             <constraint firstAttribute="trailing" secondItem="H0c-CZ-4dM" secondAttribute="trailing" id="rh1-ih-4CK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wdf-bS-2os"/>
                     <connections>
                         <outlet property="header" destination="H0c-CZ-4dM" id="MYw-7v-U7X"/>
                     </connections>
@@ -280,7 +279,6 @@
         <!--Navigation Controller-->
         <scene sceneID="aNW-ZV-ta0">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Omg-p3-EOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SU6-nL-Ljf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="d1c-SH-noC">
@@ -292,8 +290,9 @@
                         <segue destination="80K-xh-cO6" kind="relationship" relationship="rootViewController" id="QER-Yh-6VU"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Omg-p3-EOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-947" y="24"/>
+            <point key="canvasLocation" x="-965" y="10"/>
         </scene>
     </scenes>
     <resources>

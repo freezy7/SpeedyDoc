@@ -14,12 +14,13 @@ typedef NS_ENUM(NSInteger, TransitionMode){
     TransitionModeDismiss
 };
 
-@interface SDHeaderAnimation : UIPercentDrivenInteractiveTransition<UIViewControllerAnimatedTransitioning,UIViewControllerInteractiveTransitioning,UIViewControllerTransitioningDelegate>
+@interface SDHeaderAnimation : UIPercentDrivenInteractiveTransition<UIViewControllerAnimatedTransitioning,UIViewControllerTransitioningDelegate>
 {
     CGRect _headerFormFrame;
     CGRect _headerToFrame;
     
     UIPanGestureRecognizer* _enterPanGesture;
+    BOOL _shouldComplete;
 }
 
 @property (assign,nonatomic) TransitionMode transitionMode;

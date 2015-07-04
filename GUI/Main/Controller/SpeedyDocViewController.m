@@ -8,10 +8,7 @@
 
 #import "SpeedyDocViewController.h"
 #import "FormPatternViewController.h"
-
-//#import "FormatDocViewController.h"
 #import "FormatFormViewController.h"
-
 #import "FMDBManmager.h"
 #import "SpeedyDocCell.h"
 #import "EditDocViewController.h"
@@ -96,7 +93,7 @@
         vc.table = [dic objectForKey:@"table_name"];
     }
     if ([segue.identifier isEqualToString:@"DetailForm"]) {
-        _animateIndex = sender;
+        _animateIndex = [(SpeedyDocCell*)sender indexPath];
         
         SDDetailFormController* destination = segue.destinationViewController;
         destination.transitioningDelegate = _transitionManager;
@@ -138,14 +135,14 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 //    [self performSegueWithIdentifier:@"FormPattern" sender:indexPath];
-    [self performSegueWithIdentifier:@"DetailForm" sender:indexPath];
 }
 
 // 删除 插入等一系列操作
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return YES;
+    return NO;
 }
 
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -188,7 +185,7 @@
     SpeedyDocCell* cell = (SpeedyDocCell*)[self tableView:self.tableView cellForRowAtIndexPath:_animateIndex];
     UIView* header = [[UIView alloc] initWithFrame:cell.header.frame];
     
-    header.backgroundColor = [UIColor orangeColor];
+    header.backgroundColor = [UIColor lightGrayColor];
     
     return header;
 }

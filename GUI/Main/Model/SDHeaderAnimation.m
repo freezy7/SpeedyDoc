@@ -27,7 +27,11 @@
     _destinationViewController = destinationViewController;
     _enterPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleOnstagePan:)];
     [_destinationViewController.view addGestureRecognizer:_enterPanGesture];
-    _transitionInteracted = true;
+}
+
+-(CGFloat)completionSpeed
+{
+    return 1-self.percentComplete;
 }
 
 -(void) handleOnstagePan:(UIPanGestureRecognizer *)pan
@@ -35,13 +39,23 @@
     CGPoint translation = [pan translationInView:pan.view];
     CGFloat d = translation.y/CGRectGetHeight(pan.view.bounds)*1.5;
     if (pan.state == UIGestureRecognizerStateBegan) {
+        _transitionInteracted = YES;
         [self.destinationViewController dismissViewControllerAnimated:YES completion:nil];
         
     }else if (pan.state == UIGestureRecognizerStateChanged){
+        NSLog(@"%f",d);
         [self updateInteractiveTransition:d];
+        _shouldComplete = (d > 0.5);
         
     }else{// Ended, Cancelled, Failde
-        [self finishInteractiveTransition];
+        _transitionInteracted = NO;
+        if (!_shouldComplete || pan.state == UIGestureRecognizerStateCancelled) {
+            [self cancelInteractiveTransition];
+        } else {
+            [self finishInteractiveTransition];
+        }
+        
+        
     }
 }
 
@@ -56,11 +70,28 @@
 {
     UIView* container = [transitionContext containerView];
     
-    UIView* fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
-    UIView* toView = [transitionContext viewForKey:UITransitionContextToViewKey];
+    // 兼容 iOS7 UITransitionContextFromViewKey 暂时不用
+//    UIView* fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
+//    UIView* toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     
-    UIViewController<SDHeaderAnimationDelegate>* fromController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey].childViewControllers[0];
-    UIViewController<SDHeaderAnimationDelegate>* toController = (UIViewController<SDHeaderAnimationDelegate>*)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIViewController<SDHeaderAnimationDelegate>* fromController;
+    UIViewController<SDHeaderAnimationDelegate>* toController;
+    
+    if ([[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey] isKindOfClass:[UINavigationController class]]) {
+        fromController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey].childViewControllers[0];
+    } else {
+        fromController = (UIViewController<SDHeaderAnimationDelegate> *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    }
+    
+    if ([[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey] isKindOfClass:[UINavigationController class]]) {
+        toController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey].childViewControllers[0];
+    } else {
+        toController = (UIViewController<SDHeaderAnimationDelegate> *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    }
+    
+    
+    UIView* fromView = fromController.view;
+    UIView* toView = toController.view;
     
     NSTimeInterval duration = [self transitionDuration:transitionContext];
     
@@ -84,9 +115,9 @@
         _headerToFrame = [headerTo.superview convertRect:headerTo.frame toView:nil];
         _headerFormFrame = [headerFrom.superview convertRect:headerFrom.frame toView:nil];
     }
-    
-    headerFrom.alpha = 0;
-    headerTo.alpha = 0;
+
+    headerFrom.hidden = YES;
+    headerTo.hidden = YES;
     
     UIView* headerIntermediate = [fromController headerCopy:headerFrom];
     headerIntermediate.frame = _transitionMode == TransitionModePresent ? _headerFormFrame: _headerToFrame;
@@ -119,8 +150,8 @@
     } completion:^(BOOL finished) {
         
         [headerIntermediate removeFromSuperview];
-        headerTo.alpha = 1.0;
-        headerFrom.alpha = 1.0;
+        headerTo.hidden = NO;
+        headerFrom.hidden = NO;
         
         [transitionContext completeTransition:YES];
     
