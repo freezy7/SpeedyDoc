@@ -15,14 +15,18 @@
 #import "FMDBManmager.h"
 #import "SpeedyDocCell.h"
 #import "EditDocViewController.h"
+#import "SDDetailFormController.h"
+#import "SDHeaderAnimation.h"
 
-@interface SpeedyDocViewController ()<UITableViewDelegate,UITableViewDataSource,SpeedyDocCellDelegate>
+@interface SpeedyDocViewController ()<SpeedyDocCellDelegate>
 {
     NSMutableArray* _docArray;
     FMDBManmager* _fmdb;
+    
+    NSIndexPath* _animateIndex;
+    
+    SDHeaderAnimation* _transitionManager;
 }
-
-@property(strong,nonatomic) IBOutlet UITableView* tableView;
 
 @end
 
@@ -32,6 +36,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"Speedy Doc";
+    
+    // 自定义转场动画
+    _transitionManager = [[SDHeaderAnimation alloc] init];
     
     _fmdb = [FMDBManmager sharedManager];
     //创建数据表
@@ -60,7 +67,7 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     _docArray = [NSMutableArray arrayWithArray:[_fmdb queryListFromTable:@"speedydoc"]];
-    [_tableView reloadData];
+    [self.tableView reloadData];
 }
 
 -(void)speedyDocCellEditBtnAtIndex:(NSIndexPath *)indexPath
@@ -88,6 +95,14 @@
         vc.model = [dic objectForKey:@"model_name"];
         vc.table = [dic objectForKey:@"table_name"];
     }
+    if ([segue.identifier isEqualToString:@"DetailForm"]) {
+        _animateIndex = sender;
+        
+        SDDetailFormController* destination = segue.destinationViewController;
+        destination.transitioningDelegate = _transitionManager;
+        _transitionManager.destinationViewController = destination;
+    }
+    
 }
 
 #pragma mark - tableView dataSource
@@ -104,10 +119,7 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString* strID = @"SpeedyDocCell";
-    SpeedyDocCell* cell = [tableView dequeueReusableCellWithIdentifier:strID];
-    if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"SpeedyDocCell" owner:self options:nil] lastObject];
-    }
+    SpeedyDocCell* cell = [tableView dequeueReusableCellWithIdentifier:strID forIndexPath:indexPath];
     
     cell.delegate = self;
     cell.indexPath = indexPath;
@@ -126,12 +138,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"FormPattern" sender:indexPath];
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 80;
+//    [self performSegueWithIdentifier:@"FormPattern" sender:indexPath];
+    [self performSegueWithIdentifier:@"DetailForm" sender:indexPath];
 }
 
 // 删除 插入等一系列操作
@@ -161,16 +169,28 @@
         
         [_docArray removeObject:dic];
         
-        [_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
     }else{
         NSLog(@"删除失败");
     }
 }
 
+#pragma mark - SDHeaderAnimatedDelegate
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(UIView*) headerView
+{
+    SpeedyDocCell* cell = (SpeedyDocCell*)[self tableView:self.tableView cellForRowAtIndexPath:_animateIndex];
+    return cell.header;
+}
+
+-(UIView*) headerCopy:(UIView *)subView
+{
+    SpeedyDocCell* cell = (SpeedyDocCell*)[self tableView:self.tableView cellForRowAtIndexPath:_animateIndex];
+    UIView* header = [[UIView alloc] initWithFrame:cell.header.frame];
+    
+    header.backgroundColor = [UIColor orangeColor];
+    
+    return header;
 }
 
 @end

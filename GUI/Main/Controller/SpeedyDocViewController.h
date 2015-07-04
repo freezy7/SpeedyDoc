@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SDHeaderAnimatedDelegate.h"
 
-@interface SpeedyDocViewController : UIViewController
-
+@interface SpeedyDocViewController :UITableViewController<SDHeaderAnimationDelegate>
 @end

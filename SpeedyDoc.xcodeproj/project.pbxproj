@@ -22,14 +22,14 @@
 		6F2A0AD01B3E7FC7004F610B /* DetailFormTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2A0ABB1B3E7FC7004F610B /* DetailFormTableViewCell.xib */; };
 		6F2A0AD11B3E7FC7004F610B /* SpeedyDocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A0ABF1B3E7FC7004F610B /* SpeedyDocViewController.m */; };
 		6F2A0AD21B3E7FC7004F610B /* SpeedyDocCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A0AC31B3E7FC7004F610B /* SpeedyDocCell.m */; };
-		6F2A0AD31B3E7FC7004F610B /* SpeedyDocCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2A0AC41B3E7FC7004F610B /* SpeedyDocCell.xib */; };
+		6F2A0ADF1B3ED41E004F610B /* SDHeaderAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A0ADE1B3ED41E004F610B /* SDHeaderAnimation.m */; };
+		6F2A0AE61B3EF5AF004F610B /* SDDetailFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A0AE51B3EF5AF004F610B /* SDDetailFormController.m */; };
 		6F2E99581AFBC1960091C5D9 /* 右箭头@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E99571AFBC1960091C5D9 /* 右箭头@2x.png */; };
 		6F2E995A1AFBC2370091C5D9 /* 竖线@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E99591AFBC2370091C5D9 /* 竖线@2x.png */; };
 		6F3CDA791AED0D6D0079E7D5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3CDA781AED0D6D0079E7D5 /* MessageUI.framework */; };
 		83E2D854528ABA08EB04ECBF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D2D08C50ABF2C5100BBA97 /* libPods.a */; };
 		A558225C1B2ED74100F73C87 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A55822541B2ED74100F73C87 /* AppDelegate.m */; };
 		A558225E1B2ED74100F73C87 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A55822571B2ED74100F73C87 /* Images.xcassets */; };
-		A558225F1B2ED74100F73C87 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A55822581B2ED74100F73C87 /* Info.plist */; };
 		A55822601B2ED74100F73C87 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A55822591B2ED74100F73C87 /* main.m */; };
 		A55822611B2ED74100F73C87 /* SpeedyDoc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A558225B1B2ED74100F73C87 /* SpeedyDoc.storyboard */; };
 		A55870A51AE9D5C000C7413C /* SpeedyDocTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A55870A41AE9D5C000C7413C /* SpeedyDocTests.m */; };
@@ -73,7 +73,11 @@
 		6F2A0ABF1B3E7FC7004F610B /* SpeedyDocViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedyDocViewController.m; sourceTree = "<group>"; };
 		6F2A0AC21B3E7FC7004F610B /* SpeedyDocCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedyDocCell.h; sourceTree = "<group>"; };
 		6F2A0AC31B3E7FC7004F610B /* SpeedyDocCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedyDocCell.m; sourceTree = "<group>"; };
-		6F2A0AC41B3E7FC7004F610B /* SpeedyDocCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpeedyDocCell.xib; sourceTree = "<group>"; };
+		6F2A0ADC1B3ED41E004F610B /* SDHeaderAnimatedDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDHeaderAnimatedDelegate.h; sourceTree = "<group>"; };
+		6F2A0ADD1B3ED41E004F610B /* SDHeaderAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDHeaderAnimation.h; sourceTree = "<group>"; };
+		6F2A0ADE1B3ED41E004F610B /* SDHeaderAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDHeaderAnimation.m; sourceTree = "<group>"; };
+		6F2A0AE41B3EF5AF004F610B /* SDDetailFormController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDDetailFormController.h; sourceTree = "<group>"; };
+		6F2A0AE51B3EF5AF004F610B /* SDDetailFormController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDDetailFormController.m; sourceTree = "<group>"; };
 		6F2E99571AFBC1960091C5D9 /* 右箭头@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "右箭头@2x.png"; sourceTree = "<group>"; };
 		6F2E99591AFBC2370091C5D9 /* 竖线@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "竖线@2x.png"; sourceTree = "<group>"; };
 		6F3CDA781AED0D6D0079E7D5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -125,6 +129,7 @@
 		6F2A0A971B3E7D73004F610B /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				6F2A0AE01B3EE077004F610B /* Controller */,
 				6F2A0A981B3E7D73004F610B /* FMDB */,
 			);
 			path = Base;
@@ -267,6 +272,8 @@
 			children = (
 				6F2A0ABE1B3E7FC7004F610B /* SpeedyDocViewController.h */,
 				6F2A0ABF1B3E7FC7004F610B /* SpeedyDocViewController.m */,
+				6F2A0AE41B3EF5AF004F610B /* SDDetailFormController.h */,
+				6F2A0AE51B3EF5AF004F610B /* SDDetailFormController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -274,6 +281,9 @@
 		6F2A0AC01B3E7FC7004F610B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6F2A0ADC1B3ED41E004F610B /* SDHeaderAnimatedDelegate.h */,
+				6F2A0ADD1B3ED41E004F610B /* SDHeaderAnimation.h */,
+				6F2A0ADE1B3ED41E004F610B /* SDHeaderAnimation.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,9 +293,15 @@
 			children = (
 				6F2A0AC21B3E7FC7004F610B /* SpeedyDocCell.h */,
 				6F2A0AC31B3E7FC7004F610B /* SpeedyDocCell.m */,
-				6F2A0AC41B3E7FC7004F610B /* SpeedyDocCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6F2A0AE01B3EE077004F610B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		6F2E99561AFBC1790091C5D9 /* image */ = {
@@ -462,9 +478,7 @@
 				6F2A0ACD1B3E7FC7004F610B /* DetailFormViewController.xib in Resources */,
 				6F2E995A1AFBC2370091C5D9 /* 竖线@2x.png in Resources */,
 				6F2E99581AFBC1960091C5D9 /* 右箭头@2x.png in Resources */,
-				A558225F1B2ED74100F73C87 /* Info.plist in Resources */,
 				6F2A0AD01B3E7FC7004F610B /* DetailFormTableViewCell.xib in Resources */,
-				6F2A0AD31B3E7FC7004F610B /* SpeedyDocCell.xib in Resources */,
 				A55822611B2ED74100F73C87 /* SpeedyDoc.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,9 +531,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F2A0AC91B3E7FC7004F610B /* FormatFormCell.m in Sources */,
+				6F2A0ADF1B3ED41E004F610B /* SDHeaderAnimation.m in Sources */,
 				6F2A0AC61B3E7FC7004F610B /* FormatFormViewController.m in Sources */,
 				6F2A0ACC1B3E7FC7004F610B /* DetailFormViewController.m in Sources */,
 				A558225C1B2ED74100F73C87 /* AppDelegate.m in Sources */,
+				6F2A0AE61B3EF5AF004F610B /* SDDetailFormController.m in Sources */,
 				6F2A0AC71B3E7FC7004F610B /* OptionDocViewController.m in Sources */,
 				6F2A0AC51B3E7FC7004F610B /* EditDocViewController.m in Sources */,
 				6F2A0ACA1B3E7FC7004F610B /* OptionDocTableViewCell.m in Sources */,
