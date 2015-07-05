@@ -77,7 +77,6 @@
     [self performSegueWithIdentifier:@"FormPattern" sender:indexPath];
 }
 
-
 #pragma mark - Navigation
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -93,7 +92,6 @@
     }
     if ([segue.identifier isEqualToString:@"FormPattern"]) {//读取一张表输入内容
         FormPatternViewController* vc = segue.destinationViewController;
-        
         NSIndexPath* indexPath = sender;
         NSDictionary* dic = [_docArray objectAtIndex:indexPath.row];
         vc.model = [dic objectForKey:@"model_name"];
@@ -144,7 +142,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    
 }
 
 // 删除 插入等一系列操作
@@ -154,9 +152,9 @@
     return NO;
 }
 
+
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     return UITableViewCellEditingStyleDelete;
 }
 
@@ -177,7 +175,6 @@
         [_docArray removeObject:dic];
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        
     }else{
         NSLog(@"删除失败");
     }

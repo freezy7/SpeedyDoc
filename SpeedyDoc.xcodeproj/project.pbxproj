@@ -214,7 +214,7 @@
 				6F2A0AAD1B3E7FC7004F610B /* OptionDocTableViewCell.h */,
 				6F2A0AAE1B3E7FC7004F610B /* OptionDocTableViewCell.m */,
 				6F2A0AAF1B3E7FC7004F610B /* OptionDocTableViewCell.xib */,
-			);
+);
 			path = View;
 			sourceTree = "<group>";
 		};

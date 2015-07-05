@@ -122,7 +122,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A5U-ML-Y5F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-427" y="-52"/>
+           <point key="canvasLocation" x="-427" y="-52"/>
         </scene>
         <!--添加字段-->
         <scene sceneID="ZfL-eK-yAL">
@@ -240,7 +240,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIc-be-xX5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="159" y="420"/>
+           <point key="canvasLocation" x="159" y="420"/>
         </scene>
         <!--Edit Doc View Controller-->
         <scene sceneID="z12-im-gmO">
