@@ -72,6 +72,12 @@
     [self performSegueWithIdentifier:@"EditDocSegue" sender:indexPath];
 }
 
+-(void)speedyDocCellHeaderBtnClickAtIndex:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"FormPattern" sender:indexPath];
+}
+
+
 #pragma mark - Navigation
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -87,6 +93,7 @@
     }
     if ([segue.identifier isEqualToString:@"FormPattern"]) {//读取一张表输入内容
         FormPatternViewController* vc = segue.destinationViewController;
+        
         NSIndexPath* indexPath = sender;
         NSDictionary* dic = [_docArray objectAtIndex:indexPath.row];
         vc.model = [dic objectForKey:@"model_name"];
@@ -94,7 +101,6 @@
     }
     if ([segue.identifier isEqualToString:@"DetailForm"]) {
         _animateIndex = [(SpeedyDocCell*)sender indexPath];
-        
         SDDetailFormController* destination = segue.destinationViewController;
         destination.transitioningDelegate = _transitionManager;
         _transitionManager.destinationViewController = destination;
@@ -118,8 +124,11 @@
     static NSString* strID = @"SpeedyDocCell";
     SpeedyDocCell* cell = [tableView dequeueReusableCellWithIdentifier:strID forIndexPath:indexPath];
     
+    cell.background.layer.cornerRadius = 10;
+    cell.background.clipsToBounds = YES;
     cell.delegate = self;
     cell.indexPath = indexPath;
+
     NSDictionary* dic = [_docArray objectAtIndex:indexPath.row];
     cell.name.text = [dic objectForKey:@"name"];
     
@@ -135,18 +144,19 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    [self performSegueWithIdentifier:@"FormPattern" sender:indexPath];
+
 }
 
 // 删除 插入等一系列操作
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //todo 删除放到以后优化增加，暂时放到编辑里面
     return NO;
 }
 
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     return UITableViewCellEditingStyleDelete;
 }
 
@@ -166,7 +176,8 @@
         
         [_docArray removeObject:dic];
         
-        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
     }else{
         NSLog(@"删除失败");
     }
@@ -183,10 +194,13 @@
 -(UIView*) headerCopy:(UIView *)subView
 {
     SpeedyDocCell* cell = (SpeedyDocCell*)[self tableView:self.tableView cellForRowAtIndexPath:_animateIndex];
+    
+//    [cell.header layoutIfNeeded];
+    
     UIView* header = [[UIView alloc] initWithFrame:cell.header.frame];
     
-    header.backgroundColor = [UIColor lightGrayColor];
-    
+    header.backgroundColor = [UIColor colorWithRed:176/255.0 green:238/255.0 blue:229/255.0 alpha:1];
+
     return header;
 }
 

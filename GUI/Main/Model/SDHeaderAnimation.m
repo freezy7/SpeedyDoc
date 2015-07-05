@@ -25,8 +25,9 @@
 -(void) setDestinationViewController:(UIViewController *)destinationViewController
 {
     _destinationViewController = destinationViewController;
-    _enterPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleOnstagePan:)];
-    [_destinationViewController.view addGestureRecognizer:_enterPanGesture];
+    // 滑动返回取消
+//    _enterPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleOnstagePan:)];
+//    [_destinationViewController.view addGestureRecognizer:_enterPanGesture];
 }
 
 -(CGFloat)completionSpeed
@@ -43,7 +44,6 @@
         [self.destinationViewController dismissViewControllerAnimated:YES completion:nil];
         
     }else if (pan.state == UIGestureRecognizerStateChanged){
-        NSLog(@"%f",d);
         [self updateInteractiveTransition:d];
         _shouldComplete = (d > 0.5);
         
@@ -54,8 +54,6 @@
         } else {
             [self finishInteractiveTransition];
         }
-        
-        
     }
 }
 

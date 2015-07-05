@@ -41,7 +41,7 @@
 {
     UIView* header = [[UIView alloc] initWithFrame:self.header.frame];
     
-    header.backgroundColor = [UIColor lightGrayColor];
+    header.backgroundColor = [UIColor colorWithRed:176/255.0 green:238/255.0 blue:229/255.0 alpha:1];
     
     return header;
 }

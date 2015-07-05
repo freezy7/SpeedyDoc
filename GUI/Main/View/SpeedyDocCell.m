@@ -26,4 +26,9 @@
     [_delegate speedyDocCellEditBtnAtIndex:_indexPath];
 }
 
+-(IBAction)headerBtnClicked:(id)sender
+{
+    [_delegate speedyDocCellHeaderBtnClickAtIndex:_indexPath];
+}
+
 @end

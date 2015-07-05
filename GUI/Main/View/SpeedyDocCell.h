@@ -12,7 +12,10 @@
 
 -(void)speedyDocCellEditBtnAtIndex:(NSIndexPath*) indexPath;
 
+-(void)speedyDocCellHeaderBtnClickAtIndex:(NSIndexPath*) indexPath;
+
 @end
+
 
 @interface SpeedyDocCell : UITableViewCell
 
@@ -21,7 +24,7 @@
 @property (weak,nonatomic) IBOutlet UIButton* editBtn;
 
 @property (weak,nonatomic) IBOutlet UIView* background;
-@property (weak,nonatomic) IBOutlet UIView* header;
+@property (weak,nonatomic) IBOutlet UIButton* header;
 
 @property (assign,nonatomic) id<SpeedyDocCellDelegate> delegate;
 @property (strong,nonatomic) NSIndexPath* indexPath;
