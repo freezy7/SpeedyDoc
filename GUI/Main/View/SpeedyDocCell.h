@@ -19,12 +19,12 @@
 
 @interface SpeedyDocCell : UITableViewCell
 
-@property (weak,nonatomic) IBOutlet UILabel* name;
-@property (weak,nonatomic) IBOutlet UILabel* ctime;
-@property (weak,nonatomic) IBOutlet UIButton* editBtn;
+@property (strong,nonatomic) IBOutlet UILabel* name;
+@property (strong,nonatomic) IBOutlet UILabel* ctime;
+@property (strong,nonatomic) IBOutlet UIButton* editBtn;
 
-@property (weak,nonatomic) IBOutlet UIView* background;
-@property (weak,nonatomic) IBOutlet UIButton* header;
+@property (strong,nonatomic) IBOutlet UIView* background;
+@property (strong,nonatomic) IBOutlet UIView* header;
 
 @property (assign,nonatomic) id<SpeedyDocCellDelegate> delegate;
 @property (strong,nonatomic) NSIndexPath* indexPath;

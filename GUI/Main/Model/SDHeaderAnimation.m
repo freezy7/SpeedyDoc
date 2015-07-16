@@ -117,18 +117,18 @@
     headerFrom.hidden = YES;
     headerTo.hidden = YES;
     
-    UIView* headerIntermediate = [fromController headerCopy:headerFrom];
+    UIView* headerIntermediate = [fromController headerCopy:nil];
     headerIntermediate.frame = _transitionMode == TransitionModePresent ? _headerFormFrame: _headerToFrame;
         
     if (_transitionMode == TransitionModePresent) {
         toView.transform = offScreenBottom;
-        
-        [container addSubview:fromView];
+        //加载的是navgationController 的view
+        [container addSubview:[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey].view];
         [container addSubview:toView];
         [container addSubview:headerIntermediate];
     } else {
         toView.alpha = alpha;
-        [container addSubview:toView];
+        [container addSubview:[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey].view];
         [container addSubview:fromView];
         [container addSubview:headerIntermediate];
     }
