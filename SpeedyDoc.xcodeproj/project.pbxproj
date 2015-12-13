@@ -27,6 +27,7 @@
 		6F2E99581AFBC1960091C5D9 /* 右箭头@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E99571AFBC1960091C5D9 /* 右箭头@2x.png */; };
 		6F2E995A1AFBC2370091C5D9 /* 竖线@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E99591AFBC2370091C5D9 /* 竖线@2x.png */; };
 		6F3CDA791AED0D6D0079E7D5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3CDA781AED0D6D0079E7D5 /* MessageUI.framework */; };
+		6FA2E41C1C1B0BE100704857 /* QCPRefreshLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA2E41B1C1B0BE100704857 /* QCPRefreshLoadingView.m */; };
 		83E2D854528ABA08EB04ECBF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D2D08C50ABF2C5100BBA97 /* libPods.a */; };
 		A558225C1B2ED74100F73C87 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A55822541B2ED74100F73C87 /* AppDelegate.m */; };
 		A558225E1B2ED74100F73C87 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A55822571B2ED74100F73C87 /* Images.xcassets */; };
@@ -81,6 +82,8 @@
 		6F2E99571AFBC1960091C5D9 /* 右箭头@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "右箭头@2x.png"; sourceTree = "<group>"; };
 		6F2E99591AFBC2370091C5D9 /* 竖线@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "竖线@2x.png"; sourceTree = "<group>"; };
 		6F3CDA781AED0D6D0079E7D5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		6FA2E41A1C1B0BE100704857 /* QCPRefreshLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCPRefreshLoadingView.h; sourceTree = "<group>"; };
+		6FA2E41B1C1B0BE100704857 /* QCPRefreshLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCPRefreshLoadingView.m; sourceTree = "<group>"; };
 		83D2D08C50ABF2C5100BBA97 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55822531B2ED74100F73C87 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A55822541B2ED74100F73C87 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -147,9 +150,8 @@
 		6F2A0A9C1B3E7FC7004F610B /* EditDoc */ = {
 			isa = PBXGroup;
 			children = (
+				6FA2E4191C1B0BD400704857 /* view */,
 				6F2A0A9D1B3E7FC7004F610B /* Controller */,
-				6F2A0AA01B3E7FC7004F610B /* Model */,
-				6F2A0AA11B3E7FC7004F610B /* View */,
 			);
 			path = EditDoc;
 			sourceTree = "<group>";
@@ -161,20 +163,6 @@
 				6F2A0A9F1B3E7FC7004F610B /* EditDocViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		6F2A0AA01B3E7FC7004F610B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		6F2A0AA11B3E7FC7004F610B /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		6F2A0AA21B3E7FC7004F610B /* FormatForm */ = {
@@ -214,7 +202,7 @@
 				6F2A0AAD1B3E7FC7004F610B /* OptionDocTableViewCell.h */,
 				6F2A0AAE1B3E7FC7004F610B /* OptionDocTableViewCell.m */,
 				6F2A0AAF1B3E7FC7004F610B /* OptionDocTableViewCell.xib */,
-);
+			);
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -311,6 +299,15 @@
 				6F2E99571AFBC1960091C5D9 /* 右箭头@2x.png */,
 			);
 			path = image;
+			sourceTree = "<group>";
+		};
+		6FA2E4191C1B0BD400704857 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				6FA2E41A1C1B0BE100704857 /* QCPRefreshLoadingView.h */,
+				6FA2E41B1C1B0BE100704857 /* QCPRefreshLoadingView.m */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		6FD229941AEAAFEB008DF7E0 /* GUI */ = {
@@ -544,6 +541,7 @@
 				6F2A0A9B1B3E7D73004F610B /* FMDBManmager.m in Sources */,
 				A55822601B2ED74100F73C87 /* main.m in Sources */,
 				6F2A0AD21B3E7FC7004F610B /* SpeedyDocCell.m in Sources */,
+				6FA2E41C1C1B0BE100704857 /* QCPRefreshLoadingView.m in Sources */,
 				6F2A0AD11B3E7FC7004F610B /* SpeedyDocViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

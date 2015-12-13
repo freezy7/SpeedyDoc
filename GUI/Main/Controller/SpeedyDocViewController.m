@@ -14,6 +14,7 @@
 #import "EditDocViewController.h"
 #import "SDDetailFormController.h"
 #import "SDHeaderAnimation.h"
+#import "QCPRefreshLoadingView.h"
 
 @interface SpeedyDocViewController ()<SpeedyDocCellDelegate>
 {
@@ -23,6 +24,8 @@
     NSIndexPath* _animateIndex;
     
     SDHeaderAnimation* _transitionManager;
+  
+  QCPRefreshLoadingView *_loadingView;
 }
 
 @end
@@ -33,7 +36,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"Speedy Doc";
-    
+  
+  _loadingView = [[QCPRefreshLoadingView alloc] initWithFrame:CGRectMake(0, -100, self.view.frame.size.width, 100)];
+  _loadingView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+  [self.tableView addSubview:_loadingView];
+  
+//  self.tableView.contentInset = UIEdgeInsetsMake(-100, 0, 0, 0);
+  
     // 自定义转场动画
     _transitionManager = [[SDHeaderAnimation alloc] init];
     
@@ -178,6 +187,21 @@
     }else{
         NSLog(@"删除失败");
     }
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+  
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+  [_loadingView showInView:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+  
 }
 
 #pragma mark - SDHeaderAnimatedDelegate

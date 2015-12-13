@@ -8,10 +8,12 @@
 
 #import "EditDocViewController.h"
 #import "FMDBManmager.h"
+#import "QCPRefreshLoadingView.h"
 
 @interface EditDocViewController ()
 {
     FMDBManmager* _fmdb;
+  QCPRefreshLoadingView *_loadingView;
 }
 
 @property(weak,nonatomic) IBOutlet UITextField* docName;
@@ -31,6 +33,10 @@
     NSString* sql = [NSString stringWithFormat:@"select name from speedydoc where id = %ld",_doc_id];
     NSArray* arr = [_fmdb querySql:sql];
     _docName.text = [arr[0] objectForKey:@"name"];
+  
+  _loadingView = [[QCPRefreshLoadingView alloc] initWithFrame:CGRectMake(0, 200, self.view.frame.size.width, 100)];
+  _loadingView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+  [self.view addSubview:_loadingView];
 }
 
 -(void)saveBtnPressed:(UIBarButtonItem*) btn
@@ -43,19 +49,9 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)animationButtonDidClicked:(id)sender
+{
+  [_loadingView showInView:self.view];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
