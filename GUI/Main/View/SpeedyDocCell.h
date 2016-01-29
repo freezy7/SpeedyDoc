@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SDStrokeLabel.h"
 
 @protocol SpeedyDocCellDelegate <NSObject>
 
@@ -19,7 +20,7 @@
 
 @interface SpeedyDocCell : UITableViewCell
 
-@property (strong,nonatomic) IBOutlet UILabel* name;
+@property (strong,nonatomic) IBOutlet SDStrokeLabel* name;
 @property (strong,nonatomic) IBOutlet UILabel* ctime;
 @property (strong,nonatomic) IBOutlet UIButton* editBtn;
 

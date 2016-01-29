@@ -138,6 +138,7 @@
 
     NSDictionary* dic = [_docArray objectAtIndex:indexPath.row];
     cell.name.text = [dic objectForKey:@"name"];
+    [cell.name setStrokeColor:[UIColor whiteColor] width:3];
     
     NSDate* date = [NSDate dateWithTimeIntervalSince1970:[[dic objectForKey:@"ctime"] integerValue]];
     NSDateFormatter* format = [[NSDateFormatter alloc] init];
