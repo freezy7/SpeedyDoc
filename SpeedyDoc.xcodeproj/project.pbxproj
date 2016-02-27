@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		547121161C5B4E81000900F2 /* SDStrokeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 547121151C5B4E81000900F2 /* SDStrokeLabel.m */; };
 		6F2A0A9B1B3E7D73004F610B /* FMDBManmager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A0A9A1B3E7D73004F610B /* FMDBManmager.m */; };
 		6F2A0AC51B3E7FC7004F610B /* EditDocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A0A9F1B3E7FC7004F610B /* EditDocViewController.m */; };
 		6F2A0AC61B3E7FC7004F610B /* FormatFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A0AA51B3E7FC7004F610B /* FormatFormViewController.m */; };
@@ -48,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		4AD225C776E83027A213B81C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		547121141C5B4E81000900F2 /* SDStrokeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDStrokeLabel.h; sourceTree = "<group>"; };
+		547121151C5B4E81000900F2 /* SDStrokeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDStrokeLabel.m; sourceTree = "<group>"; };
 		6F2A0A991B3E7D73004F610B /* FMDBManmager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBManmager.h; sourceTree = "<group>"; };
 		6F2A0A9A1B3E7D73004F610B /* FMDBManmager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBManmager.m; sourceTree = "<group>"; };
 		6F2A0A9E1B3E7FC7004F610B /* EditDocViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditDocViewController.h; sourceTree = "<group>"; };
@@ -281,6 +284,8 @@
 			children = (
 				6F2A0AC21B3E7FC7004F610B /* SpeedyDocCell.h */,
 				6F2A0AC31B3E7FC7004F610B /* SpeedyDocCell.m */,
+				547121141C5B4E81000900F2 /* SDStrokeLabel.h */,
+				547121151C5B4E81000900F2 /* SDStrokeLabel.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -529,6 +534,7 @@
 			files = (
 				6F2A0AC91B3E7FC7004F610B /* FormatFormCell.m in Sources */,
 				6F2A0ADF1B3ED41E004F610B /* SDHeaderAnimation.m in Sources */,
+				547121161C5B4E81000900F2 /* SDStrokeLabel.m in Sources */,
 				6F2A0AC61B3E7FC7004F610B /* FormatFormViewController.m in Sources */,
 				6F2A0ACC1B3E7FC7004F610B /* DetailFormViewController.m in Sources */,
 				A558225C1B2ED74100F73C87 /* AppDelegate.m in Sources */,
